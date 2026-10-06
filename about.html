@@ -1,42 +1,850 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Lida Gheidary</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Tera:wght@400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Lida Gheidary</title>
+
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      document.documentElement.dataset.theme = savedTheme;
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=20260905c">
+  <link rel="stylesheet" href="about.css?v=20261003g">
+  <script src="about.js?v=20261003f" defer></script>
 </head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-        </ul>
+
+<body class="about-page">
+
+  <!-- =====================================================
+       NAVIGATION — SAME AS HOMEPAGE
+  ====================================================== -->
+
+    <nav class="navbar" aria-label="Main navigation">
+
+      <div class="nav-inner">
+
+
+        <a href="index.html#hero" class="nav-logo" aria-label="Lida Gheidary home">
+          <img src="img/LidaGheidarylogo.svg" alt="Lida Gheidary">
+        </a>
+
+
+
+        <div class="nav-menu" id="site-menu">
+
+          <ul class="nav-links">
+
+            <li>
+              <a href="index.html#hero">
+                Start
+              </a>
+            </li>
+
+            <li>
+              <a href="index.html#projects">
+                Projects
+              </a>
+            </li>
+
+            <li>
+              <a href="about.html" aria-current="page">
+                About
+              </a>
+            </li>
+
+          </ul>
+
+
+
+          <ul class="nav-icons">
+
+            <li>
+              <a href="https://www.linkedin.com/in/lida-gheidary/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg class="icon-svg" viewbox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.114 20.452H3.558V9h3.556v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+              </a>
+            </li>
+
+
+            <li>
+              <a href="https://github.com/Lida-Gheidary" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg class="icon-svg" viewbox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.332-1.756-1.332-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.305 3.495.998.108-.775.417-1.305.76-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.652.243 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.807 5.625-5.479 5.921.43.372.814 1.103.814 2.222 0 1.606-.014 2.898-.014 3.293 0 .319.216.694.825.576C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"></path>
+                </svg>
+              </a>
+            </li>
+
+
+            <li>
+              <a href="mailto:lidagheidary@gmail.com" aria-label="Email">
+                <svg class="icon-svg" viewbox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+
+        <div class="nav-controls">
+
+          <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+            <span class="theme-icon" aria-hidden="true">
+              ☾
+            </span>
+          </button>
+
+
+          <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-menu">
+            <span aria-hidden="true">☰</span>
+          </button>
+
+        </div>
+
+
+      </div>
+
     </nav>
 
-    <!-- About Me Section -->
-    <section class="main-section">
-        <div class="content-section">
-            <h2 class="section-title">About Me</h2>
-            
-            <div class="certifications">
-                <h3 class="subsection-title">Certifications</h3>
-                
-                <div class='academy-badge'>
-                    <a href='https://app.hubspot.com/academy/achievements/94b9ys0w/en/1/lida-k-gheidary/hubspot-reporting' title='HubSpot Reporting'>
-                        <img src='https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/d01d1c114a0f4bcd9f631c75af041334.png' alt='HubSpot Reporting Certification' />
-                    </a>
-                </div>
+  <main class="about-main" id="main">
+    <div class="about-shell">
+
+      <!-- =================================================
+           INTRODUCTION
+      ================================================== -->
+
+      <section class="about-introduction" aria-labelledby="about-title">
+        <h1 class="section-title" id="about-title">About</h1>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p class="intro-greeting">Hi, I’m Lida.</p>
+
+            <p class="intro-statement">
+              I help organisations turn business and customer questions into reliable
+              digital measurement that informs practical marketing actions.
+            </p>
+
+            <div class="intro-block">
+              <h2>My background</h2>
+
+              <p>
+                My work combines measurement design, tracking implementation and
+                validation with over a decade of experience across customer research,
+                marketing strategy and transformation.
+              </p>
+
+              <p>
+                I began in marketing research and insights, working on customer
+                behaviour, advertising effectiveness and brand questions, before
+                moving into market-entry consulting for international companies.
+                I later led marketing transformation across brand development,
+                positioning and content, alongside social media, SEO and
+                agency-supported paid search. Throughout these roles, I collaborated
+                with agencies and technical teams to turn research and strategy
+                into execution.
+              </p>
             </div>
+
+            <div class="intro-block">
+              <h2>My focus today</h2>
+
+              <p>
+                I bring my marketing and commercial experience together with
+                hands-on work in digital analytics, tracking and conversion-rate
+                optimisation, connecting measurement with campaign performance,
+                customer acquisition and customer journeys.
+              </p>
+            </div>
+
+            <a href="https://www.linkedin.com/in/lida-gheidary/" class="about-link" target="_blank" rel="noopener noreferrer">
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="about-portrait">
+            <!-- Put your photo in the ROOT img/ folder, not projects/img/.
+                 Replace src with img/YOUR-FILENAME and use its actual dimensions. -->
+            <img src="img/lida-portrait.jpg" alt="Portrait of Lida Gheidary" width="800" height="1000" decoding="async">
+          </div>
         </div>
-    </section>
-</body>
+      </section>
+
+      <!-- =================================================
+           COLLAPSED CASE-STUDY ACCORDIONS
+           Only accordion boundaries have divider lines.
+      ================================================== -->
+
+      <div class="chapter-list">
+
+      <details class="chapter" id="education">
+        <summary>
+          <span class="chapter-title">Education</span>
+          <span class="chapter-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="chapter-content">
+          <div class="education-group">
+            <h3 class="group-title">Career/vocational college</h3>
+            <div class="education-entries">
+            <article class="education-entry">
+              <div class="education-logo">
+                <img src="img/Medieinstitutet.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/96d1d9d6-4c8b-5808-8508-07abacf2a5f3/b1150a56-e05d-555e-bdfe-56bb4d31cb9b.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div class="education-copy">
+                <h4>Digital Analytics</h4>
+                <p>Medieinstitutet</p>
+                <p class="education-meta">2025–2026· In progress</p>
+              </div>
+            </article>
+            <article class="education-entry">
+              <div class="education-logo">
+                <img src="img/IHMlogo.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/d6e5c9c1-3799-5a92-bd96-629cb8cfc559/a8c7bc7d-946c-5ae2-a765-3d46c7194b66.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div class="education-copy">
+                <h4>Data Analysis &amp; Customer Experience</h4>
+                <p>IHM Business School</p>
+                <p class="education-meta">2026 · Completed</p>
+              </div>
+            </article>
+            </div>
+          </div>
+
+          <div class="education-group">
+            <h3 class="group-title">Academic</h3>
+            <div class="education-entries">
+            <article class="education-entry">
+              <div class="education-logo">
+                <img src="img/lse.png" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div class="education-copy">
+                <h4>MSc, Information Systems &amp; Organizations</h4>
+                <p>London School of Economics and Political Science</p>
+                
+              </div>
+            </article>
+            <article class="education-entry">
+              <div class="education-logo education-logo-wide">
+                <img src="img/WarwickUniversity.png" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div class="education-copy">
+                <h4>MSc, Engineering Business Management</h4>
+                <p>University of Warwick</p>
+                
+              </div>
+            </article>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="chapter" id="certificates">
+        <summary>
+          <span class="chapter-title">Certificates</span>
+          <span class="chapter-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="chapter-content">
+<div class="certificates-grid">
+                        <article class="certificate-card">
+              <div class="issuer-logo issuer-logo--google" role="img" aria-label="Google">
+                <img src="img/GA4.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/016c0786-8d00-53e2-8f86-0ce04d8a8cab/39d88be1-77fc-5395-af5c-59e080573918.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Google Analytics 4</h3>
+              
+              <a class="credential-link"
+                 href="https://skillshop.credential.net/e98ef1ac-3f39-4660-a3af-24b5a1477d75#acc.VCqmaotf"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo issuer-logo--google" role="img" aria-label="Google">
+                <img src="img/GoogleAdsSearch.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/016c0786-8d00-53e2-8f86-0ce04d8a8cab/39d88be1-77fc-5395-af5c-59e080573918.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Google Ads Search Certification</h3>
+        
+              <a class="credential-link"
+                 href="YOUR_CERTIFICATE_URL"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo issuer-logo--ibm" role="img" aria-label="IBM">
+                <img src="img/IBM.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ed30bacb181992db7edb9eb6e1e7f075afd7a29ffab2a97547ad159d5446f02b608d2a511cbf25e8156b94dd5c126ba8efd51e23fc4bd1753c9aaac6b9d96c275" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Databases and SQL for Data Science with Python</h3>
+              
+              <a class="credential-link"
+                 href="https://www.coursera.org/account/accomplishments/verify/9MPGS0EAZA62"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo issuer-logo--ihm" role="img" aria-label="IHM Business School">
+                <img src="img/IHMlogo.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/d6e5c9c1-3799-5a92-bd96-629cb8cfc559/a8c7bc7d-946c-5ae2-a765-3d46c7194b66.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Data Analysis & Customer Experience</h3>
+              
+              <a class="credential-link"
+                 href="https://true.ihm.se/utbildningsbevis-345444-5294/?ref=linkedin-profile&zone=true_05&lang=en"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Digital Advertising</h3>
+              
+              <a class="credential-link"
+                 href="https://app.hubspot.com/academy/achievements/9s6kskzj/en/1/lida-k-gheidary/digital-advertising-certified"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Digital Marketing</h3>
+              <!-- Replace YOUR_CERTIFICATE_URL with this certificate's link. -->
+              <a class="credential-link"
+                 href="https://app.hubspot.com/academy/achievements/dg96sjz1/en/1/lida-k-gheidary/digital-marketing-certified"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Marketing Hub Software</h3>
+              <!-- Replace YOUR_CERTIFICATE_URL with this certificate's link. -->
+              <a class="credential-link"
+                 href="https://app.hubspot.com/academy/achievements/73hqq0cz/en/1/lida-k-gheidary/hubspot-marketing-hub-software-certified"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>E-mail Marketing</h3>
+
+              <a class="credential-link"
+                 href="https://app.hubspot.com/academy/achievements/499fhg6d/en/1/lida-k-gheidary/email-marketing"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Content Marketing</h3>
+              <!-- Replace YOUR_CERTIFICATE_URL with this certificate's link. -->
+              <a class="credential-link"
+                 href="https://app.hubspot.com/academy/achievements/8hgt7xbf/en/1/lida-k-gheidary/content-marketing-certified"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>HubSpot Reporting</h3>
+              <!-- Replace YOUR_CERTIFICATE_URL with this certificate's link. -->
+              <a class="credential-link"
+                 href="https://app.hubspot.com/academy/achievements/94b9ys0w/en/1/lida-k-gheidary/hubspot-reporting-certified"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Social Media Marketing II</h3>
+              <!-- Replace YOUR_CERTIFICATE_URL with this certificate's link. -->
+              <a class="credential-link"
+                 href="https://app.hubspot.com/academy/achievements/456m14yc/en/1/lida-k-gheidary/social-media-marketing-ii-certified"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>Inbound Marketing</h3>
+              <!-- Replace YOUR_CERTIFICATE_URL with this certificate's link. -->
+              <a class="credential-link"
+                 href="https://app.hubspot.com/academy/achievements/p2c1v330/en/1/lida-k-gheidary/inbound"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>SEO</h3>
+              <!-- Replace YOUR_CERTIFICATE_URL with this certificate's link. -->
+              <a class="credential-link"
+                 href="https://app.hubspot.com/academy/achievements/1qrm34qn/en/1/lida-k-gheidary/seo"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article> 
+              
+            <!--<article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>HubSpot certification 10 — title to add</h3>
+              <a class="credential-link"
+                 href="YOUR_CERTIFICATE_URL"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>HubSpot certification 11 — title to add</h3>
+              <a class="credential-link"
+                 href="YOUR_CERTIFICATE_URL"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗
+              </a>
+            </article>
+
+            <article class="certificate-card">
+              <div class="issuer-logo" role="img" aria-label="HubSpot Academy">
+                <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2aa2635e-5902-5a20-a93d-1c55e404b49a/d30d93d7-d844-5b0d-8de8-e50b5e8c0ccd.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <h3>HubSpot certification 12 — title to add</h3>
+              <a class="credential-link"
+                 href="YOUR_CERTIFICATE_URL"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View credential ↗ 
+              -->
+              </a>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="chapter" id="skills">
+        <summary>
+          <span class="chapter-title">Skills</span>
+          <span class="chapter-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="chapter-content">
+<p class="section-intro">Across professional work, studies and personal projects, I’ve worked with and explored the following tools and technologies.</p>
+          <div class="skill-group"><h3 class="group-title">Measurement &amp; tracking</h3><ul class="skills-grid"><li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/GoogleTagManager.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e76bb997676605cb51f6a5c3988486aa9ba40cc2b1ab3ba132cb6f089347e9514e5071dfefbe24cccd089d587378a94c989494a1842d364e44ce6cfe8d124b9fd" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Google Tag Manager</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/GoogleAnalytics.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/740bab51-31c7-5ba5-901b-99a0eb43c33a/9aea8cc7-fe69-5928-bd5b-ed4b93630875.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Google Analytics 4</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Adobe.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/92e59536-36b7-5da6-86fd-ee1b87eb30a2/04c5aa8f-21cb-5a8c-b28e-99c1f1a53eff.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Adobe Tags</span>
+              </li>
+            </ul></div><div class="skill-group"><h3 class="group-title">Channel &amp; customer analytics</h3><ul class="skills-grid"><li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Adobe.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/92e59536-36b7-5da6-86fd-ee1b87eb30a2/04c5aa8f-21cb-5a8c-b28e-99c1f1a53eff.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Adobe Analytics</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Adobe.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/92e59536-36b7-5da6-86fd-ee1b87eb30a2/04c5aa8f-21cb-5a8c-b28e-99c1f1a53eff.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Adobe Customer Journey Analytics</span>
+              </li>
+              </ul></div><div class="skill-group"><h3 class="group-title">Behaviour &amp; experimentation</h3><ul class="skills-grid"><li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Contentsquare.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/cb8499b8-5f2b-54ac-98bb-670ab2e226aa/b63d0f4d-5b43-548a-8cd4-d1f5d31d6ba2.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Contentsquare</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Hotjar.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e3b5072362112d1a6cf0e7c92f28aca8625d308fa67d859d6a9e5b056d5076a5bfb11bf70acf30fc436e4fae08de5ef9e6a75be6fa12db096bff6b93eabb2b33e" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Hotjar</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/MicrosoftClarity.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/3e051a5d-4d86-5ebd-91e3-e4917547d9ff/a97d3c47-e351-5a93-ba65-4136502e9953.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Microsoft Clarity</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Optimizely.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e326ac6006a2a8c147b5495384c774d70ed14b55401acf9100e6e108b814a35066a23e8cc20f4f9c69b113651e92789a73f91bde8dcf14e42f2aadfe8260ce29c" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Optimizely</span>
+              </li>
+            </ul></div><div class="skill-group"><h3 class="group-title">Advertising platforms</h3><ul class="skills-grid"><li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/GoogleAds.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e82ee616d3706bbc7b28f757c43629e0748de7df1cdb606fed8060083906682f852843b14624f8aae5972582dc6d2a916e088813e339eccae89d7eb435e5966d6" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Google Ads</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Meta.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ec6adc7b59a85aa50809a27bbb2c2e4171249b567ebacb7c4bcfe3864de8db6332ef71175bf260c603d32d9dafbff9cb2641b24712ac0951442608409d85ed688" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Meta Ads</span>
+              </li>
+            </ul></div><div class="skill-group"><h3 class="group-title">CRM &amp; automation</h3><ul class="skills-grid"><li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/HubSpot.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/482b5158-48c0-5ef9-b883-67d95936e659/14905bc2-10d7-526a-8286-e84ca4465d93.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">HubSpot</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Make.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/48bf9a7f-d3ac-5da4-b2bc-f50da3e3efaa/b7950045-085a-5a8a-99e4-11177d6f47c0.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Make</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/API.png" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">APIs / API integrations</span>
+              </li>
+            </ul></div><div class="skill-group"><h3 class="group-title">Reporting &amp; data</h3><ul class="skills-grid"><li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/DataStudio.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/85862560-9633-5b8e-adf7-363c45cd5718/917e909f-7931-58bc-a4cd-c185b512a012.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Google Data Studio</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Tableau.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/360625a4-9c4d-5800-971e-d8796ca0be4a/943be709-ec94-5bb2-b9dd-60c5e75bb787.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Tableau</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/SQL.png" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">SQL</span>
+              </li>
+              </ul></div><div class="skill-group"><h3 class="group-title">AI-assisted coding</h3><p class="skill-group-note">Code for my projects is generated and refined with AI assistance.</p><ul class="skills-grid"><li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Python.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/ac556304-5f21-54d3-9fd4-33c7592ed77f/26da5ce4-1888-576f-b8f8-1074c084014e.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Python</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/HTMLJSCSS.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ebe1c6fafd9eb7cc05035f1d2e3cc1f774de66a2e39ea292ebae20135c984d417d71c536f1f284502ff75659e259c4206e58a0d5c5bf6ed1fbd70f82f0d8b259c" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">JavaScript</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/logos/html.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ee893b1d66ddd13ef0727b5b35139477f3f8f7b367a6ced033c59de603034032db836bea47bac7f5fb227267b37c223bf88ff5102b8db4e52936845e1ba93ac14" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">HTML</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/logos/css.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/773b0436-700e-52ab-b5fa-f10084776ee3/4cc2ca69-2a34-5dc5-bd13-ac7139803c34.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">CSS</span>
+              </li>
+              </ul></div><div class="skill-group"><h3 class="group-title">Development tools</h3><ul class="skills-grid"><li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Github.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/b1c17ee9-9988-502c-a2e2-3ea837644790/8d7f72c6-f5b7-5192-9b0a-1ca143ecd7c9.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">GitHub</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/VisualStudioCode.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/f4de3087-2a28-58e9-9987-46a1c65e3137/14905bc2-10d7-526a-8286-e84ca4465d93.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Visual Studio Code</span>
+              </li>
+            </ul></div><div class="skill-group"><h3 class="group-title">AI tools &amp; exploration</h3><ul class="skills-grid"><li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Claude.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e4d33c4872ed91b79418f9eedefa6d0ecfce876fa2dd26c8e49298c1c4b7590a435330d605d35b25f94381c0263bb6f6a49272e80ed1ca3c80661b66024e434a7" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Claude</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/ChatGPT.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6eb13f7b6348e1bc15b98483af225681df355b0363005f472c75f8654c9a0631e40510f5599c3d8b76881d730f2e4345fbb17d0083fd6e4133b879c06ff46a0f1c" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">ChatGPT</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/Perplexity.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2b91be75-3aeb-5e0b-b8f3-57b1c826c56d/4818f9c2-d62a-5b47-af5e-33139e43dba0.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">Perplexity</span>
+              </li>
+              <li class="skill-item">
+                <div class="skill-logo">
+                  <img src="img/logos/mcp.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/a36eef56-6832-5541-a1ff-024a3de97bd9/84c658be-2803-51bf-be52-ca607243cf3d.jpg" alt="" class="" loading="lazy" decoding="async">
+                  </div>
+                <span class="skill-name">MCP · Exploring</span>
+              </li>
+            </ul></div></div>
+      </details>
+
+      <details class="chapter" id="other-trainings">
+        <summary>
+          <span class="chapter-title">Other trainings</span>
+          <span class="chapter-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="chapter-content">
+<ul class="training-list">
+            <li class="training-item">
+              <div class="training-logo">
+                <img src="img/logos/udemy.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/1e3e5f6b-0211-5480-8b22-ce367c4867a9/14905bc2-10d7-526a-8286-e84ca4465d93.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div>
+                <h3>HubSpot for Marketing Professionals - Fundamentals</h3>
+                <p>Udemy</p>
+              </div>
+            </li>
+
+            <li class="training-item">
+              <div class="training-logo">
+                <img src="img/logos/udemy.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/1e3e5f6b-0211-5480-8b22-ce367c4867a9/14905bc2-10d7-526a-8286-e84ca4465d93.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div>
+                <h3>Ultimate Google Analytics 2024</h3>
+                <p>Udemy</p>
+              </div>
+            </li>
+
+            <li class="training-item">
+              <div class="training-logo">
+                <img src="img/logos/linkedin.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e0d9cee5ba5b2653b03716d921bb47fc67af63a70063bb4d976b9365ff6013c7eb61f62e21bb27f97aec5683b11d3abff06cdddd7af48bf4f066d44a17aab88b7" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div>
+                <h3>B2B Foundations: Content Marketing</h3>
+                <p>LinkedIn Learning</p>
+              </div>
+            </li>
+
+            <li class="training-item">
+              <div class="training-logo">
+                <img src="img/logos/linkedin.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e0d9cee5ba5b2653b03716d921bb47fc67af63a70063bb4d976b9365ff6013c7eb61f62e21bb27f97aec5683b11d3abff06cdddd7af48bf4f066d44a17aab88b7" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div>
+                <h3>Google Analytics 4 (GA4) Essential Training</h3>
+                <p>LinkedIn Learning</p>
+              </div>
+            </li>
+
+            <li class="training-item">
+              <div class="training-logo">
+                <img src="img/logos/linkedin.png" data-remote-src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6e0d9cee5ba5b2653b03716d921bb47fc67af63a70063bb4d976b9365ff6013c7eb61f62e21bb27f97aec5683b11d3abff06cdddd7af48bf4f066d44a17aab88b7" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div>
+                <h3>Master Digital Marketing</h3>
+                <p>LinkedIn Learning</p>
+              </div>
+            </li>
+
+            <li class="training-item">
+              <div class="training-logo">
+                <img src="img/logos/adobe.png" data-remote-src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/92e59536-36b7-5da6-86fd-ee1b87eb30a2/04c5aa8f-21cb-5a8c-b28e-99c1f1a53eff.jpg" alt="" class="" loading="lazy" decoding="async">
+                </div>
+              <div>
+                <h3>Adobe training — title to add</h3>
+                <p>Adobe</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- =====================================================
+       FOOTER — SAME AS HOMEPAGE
+  ====================================================== -->
+
+  <footer class="site-footer">
+
+    <p>
+      © 2025–2026 Lida Gheidary
+    </p>
+
+    <p>
+      Built with HTML, CSS &amp; GitHub Pages
+    </p>
+
+  </footer>
+
+  <!-- HOMEPAGE MOBILE MENU AND THEME CONTROLS -->
+  <script>
+
+    /* MOBILE MENU */
+
+    const navToggle =
+      document.querySelector('.nav-toggle');
+
+    const navMenu =
+      document.querySelector('.nav-menu');
+
+
+    navToggle.addEventListener('click', () => {
+
+      const isOpen =
+        navMenu.classList.toggle('open');
+
+      navToggle.setAttribute(
+        'aria-expanded',
+        isOpen
+      );
+
+      navToggle.setAttribute(
+        'aria-label',
+        isOpen
+          ? 'Close navigation menu'
+          : 'Open navigation menu'
+      );
+
+    });
+
+
+
+    /* Close mobile menu after selecting navigation */
+
+    document
+      .querySelectorAll('.nav-menu a')
+      .forEach(link => {
+
+        link.addEventListener('click', () => {
+
+          navMenu.classList.remove('open');
+
+          navToggle.setAttribute(
+            'aria-expanded',
+            'false'
+          );
+
+        });
+
+      });
+
+
+
+    /* DARK MODE */
+
+    const themeToggle =
+      document.querySelector('.theme-toggle');
+
+    const themeIcon =
+      document.querySelector('.theme-icon');
+
+
+    function updateThemeButton() {
+
+      const isDark =
+        document.documentElement.dataset.theme === 'dark';
+
+      themeIcon.textContent =
+        isDark ? '☀' : '☾';
+
+      themeToggle.setAttribute(
+        'aria-label',
+        isDark
+          ? 'Switch to light mode'
+          : 'Switch to dark mode'
+      );
+
+    }
+
+
+    themeToggle.addEventListener('click', () => {
+
+      const isDark =
+        document.documentElement.dataset.theme === 'dark';
+
+      const newTheme =
+        isDark ? 'light' : 'dark';
+
+      document.documentElement.dataset.theme =
+        newTheme;
+
+      localStorage.setItem(
+        'theme',
+        newTheme
+      );
+
+      updateThemeButton();
+
+    });
+
+
+    updateThemeButton();
+
+  </script>
+
+
+  </body>
 </html>

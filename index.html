@@ -1,94 +1,659 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lida Gheidary - Digital Analyst Portfolio</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Tera:wght@400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lida Gheidary | Digital Analyst</title>
+
+  <!--
+    LIGHT is always the default.
+    We only override it if the visitor has explicitly
+    selected a theme before.
+  -->
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      document.documentElement.dataset.theme = savedTheme;
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=20260905c">
 </head>
+
+
 <body>
-    <!-- Hero Section (First Page) with Video Background -->
-    <section id="hero" class="hero-section">
-        <!-- Video Background -->
-        <video autoplay muted loop playsinline class="video-background">
-            <source src="img/BB video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        
-        <!-- Content Overlay -->
-        <div class="hero-content">
-            <!-- Text Block Centered -->
-            <div class="hero-text-block">
-                <h1 class="hero-name">LIDA GHEIDARY</h1>
-                <div class="hero-title-wrapper">
-                    <span class="title-line">―――</span>
-                    <h2 class="hero-title">Digital Analyst</h2>
-                    <span class="title-line">―――</span>
-                </div>
-                <p class="hero-subtitle">Welcome to my portfolio</p>
-            </div>
-            
-            <!-- Photo Below Text -->
-            <img src="img/LL.png" alt="Lida Gheidary" class="profile-photo">
-            
-            <!-- Scroll Down Arrow - Goes to Projects -->
-            <a href="#projects" class="scroll-arrow">
-                <div class="arrow-circle">
-                    <span class="arrow-down">↓</span>
-                </div>
-            </a>
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="hero-section" id="hero">
+
+    <video
+      class="video-background"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true"
+    >
+      <source src="img/BB.mp4" type="video/mp4">
+    </video>
+
+
+    <div class="hero-content">
+
+      <div class="hero-frame">
+
+        <div class="frame-text">
+
+          <h1 class="hero-name typing-1">
+            Lida Gheidary
+          </h1>
+
+          <div class="hero-text-block">
+
+            <p class="hero-title typing-2">
+              Digital Analyst
+            </p>
+
+            <p class="hero-subtitle typing-3">
+              Welcome to my portfolio
+            </p>
+
+          </div>
+
         </div>
-    </section>
 
-    <!-- Main Content Section (Second Page) - PROJECTS ONLY -->
-    <section id="main-content" class="main-section">
-        <!-- Navigation Bar -->
-        <nav class="navbar">
-            <ul>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
-        </nav>
 
-        <!-- Projects Section -->
-        <div id="projects" class="content-section">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-<!-- Project Card 1 - Customer Analytics -->
-<div class="project-card">
-    <div class="project-image-placeholder">
-        <img src="projects/img/dashboard-hero.png" alt="Customer Analytics Dashboard">
+        <a
+          href="#main"
+          class="scroll-arrow"
+          aria-label="Scroll to projects"
+        >
+          <span class="arrow-down" aria-hidden="true">
+            ↓
+          </span>
+        </a>
+
+      </div>
+
     </div>
-    <p class="project-description">
-        Interactive Python dashboard for insurance marketing campaign analysis with real-time filtering and dynamic visualizations.
-    </p>
-    <a href="projects/customer-analytics.html" class="project-link">View Project →</a>
-</div>
+
+  </section>
 
 
-                <!-- Project Card 2 -->
-                <div class="project-card">
-                    <div class="project-image-placeholder">
-                        <img src="" alt="Project 2">
-                    </div>
-                    <p class="project-description">Project description goes here...</p>
-                </div>
 
-                <!-- Project Card 3 -->
-                <div class="project-card">
-                    <div class="project-image-placeholder">
-                        <img src="" alt="Project 3">
-                    </div>
-                    <p class="project-description">Project description goes here...</p>
-                </div>
-            </div>
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+  <main class="main-section" id="main">
+
+
+    <!-- ===================================================
+         NAVIGATION
+    ==================================================== -->
+
+    <nav class="navbar" aria-label="Main navigation">
+
+      <div class="nav-inner">
+
+
+        <a
+          href="index.html#hero"
+          class="nav-logo"
+          aria-label="Lida Gheidary home"
+        >
+          <img
+            src="img/LidaGheidarylogo.svg"
+            alt="Lida Gheidary"
+          >
+        </a>
+
+
+
+        <div class="nav-menu" id="site-menu">
+
+          <ul class="nav-links">
+
+            <li>
+              <a href="index.html#hero">
+                Start
+              </a>
+            </li>
+
+            <li>
+              <a href="index.html#projects">
+                Projects
+              </a>
+            </li>
+
+            <li>
+              <a href="about.html">
+                About
+              </a>
+            </li>
+
+          </ul>
+
+
+
+          <ul class="nav-icons">
+
+            <li>
+              <a
+                href="https://www.linkedin.com/in/lida-gheidary/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  class="icon-svg"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.114 20.452H3.558V9h3.556v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+            </li>
+
+
+            <li>
+              <a
+                href="https://github.com/Lida-Gheidary"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <svg
+                  class="icon-svg"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.386-1.332-1.756-1.332-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.305 3.495.998.108-.775.417-1.305.76-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.652.243 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.807 5.625-5.479 5.921.43.372.814 1.103.814 2.222 0 1.606-.014 2.898-.014 3.293 0 .319.216.694.825.576C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+            </li>
+
+
+            <li>
+              <a
+                href="mailto:lidagheidary@gmail.com"
+                aria-label="Email"
+              >
+                <svg
+                  class="icon-svg"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </a>
+            </li>
+
+          </ul>
+
         </div>
+
+
+
+        <div class="nav-controls">
+
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            title="Switch theme"
+          >
+            <span
+              class="theme-icon"
+              aria-hidden="true"
+            >
+              ☾
+            </span>
+          </button>
+
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="site-menu"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
+
+        </div>
+
+
+      </div>
+
+    </nav>
+
+
+
+    <!-- ===================================================
+         PROJECTS
+    ==================================================== -->
+
+    <section class="content-section" id="projects">
+
+      <h2 class="section-title">
+        Projects
+      </h2>
+
+
+      <div class="projects-grid">
+
+
+        <!-- FEATURED PROJECT -->
+
+        <article class="project-card featured">
+
+          <div class="project-image">
+
+            <img
+              src="projects/img/Lida's Lens.png"
+              alt="Lida's Lens project preview"
+            >
+
+          </div>
+
+          <div class="project-content">
+
+            <h3 class="project-title">
+              End-to-End Digital Measurement & MarTech Implementation
+            </h3>
+
+            <p class="project-description">
+              Live content website integrating analytics, consent, 
+              behavioral analytics, CRM automation and acquisition,
+              with an evolving roadmap for experimentation and 
+              advanced measurement.
+            </p>
+
+            <a
+              href="projects/lidas-lens.html"
+              class="view-project"
+            >
+              View Project
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 2 -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+            <img
+              src="projects/img/CustomerAnalyticsDashboard.png"
+              alt="Customer Analytics Dashboard preview"
+            >
+          </div>
+
+          <div class="project-content">
+
+            <h3 class="project-title">
+              Customer Analytics Dashboard
+            </h3>
+
+            <p class="project-description">
+              Self-service dashboard for exploring insurance campaign
+              performance, built with Python and Plotly Dash and
+              deployed to a public URL.
+            </p>
+
+            <a
+              href="projects/customer-analytics.html"
+              class="view-project"
+            >
+              View Project
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 3 -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+            <img
+              src="projects/img/marketing-attribution.svg"
+              alt="Paid Search attribution comparison: algorithmic +12.09%, linear −5.71%"
+            >
+          </div>
+
+          <div class="project-content">
+
+            <h3 class="project-title">
+              How Attribution Shapes Reported Channel Performance
+            </h3>
+
+            <p class="project-description">
+              How attribution models and lookback windows change the assessment of 16 marketing channels, analysed through an iterative AI-assisted workflow.
+            </p>
+
+            <a
+              href="projects/marketing-attribution.html"
+              class="view-project"
+            >
+              View Project
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 4 -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+            <img
+              src="projects/img/AstronomyPicture.png"
+              alt="Astronomy Picture of the Day Project"
+            >
+          </div>
+
+          <div class="project-content">
+
+            <h3 class="project-title">
+              Astronomy Picture of the Day
+            </h3>
+
+            <p class="project-description">
+              Project description goes here...
+            </p>
+
+            <a
+              href="projects/astronomy-picture.html"
+              class="view-project"
+            >
+              View Project
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 5 -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+            <img
+              src="projects/img/project5.png"
+              alt="Project five preview"
+            >
+          </div>
+
+          <div class="project-content">
+
+            <h3 class="project-title">
+              Project Five
+            </h3>
+
+            <p class="project-description">
+              Project description goes here...
+            </p>
+
+            <a
+              href="projects/project5.html"
+              class="view-project"
+            >
+              View Project
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 6 -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+            <img
+              src="projects/img/project6.png"
+              alt="Project six preview"
+            >
+          </div>
+
+          <div class="project-content">
+
+            <h3 class="project-title">
+              Project Six
+            </h3>
+
+            <p class="project-description">
+              Project description goes here...
+            </p>
+
+            <a
+              href="projects/project6.html"
+              class="view-project"
+            >
+              View Project
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 7 -->
+
+        <article class="project-card">
+
+          <div class="project-image">
+            <img
+              src="projects/img/project7.png"
+              alt="Project seven preview"
+            >
+          </div>
+
+          <div class="project-content">
+
+            <h3 class="project-title">
+              Project Seven
+            </h3>
+
+            <p class="project-description">
+              Project description goes here...
+            </p>
+
+            <a
+              href="projects/project7.html"
+              class="view-project"
+            >
+              View Project
+              <span aria-hidden="true">→</span>
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
     </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="site-footer">
+
+    <p>
+      © 2025–2026 Lida Gheidary
+    </p>
+
+    <p>
+      Built with HTML, CSS &amp; GitHub Pages
+    </p>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    /* MOBILE MENU */
+
+    const navToggle =
+      document.querySelector('.nav-toggle');
+
+    const navMenu =
+      document.querySelector('.nav-menu');
+
+
+    navToggle.addEventListener('click', () => {
+
+      const isOpen =
+        navMenu.classList.toggle('open');
+
+      navToggle.setAttribute(
+        'aria-expanded',
+        isOpen
+      );
+
+      navToggle.setAttribute(
+        'aria-label',
+        isOpen
+          ? 'Close navigation menu'
+          : 'Open navigation menu'
+      );
+
+    });
+
+
+
+    /* Close mobile menu after selecting navigation */
+
+    document
+      .querySelectorAll('.nav-menu a')
+      .forEach(link => {
+
+        link.addEventListener('click', () => {
+
+          navMenu.classList.remove('open');
+
+          navToggle.setAttribute(
+            'aria-expanded',
+            'false'
+          );
+
+        });
+
+      });
+
+
+
+    /* DARK MODE */
+
+    const themeToggle =
+      document.querySelector('.theme-toggle');
+
+    const themeIcon =
+      document.querySelector('.theme-icon');
+
+
+    function updateThemeButton() {
+
+      const isDark =
+        document.documentElement.dataset.theme === 'dark';
+
+      themeIcon.textContent =
+        isDark ? '☀' : '☾';
+
+      themeToggle.setAttribute(
+        'aria-label',
+        isDark
+          ? 'Switch to light mode'
+          : 'Switch to dark mode'
+      );
+
+    }
+
+
+    themeToggle.addEventListener('click', () => {
+
+      const isDark =
+        document.documentElement.dataset.theme === 'dark';
+
+      const newTheme =
+        isDark ? 'light' : 'dark';
+
+      document.documentElement.dataset.theme =
+        newTheme;
+
+      localStorage.setItem(
+        'theme',
+        newTheme
+      );
+
+      updateThemeButton();
+
+    });
+
+
+    updateThemeButton();
+
+  </script>
+
+
 </body>
 </html>

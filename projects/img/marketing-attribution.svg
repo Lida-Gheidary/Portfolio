@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-labelledby="title description">
+  <title id="title">Paid Search: model choice changes the direction of credit change</title>
+  <desc id="description">At a 30-day lookback, algorithmic attribution gives Paid Search 12.09 percent more order credit than last-touch. Linear gives it 5.71 percent less. Percentages use the same-window last-touch baseline.</desc>
+  <rect width="800" height="450" fill="#ffffff"/>
+  <g font-family="monospace" fill="#101010">
+    <text font-family="monospace" x="40" y="57" font-size="36" font-weight="700">Paid Search</text>
+    <text font-family="monospace" x="40" y="92" font-size="21" fill="#5a5a5a">Order credit versus last-touch</text>
+    <text font-family="monospace" x="40" y="149" font-size="26">Algorithmic</text>
+    <text font-family="monospace" x="760" y="149" text-anchor="end" font-size="40" font-weight="700" fill="#0057d9">+12.09%</text>
+    <rect x="350" y="174" width="314.34" height="30" fill="#0057d9"/>
+    <text font-family="monospace" x="40" y="246" font-size="26">Linear</text>
+    <text font-family="monospace" x="760" y="246" text-anchor="end" font-size="40" font-weight="700">−5.71%</text>
+    <rect x="201.54" y="271" width="148.46" height="30" fill="#696969"/>
+    <line x1="350" y1="166" x2="350" y2="318" stroke="#101010" stroke-width="1.5"/>
+    <line x1="90" y1="327" x2="740" y2="327" stroke="#c8c8c4"/>
+    <g font-size="19" text-anchor="middle" fill="#5a5a5a">
+      <text font-family="monospace" x="90" y="355">−10%</text>
+      <text font-family="monospace" x="350" y="355">0%</text>
+      <text font-family="monospace" x="610" y="355">+10%</text>
+      <text font-family="monospace" x="740" y="355">+15%</text>
+    </g>
+    <text font-family="monospace" x="40" y="398" font-size="18">30-day lookback · Person scope</text>
+    <text font-family="monospace" x="40" y="428" font-size="16" fill="#5a5a5a">Adobe CJA demo · May 2026</text>
+  </g>
+</svg>
