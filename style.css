@@ -1316,3 +1316,25 @@ a {
   }
 
 }
+/* Coming soon card */
+.project-status {
+  align-self: flex-start;
+  margin-top: auto;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Keep the complete featured diagram visible on mobile. */
+@media (max-width: 600px) {
+  .project-card.featured .project-image {
+    aspect-ratio: auto;
+  }
+
+  .project-card.featured .project-image img {
+    height: auto;
+    object-fit: contain;
+    transform: none;
+  }
+}
