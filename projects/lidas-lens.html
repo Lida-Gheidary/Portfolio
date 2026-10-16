@@ -12,7 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="End-to-end Digital Analytics and MarTech implementation on lidaslens.com.">
+  <meta name="description" content="Lida Gheidary’s ongoing implementation on lidaslens.com: digital analytics, SEO/GEO, consent, CRM automation and AI-assisted exploration.">
   <title>End-to-End Digital Analytics &amp; MarTech Implementation | Lida Gheidary</title>
   <script>
     const savedTheme = localStorage.getItem('theme');
@@ -20,14 +20,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script>
   <link rel="stylesheet" href="../style.css?v=20261007a">
   <link rel="stylesheet" href="case-study.css?v=20261007a">
+  <link rel="stylesheet" href="lidas-lens.css?v=20261016a">
 </head>
 
-<body class="case-page">
+<body class="case-page lidas-lens-page">
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGJ5Q7GR"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
- 
+
   <nav class="navbar" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="../index.html#hero" class="nav-logo" aria-label="Lida Gheidary home">
@@ -58,7 +59,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-grid">
           <div class="hero-copy">
             <a class="back-link" href="../index.html#projects">← Back to projects</a>
+            <p class="ll-project-label">Lida’s Lens / Ongoing project</p>
             <h1>End-to-End Digital Analytics &amp; MarTech Implementation <span>on lidaslens.com</span></h1>
+            <p class="ll-hero-intro">I built a live content website and connected its measurement, consent and CRM systems. The project continues through SEO/GEO development, AI-assisted exploration and planned acquisition.</p>
             <a class="text-link" href="https://lidaslens.com" target="_blank" rel="noopener noreferrer">Visit lidaslens.com <span aria-hidden="true">↗</span></a>
           </div>
           <a class="browser-capture" href="https://lidaslens.com" target="_blank" rel="noopener noreferrer" aria-label="Open the live Lida's Lens website">
@@ -69,285 +72,311 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </header>
 
-    <section class="chapter-list" aria-label="Case study chapters">
-      <details class="chapter" id="executive-overview">
+    <section class="chapter-list" aria-label="Project chapters">
+
+      <details class="chapter" id="executive-overview" open>
         <summary><span class="chapter-number">01</span><span class="chapter-title">Executive Overview</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="chapter-opening"><strong>Lida's Lens: End-to-End Digital Analytics &amp; MarTech Implementation</strong></p>
-          <p>Lida's Lens is a live parenting-content website used as a real-world environment for building and developing an end-to-end Digital Analytics and MarTech stack.</p>
-          <p>The project covers the full lifecycle from measurement strategy and consent-aware data collection to behavioral analysis, CRM activation, acquisition and optimization. The architecture is deliberately evolving as readership and data volume grow.</p>
+          <p class="chapter-opening"><strong>A live project connecting content, measurement and digital marketing.</strong></p>
+          <p>Lida’s Lens is my parenting-content website, focused on Autism Level 1, raising differently and only-child family life. I created the posts and built the connected analytics and MarTech implementation around the site.</p>
+          <p>The project brings together measurement strategy, consent-aware tracking, <strong>SEO and GEO</strong>, behavioral analytics, CRM and automation. It also gives me a practical environment for exploring AI-assisted tools and planning acquisition and experimentation.</p>
+          <div class="ll-stage-note"><strong>Where the project stands</strong><p>The website and core stack are live. Content publishing has been intermittent, search visibility and traffic remain limited, and Meta campaigns have not launched. The next phase is to develop publishing and acquisition together, then use the resulting readership data to guide analysis and optimization.</p></div>
           <h2>Current scope</h2>
           <div class="scope-list">
-            <p><strong>LIVE:</strong> GTM, GA4, custom dataLayer, Advanced Consent Mode v2, CookieYes, HubSpot CRM, Make automation, Meta Pixel, Microsoft Clarity, Contentsquare/Hotjar, Google Search Console, Rank Math, WP Statistics and GA4 to BigQuery export.</p>
-            <p><strong>ITERATING:</strong> GTM/dataLayer audit, measurement refinement, behavioral analysis, organic performance analysis, CRM development and data-quality validation.</p>
-            <p><strong>ROADMAP:</strong> Meta acquisition campaigns, HubSpot email automation, SQL analysis, CRO experimentation, server-side GTM and Meta Conversions API.</p>
-          </div>
-          <div class="evidence-grid">
-            <figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM workspace showing the wider implementation</figcaption></figure>
-            <figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GA4 overview or reporting view</figcaption></figure>
+            <p><strong>IMPLEMENTED</strong><span>GTM, GA4, custom dataLayer, CookieYes, Advanced Consent Mode v2, HubSpot CRM, Make automation, Meta Pixel, Microsoft Clarity, Contentsquare/Hotjar, Search Console, Rank Math, WP Statistics and GA4-to-BigQuery export.</span></p>
+            <p><strong>DEVELOPING</strong><span>SEO/GEO, content development, the measurement plan, GTM/dataLayer review, data quality and the approach to analyzing reader behavior.</span></p>
+            <p><strong>EXPLORED</strong><span>AI-assisted inspection through Stape and Pipedream MCP integrations, including their practical limitations.</span></p>
+            <p><strong>PLANNED</strong><span>Regular publishing alongside Meta acquisition, AI-search visibility monitoring, CRM email workflows, SQL analysis, CRO experiments, server-side GTM and Meta Conversions API.</span></p>
           </div>
           <h2>Architecture overview</h2>
-          <div class="architecture-sketch" role="img" aria-label="Branched architecture for the Lida's Lens analytics and MarTech implementation">
-            <div class="sketch-legend"><span><i class="legend-solid" aria-hidden="true"></i> Live or iterating</span><span><i class="legend-dashed" aria-hidden="true"></i> Roadmap</span></div>
-            <div class="sketch-grid">
-              <section class="sketch-branch sketch-organic">
-                <div class="sketch-heading"><h3>Organic acquisition</h3><span class="status status-iterating">Iterating</span></div>
-                <div class="sketch-flow vertical"><span class="tool-name"><i class="tool-logo logo-google" aria-hidden="true"></i>Google Search</span><small>Search traffic → website</small></div>
-                <div class="observation-line"><i class="tool-logo logo-search-console" aria-hidden="true"></i><span>Search Console measures impressions, clicks and search position.</span></div>
+          <p>The schematic shows how the current implementation connects, where I am developing the project, and how the planned additions extend it.</p>
+
+          <figure class="ll-architecture" aria-labelledby="architecture-title" aria-describedby="architecture-caption">
+            <div class="ll-map-heading">
+              <div><span class="ll-kicker">Connected architecture</span><h3 id="architecture-title">From content to insight and activation</h3></div>
+              <ul class="ll-legend" aria-label="Implementation status">
+                <li><span class="ll-state ll-live">Implemented</span></li>
+                <li><span class="ll-state ll-developing">Developing</span></li>
+                <li><span class="ll-state ll-explored">Explored</span></li>
+                <li><span class="ll-state ll-planned">Planned</span></li>
+              </ul>
+            </div>
+
+            <div class="ll-acquisition">
+              <section class="ll-node ll-node-developing">
+                <div class="ll-node-heading"><h4>Content, SEO &amp; GEO</h4><span class="ll-state ll-developing">Developing</span></div>
+                <p>Published articles + ongoing search optimization</p>
+                <p class="ll-path">Search &amp; AI discovery <span aria-hidden="true">→</span> Website visits</p>
+                <p class="ll-node-note">Search Console · Rank Math · GA4</p>
+                <p class="ll-node-note">AI mentions, citations and referral analysis: planned.</p>
               </section>
-              <section class="sketch-core sketch-website"><strong>Lida's Lens website</strong><small>Live publishing environment</small></section>
-              <section class="sketch-branch sketch-meta">
-                <div class="sketch-heading"><h3>Facebook / Meta</h3><span class="status status-live">Live</span></div>
-                <div class="sketch-flow vertical"><span class="tool-name"><i class="tool-logo logo-facebook" aria-hidden="true"></i>Facebook Page · Live</span><span class="tool-name planned">Follower campaign · Roadmap</span><span class="tool-name planned">Traffic campaign · Roadmap</span></div>
-                <small>Future campaign traffic → website</small>
-              </section>
-              <div class="sketch-arrow arrow-down" aria-hidden="true">↓</div>
-              <section class="sketch-branch sketch-consent">
-                <div class="sketch-heading"><h3>Consent &amp; privacy</h3><span class="status status-live">Live</span></div>
-                <div class="sketch-flow vertical"><span class="tool-name"><i class="tool-logo logo-cookieyes" aria-hidden="true"></i>CookieYes</span><i aria-hidden="true">↓</i><span class="tool-name">Advanced Google Consent Mode v2</span></div>
-                <div class="control-line">Controls tag behavior → GTM</div><small>Includes a custom HubSpot consent bridge.</small>
-              </section>
-              <section class="sketch-core sketch-gtm"><i class="tool-logo logo-gtm" aria-hidden="true"></i><strong>Google Tag Manager</strong><small>Tags · triggers · variables · page-context dataLayer</small></section>
-              <section class="sketch-branch sketch-pixel">
-                <div class="sketch-heading"><h3>Advertising measurement</h3><span class="status status-live">Live</span></div>
-                <div class="sketch-flow"><span class="tool-name"><i class="tool-logo logo-meta" aria-hidden="true"></i>Meta Pixel</span></div><div class="control-line left">GTM → deploys Meta Pixel</div>
-              </section>
-              <div class="sketch-fanout" aria-hidden="true"><span></span><i></i><span></span></div>
-              <section class="sketch-branch sketch-data">
-                <div class="sketch-heading"><h3>Measurement &amp; data</h3><span class="status status-live">Live</span></div>
-                <div class="sketch-flow vertical"><span class="tool-name"><i class="tool-logo logo-ga4" aria-hidden="true"></i>Google Analytics 4</span><i aria-hidden="true">↓</i><span class="tool-name"><i class="tool-logo logo-bigquery" aria-hidden="true"></i>BigQuery</span><i aria-hidden="true">↓</i><span class="tool-name planned">SQL analysis · Roadmap</span></div>
-              </section>
-              <section class="sketch-branch sketch-behavior">
-                <div class="sketch-heading"><h3>Behavioral analytics</h3><span class="status status-iterating">Iterating</span></div>
-                <div class="sketch-flow vertical"><span class="tool-name"><i class="tool-logo logo-clarity" aria-hidden="true"></i>Microsoft Clarity</span><span class="tool-name"><i class="tool-logo logo-contentsquare" aria-hidden="true"></i>Contentsquare / <i class="tool-logo logo-hotjar" aria-hidden="true"></i>Hotjar</span></div>
-                <small>Heatmaps, recordings, scroll and click behavior, and friction analysis.</small>
-              </section>
-              <section class="sketch-branch sketch-crm">
-                <div class="sketch-heading"><h3>CRM &amp; automation</h3><span class="status status-iterating">Iterating</span></div>
-                <div class="sketch-flow vertical"><span class="tool-name">Website forms</span><i aria-hidden="true">↓</i><span class="tool-name">Webhook</span><i aria-hidden="true">↓</i><span class="tool-name"><i class="tool-logo logo-make" aria-hidden="true"></i>Make</span><i aria-hidden="true">↓</i><span class="tool-name"><i class="tool-logo logo-hubspot" aria-hidden="true"></i>HubSpot CRM</span><i aria-hidden="true">↓</i><span class="tool-name planned">Email workflows · Roadmap</span></div>
-                <small>This transfer begins with website forms. GTM measures the form events separately.</small>
-              </section>
-              <section class="sketch-wide sketch-cro">
-                <div class="sketch-heading"><h3>CRO &amp; experimentation</h3><span class="status status-roadmap">Roadmap</span></div>
-                <div class="future-inputs"><span>GA4 findings</span><i aria-hidden="true">+</i><span>Behavioral findings</span></div>
-                <div class="sketch-flow horizontal"><span class="tool-name planned">Hypothesis</span><i aria-hidden="true">→</i><span class="tool-name planned">VWO / Convert</span><i aria-hidden="true">→</i><span class="tool-name planned">Experiment</span><i aria-hidden="true">→</i><span class="tool-name planned">Result → iteration</span></div>
-              </section>
-              <section class="sketch-wide sketch-advanced">
-                <div class="sketch-heading"><h3>Advanced measurement</h3><span class="status status-roadmap">Roadmap</span></div>
-                <div class="sketch-flow horizontal"><span class="tool-name planned">Website / GTM</span><i aria-hidden="true">→</i><span class="tool-name planned">Server-side GTM</span><i aria-hidden="true">→</i><span class="tool-name planned"><i class="tool-logo logo-meta" aria-hidden="true"></i>Meta Conversions API</span></div>
-                <small>Separate future measurement branch, independent of the CRO workflow.</small>
+              <section class="ll-node ll-node-planned">
+                <div class="ll-node-heading"><h4>Meta acquisition</h4><span class="ll-state ll-planned">Planned</span></div>
+                <p>Facebook Page + signup route already live</p>
+                <p class="ll-path ll-future">Follower / traffic campaigns <span aria-hidden="true">→</span> Website visits</p>
+                <p class="ll-node-note">Campaigns have not launched. Meta Pixel is implemented in the measurement layer below.</p>
               </section>
             </div>
-          </div>
-          <p>The architecture shows both the current production stack and the next planned development stages. The implementation combines centralized tag management with separate measurement, consent, behavioral analytics, acquisition and CRM branches.</p>
+
+            <div class="ll-connector" aria-hidden="true">↓</div>
+            <section class="ll-hub">
+              <span class="ll-kicker">Live publishing environment</span>
+              <h4>Lida’s Lens website</h4>
+              <p>Articles · Reader journeys · Newsletter &amp; contact forms</p>
+              <p class="ll-node-note">Core implementation in place · Content and readership still developing</p>
+            </section>
+
+            <div class="ll-branches">
+              <section class="ll-branch">
+                <h4 class="ll-branch-heading">Website behavior <span aria-hidden="true">→</span> Measurement</h4>
+                <div class="ll-node ll-control">
+                  <div class="ll-node-heading"><h4>Consent + page context</h4><span class="ll-state ll-live">Implemented</span></div>
+                  <p>CookieYes <span aria-hidden="true">→</span> Advanced Consent Mode v2</p>
+                  <p class="ll-node-note">Consent signals control Google-tag behavior. A custom dataLayer supplies article and page context.</p>
+                </div>
+                <div class="ll-connector" aria-hidden="true">↓</div>
+                <div class="ll-node ll-gtm">
+                  <div class="ll-node-heading"><h4>Google Tag Manager</h4><span class="ll-state ll-live">Implemented</span></div>
+                  <p>Tags · Triggers · Variables · Events</p>
+                  <p class="ll-node-note">Measures article engagement, form conversions, sharing and navigation.</p>
+                </div>
+                <p class="ll-route-label">GTM deploys the measurement tags below</p>
+                <div class="ll-destinations">
+                  <section class="ll-node">
+                    <h4>GA4 <span aria-hidden="true">→</span> BigQuery</h4>
+                    <span class="ll-state ll-live">Implemented</span>
+                    <p class="ll-node-note">Event collection + export</p>
+                    <p class="ll-node-note ll-future">SQL-derived metrics: planned</p>
+                  </section>
+                  <section class="ll-node">
+                    <h4>Behavioral analytics</h4>
+                    <span class="ll-state ll-live">Implemented</span>
+                    <p class="ll-node-note">Microsoft Clarity<br>Contentsquare / Hotjar</p>
+                    <p class="ll-node-note">Analysis develops with readership.</p>
+                  </section>
+                  <section class="ll-node">
+                    <h4>Meta Pixel</h4>
+                    <span class="ll-state ll-live">Implemented</span>
+                    <p class="ll-node-note">Browser-side advertising measurement</p>
+                  </section>
+                </div>
+              </section>
+
+              <section class="ll-branch ll-crm-branch">
+                <h4 class="ll-branch-heading">Website forms <span aria-hidden="true">→</span> CRM</h4>
+                <div class="ll-node ll-crm">
+                  <div class="ll-node-heading"><h4>Contact &amp; subscriber flow</h4><span class="ll-state ll-live">Implemented</span></div>
+                  <ol class="ll-form-flow" aria-label="Form data transfer">
+                    <li>Website forms</li><li>Webhook</li><li>Make</li><li>HubSpot CRM</li>
+                  </ol>
+                  <p class="ll-node-note">Form data follows this direct route. GTM measures the form events separately.</p>
+                  <p class="ll-control-note">CookieYes <span aria-hidden="true">→</span> Custom HubSpot consent bridge</p>
+                </div>
+                <div class="ll-connector ll-future" aria-hidden="true">↓</div>
+                <div class="ll-node ll-node-planned">
+                  <div class="ll-node-heading"><h4>Lifecycle activation</h4><span class="ll-state ll-planned">Planned</span></div>
+                  <p>Segmentation <span aria-hidden="true">→</span> Email workflows <span aria-hidden="true">→</span> Engagement analysis</p>
+                </div>
+              </section>
+            </div>
+
+            <section class="ll-review">
+              <div class="ll-node-heading"><h4>Review across the measurement setup</h4><span class="ll-state ll-explored">MCP explored</span></div>
+              <div class="ll-review-columns">
+                <div><strong>Direct validation</strong><p>GTM Preview / Tag Assistant · GA4 DebugView · Browser and consent checks</p></div>
+                <div><strong>AI-assisted exploration</strong><p>AI assistant <span aria-hidden="true">↔</span> Stape / Pipedream MCP integrations <span aria-hidden="true">↔</span> Platform configuration and data</p></div>
+              </div>
+              <p class="ll-node-note">MCP trials are a separate review activity. Suggested findings are checked against the configuration and direct observations.</p>
+            </section>
+
+            <div class="ll-next">
+              <section class="ll-node ll-node-planned">
+                <div class="ll-node-heading"><h4>Analysis &amp; experimentation</h4><span class="ll-state ll-planned">Planned</span></div>
+                <p>GA4 + behavioral findings <span aria-hidden="true">→</span> Hypothesis <span aria-hidden="true">→</span> VWO / Convert <span aria-hidden="true">→</span> Evaluation</p>
+                <p class="ll-node-note">Develop as content, traffic and useful observations grow.</p>
+              </section>
+              <section class="ll-node ll-node-planned">
+                <div class="ll-node-heading"><h4>Server-side measurement</h4><span class="ll-state ll-planned">Planned</span></div>
+                <p>Website measurement <span aria-hidden="true">→</span> Server-side GTM <span aria-hidden="true">→</span> Meta Conversions API</p>
+                <p class="ll-node-note">A future extension of the measurement architecture.</p>
+              </section>
+            </div>
+            <figcaption id="architecture-caption">Solid borders mark implemented components; dotted borders mark developing work, and dashed borders mark planned additions. The MCP review activity is shown separately from the production data flows. Updated October 2026.</figcaption>
+          </figure>
         </div>
       </details>
 
       <details class="chapter" id="business-measurement-strategy">
         <summary><span class="chapter-number">02</span><span class="chapter-title">Business &amp; Measurement Strategy</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="content-status"><strong>Status: LIVE / ITERATING</strong></p>
+          <p class="content-status"><strong>Implemented / Developing</strong></p>
           <h2>Business context</h2>
-          <p>Lida's Lens operates within a deliberately focused parenting niche, primarily covering Autism Level 1 (mild autism) / raising differently and only-child family life.</p>
-          <p>The intended reader journey is:</p>
-          <div class="journey-line"><strong>Discover</strong><i>→</i><strong>Read</strong><i>→</i><strong>Explore More</strong><i>→</i><strong>Return</strong><i>→</i><strong>Subscribe / Contact</strong></div>
-          <p>The primary measurement objective is therefore <strong>Engaged Readership Growth</strong>, rather than traffic volume alone.</p>
-          <h2>Measurement approach</h2>
-          <p>The tracking architecture separates <strong>observable behavior</strong> from <strong>derived business metrics</strong>.</p>
-          <p>Core collected signals include:</p>
+          <p>The intended reader journey is discovery, meaningful reading, exploration of related content, returning visits and, eventually, a subscription or direct contact.</p>
+          <div class="journey-line"><strong>Discover</strong><i aria-hidden="true">→</i><strong>Read</strong><i aria-hidden="true">→</i><strong>Explore</strong><i aria-hidden="true">→</i><strong>Return</strong><i aria-hidden="true">→</i><strong>Subscribe / Contact</strong></div>
+          <p>I designed the measurement approach around <strong>engaged readership growth</strong>. This connects acquisition quality to how people actually use the content and whether an ongoing relationship develops.</p>
+          <h2>Observable actions and derived measures</h2>
+          <p>Core signals include:</p>
           <div class="event-list"><code>page_view</code><code>article_engagement</code><code>generate_lead</code><code>contact_submit</code><code>share</code><code>category_click</code></div>
-          <p>Article and page context is enriched through the custom dataLayer.</p>
-          <p><strong>Deep article engagement</strong> currently represents at least <strong>45 seconds of visible-page time combined with 60% article scroll depth</strong>.</p>
-          <p>Higher-level measures are to be derived from these signals rather than creating unnecessary tracking events for every KPI.</p>
-          <p>Examples include:</p>
+          <p>A custom dataLayer adds page and article context. The current deep-reading definition combines at least <strong>45 seconds of visible-page time with 60% article scroll depth</strong>.</p>
+          <p>These collected actions provide inputs for the broader measurement plan. Metrics that need session-level or user-level analysis are intended for GA4 reporting or BigQuery/SQL as enough useful data becomes available.</p>
           <div class="measurement-table-wrap">
             <table>
-              <thead><tr><th>Business question</th><th>KPI</th><th>Measurement / analytical source</th></tr></thead>
+              <caption class="ll-table-caption">Measurement framework: definitions and intended sources, rather than reported results.</caption>
+              <thead><tr><th>Business question</th><th>Measure</th><th>Source / development stage</th></tr></thead>
               <tbody>
-                <tr><td>Are visitors actually reading?</td><td>Article engagement rate</td><td>GTM + GA4</td></tr>
-                <tr><td>Are readers exploring more content?</td><td>Multi-article session rate</td><td>GA4 → BigQuery / SQL <em>(after sufficient data accumulation)</em></td></tr>
-                <tr><td>Are meaningful readers returning?</td><td>Returning engaged readers</td><td>GA4 → BigQuery / SQL <em>(after sufficient data accumulation)</em></td></tr>
-                <tr><td>Is meaningful readership growing?</td><td>MoM engaged readership growth</td><td>GA4 → BigQuery / SQL <em>(after sufficient data accumulation)</em></td></tr>
-                <tr><td>Is search attracting valuable readers?</td><td>Organic engaged-reader rate</td><td>GSC + GA4 / BigQuery</td></tr>
+                <tr><td>Are visitors reading meaningfully?</td><td>Article engagement rate</td><td>GTM + GA4 implementation</td></tr>
+                <tr><td>Are readers exploring and returning?</td><td>Multi-article sessions; returning engaged readers</td><td>GA4 → BigQuery / SQL analysis planned</td></tr>
+                <tr><td>Is search attracting relevant readers?</td><td>Search visibility, organic engagement and subscriptions</td><td>Search Console + GA4</td></tr>
+                <tr><td>Does the site appear in AI answers?</td><td>Mentions, linked citations and page visibility</td><td>AI-search monitoring planned</td></tr>
+                <tr><td>Do identifiable AI referrals become readers?</td><td>Referral visits, article engagement and subscriptions</td><td>GA4 analysis planned</td></tr>
                 <tr><td>Is readership becoming an owned audience?</td><td>Subscriber conversion rate</td><td>GA4 + HubSpot</td></tr>
-                <tr><td>Are visitors initiating direct relationships?</td><td>Contact submission rate</td><td>GA4</td></tr>
+                <tr><td>Are visitors initiating contact?</td><td>Contact submission rate</td><td>GA4</td></tr>
+                <tr><td>Is meaningful readership growing?</td><td>Engaged readership growth over time</td><td>Longer-term analysis as publishing and acquisition develop</td></tr>
               </tbody>
             </table>
           </div>
-          <p><strong>ITERATING:</strong> The measurement plan continues to be refined as real behavioral and acquisition data accumulates.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot space</span></div><figcaption>Business and measurement strategy evidence</figcaption></figure></div>
+          <p>At the current traffic level, the framework establishes what to observe and how to connect it to decisions. More active publishing and acquisition will make those analyses more informative.</p>
         </div>
       </details>
 
       <details class="chapter" id="privacy-consent">
         <summary><span class="chapter-number">03</span><span class="chapter-title">Privacy &amp; Consent</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="content-status"><strong>Status: LIVE</strong></p>
-          <h2>Initial implementation</h2>
-          <p>Google <strong>Advanced Consent Mode v2</strong> was initially implemented with the free version of Complianz, using GTM Custom HTML consent-update logic triggered by Complianz consent events.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM consent-update tag and Complianz event triggers</figcaption></figure></div>
-          <h2>Issue identified</h2>
-          <p>Multiple GTM Preview/Tag Assistant and browser-level validation sessions revealed that the relevant Complianz events, notably <code>cmplz_event_marketing</code> and <code>cmplz_event_statistics</code>, were triggering the same consent-update logic, resulting in both <code>ad_storage</code> and <code>analytics_storage</code> being granted rather than maintaining the intended distinction between advertising and analytics consent.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM Preview showing the relevant Complianz events</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Tag Assistant showing the resulting consent-state update</figcaption></figure></div>
-          <h2>Solution</h2>
-          <p>Migrated the consent implementation to <strong>CookieYes CMP</strong>. Retaining the Complianz banner while implementing Consent Mode separately through Simo Ahava's GTM template was also explored, but CookieYes provided the cleaner architecture for this implementation.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>CookieYes category configuration</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Tag Assistant showing validated Advanced Consent Mode v2 states</figcaption></figure></div>
+          <p class="content-status"><strong>Implemented</strong></p>
+          <h2>Consent implementation and troubleshooting</h2>
+          <p>The first implementation used the free version of Complianz with GTM Custom HTML logic to update Google Advanced Consent Mode v2.</p>
+          <p>During validation, I found that Complianz events including <code>cmplz_event_marketing</code> and <code>cmplz_event_statistics</code> triggered the same update logic. Both <code>ad_storage</code> and <code>analytics_storage</code> were being granted together, instead of preserving the intended distinction between advertising and analytics consent.</p>
+          <h2>Migration to CookieYes</h2>
+          <p>I migrated the setup to <strong>CookieYes CMP</strong> and validated the resulting consent states with GTM Preview/Tag Assistant and browser-level checks.</p>
+          <p>Keeping the Complianz banner and handling Consent Mode separately through Simo Ahava’s GTM template was another option I explored. CookieYes offered a more straightforward fit for this implementation.</p>
           <h2>HubSpot consent handling</h2>
-          <p>The migration resolved the Google-tag side of the architecture, but <strong>HubSpot required separate consent handling</strong>. Custom bridge logic was added to the website header so that HubSpot behavior follows the site's consent choices.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Sanitized HubSpot consent bridge code</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Browser or network evidence validating HubSpot behavior under different consent states</figcaption></figure></div>
-          <h2>Result</h2>
-          <p>The final setup retains <strong>Google Advanced Consent Mode v2</strong> while coordinating consent-aware behavior across Google analytics/advertising tags and HubSpot.</p>
+          <p>HubSpot needed its own consent handling alongside the Google-tag implementation. A custom bridge in the website header connects the site’s consent choices to HubSpot behavior.</p>
+          <p>The resulting setup combines <strong>Advanced Consent Mode v2 for Google tags</strong> with the separate HubSpot bridge. Consent choices are part of the validation process whenever the relevant configuration changes.</p>
         </div>
       </details>
 
       <details class="chapter" id="data-collection-tracking">
         <summary><span class="chapter-number">04</span><span class="chapter-title">Data Collection &amp; Tracking Architecture</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="content-status"><strong>Status: LIVE / ITERATING</strong></p>
-          <h2>Centralized deployment</h2>
-          <p>Google Tag Manager is the central deployment layer for most browser-side analytics and marketing technologies.</p>
-          <p>This keeps measurement logic centralized and reduces dependence on separate WordPress plugins. Plugins are used selectively where they serve a specific platform function, particularly HubSpot and CookieYes.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM container overview showing tags</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM triggers and variables</figcaption></figure></div>
+          <p class="content-status"><strong>Implemented / Developing</strong></p>
+          <h2>Centralized tag deployment</h2>
+          <p>Google Tag Manager is the central deployment layer for most browser-side analytics and marketing tags. It brings tags, triggers, variables and event logic into one place for inspection and maintenance.</p>
+          <p>WordPress plugins are used selectively for platform-specific functions, including CookieYes and HubSpot.</p>
           <h2>Custom page-context dataLayer</h2>
-          <p>A custom dataLayer provides structured page and article context to the measurement layer, including information such as author, post slug and other content-level attributes.</p>
-          <p>This allows the same structured context to be reused across tags and events instead of repeatedly extracting information from the page.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Browser console showing page-context dataLayer</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM Preview showing dataLayer values available as variables</figcaption></figure></div>
-          <h2>GA4 event architecture</h2>
-          <p>GA4 receives both standard measurement and custom behavioral events through GTM. Event design focuses on actions that represent meaningful observable behavior, while more complex KPIs are derived analytically where appropriate.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Example GA4 event tag in GTM</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Event parameters attached to a selected event</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GA4 DebugView showing the event arriving</figcaption></figure></div>
-          <h2>Supporting platforms</h2>
-          <p>The browser-side measurement layer also supports Meta Pixel and behavioral-analysis platforms including Microsoft Clarity and Contentsquare/Hotjar.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM showing GA4, Meta and behavioral tags within the same container</figcaption></figure></div>
-          <p><strong>ITERATING:</strong> A formal GTM and dataLayer audit is part of the current development stage, covering naming, trigger logic, event parameters, duplication risk and overall maintainability.</p>
+          <p>I added a custom dataLayer to provide structured context such as author, post slug and other content attributes. The same context can be reused across measurement tags and events.</p>
+          <p>This gives the implementation a consistent way to describe the content being viewed and supports analysis across articles and content categories.</p>
+          <h2>Event architecture</h2>
+          <p>GA4 receives standard measurement and custom behavioral events through GTM. Article reading, newsletter signups, contact submissions, sharing and category navigation have distinct roles in the measurement plan.</p>
+          <p>Newsletter signup uses <code>generate_lead</code>; direct contact uses <code>contact_submit</code>. More complex questions, such as repeat engaged readership, are reserved for analytical work on the collected data.</p>
+          <h2>Connected platforms and ongoing review</h2>
+          <p>The container also deploys Meta Pixel, Microsoft Clarity and Contentsquare/Hotjar. GA4 exports event-level data to BigQuery.</p>
+          <p>Ongoing review covers naming consistency, trigger conditions, event parameters, duplication risk and the usefulness of the data being collected. The aim is a measurement setup that remains understandable as the project expands.</p>
         </div>
       </details>
 
       <details class="chapter" id="data-quality-validation">
-        <summary><span class="chapter-number">05</span><span class="chapter-title">Data Quality &amp; Validation</span><span class="chapter-plus" aria-hidden="true"></span></summary>
+        <summary><span class="chapter-number">05</span><span class="chapter-title">Data Quality, Validation &amp; AI Exploration</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="content-status"><strong>Status: ITERATING</strong></p>
-          <p>Implementation is treated as incomplete until the resulting behavior and data have been validated.</p>
-          <h2>Tag QA</h2>
-          <p>GTM Preview is used to verify firing conditions, trigger behavior, event sequencing, variables and dataLayer values.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM Preview showing a representative event sequence</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Tag firing and non-firing evidence for a selected event</figcaption></figure></div>
-          <h2>Analytics QA</h2>
-          <p>GA4 DebugView and Realtime are used to confirm that expected events and parameters reach GA4 correctly.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GA4 DebugView event timeline</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Selected event with parameters expanded</figcaption></figure></div>
-          <h2>Consent QA</h2>
-          <p>Consent behavior is tested separately across consent choices rather than assuming that a functioning CMP banner means the underlying tags are behaving correctly.</p>
-          <p>This process directly led to the replacement of the original Complianz-based Advanced Consent Mode v2 implementation.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Tag Assistant consent-state inspection</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Comparison of consent states under different user choices</figcaption></figure></div>
-          <h2>Ongoing audit</h2>
-          <p>The current audit stage includes GTM/dataLayer structure, event and parameter validation, internal-traffic handling and identification of unnecessary or duplicated measurement.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM workspace or audit evidence</figcaption></figure></div>
-          <p><strong>Current principle:</strong> Configuration proves that something was implemented. QA proves that it behaves as intended.</p>
+          <p class="content-status"><strong>Direct validation in use / MCP integrations explored</strong></p>
+          <h2>Manual inspection and direct testing</h2>
+          <p>I use GTM Preview/Tag Assistant to inspect firing conditions, event order, variables and dataLayer values. GA4 DebugView and Realtime help confirm that expected events and parameters arrive.</p>
+          <p>Browser and network inspection support checks of form behavior and consent choices. Testing different consent states was what exposed the original Complianz issue and informed the migration.</p>
+          <p>The review also includes event duplication, internal-traffic handling and whether the implementation still matches the measurement plan.</p>
+          <h2>Experimenting with AI and MCP integrations</h2>
+          <p>I have tried <strong><a href="https://stape.io/solutions/gtm-mcp-server" target="_blank" rel="noopener noreferrer">Stape</a> and <a href="https://mcp.pipedream.com/app/google_tag_manager" target="_blank" rel="noopener noreferrer">Pipedream</a> MCP integrations</strong> to explore AI-assisted inspection of the measurement setup. MCP, or Model Context Protocol, connects an AI assistant with external tools and platform data.</p>
+          <p>These were practical experiments with a developing way of working. The responses were inconsistent and included incorrect suggestions, particularly during the Stape trial. I check suggestions against the actual configuration and observed behavior, and continue to rely on direct validation for conclusions.</p>
+          <p>The area remains useful to explore for reviewing configurations, querying data and reducing repetitive inspection. These trials form part of my continuing <strong>experimentation with AI-assisted tools</strong> and evaluation of their practical usefulness.</p>
+          <h2>Using AI in the wider project</h2>
+          <p>AI also supports my learning, coding and troubleshooting. I use it to work through unfamiliar concepts and possible implementations, then make decisions about how those ideas fit the website and its connected systems.</p>
         </div>
       </details>
 
       <details class="chapter" id="data-activation-crm">
         <summary><span class="chapter-number">06</span><span class="chapter-title">Data Activation &amp; CRM</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="content-status"><strong>Status: LIVE / ITERATING</strong></p>
-          <h2>Current CRM flow</h2>
-          <p>Website forms are connected to HubSpot CRM through a webhook and Make automation.</p>
-          <div class="process-line"><strong>Website Form</strong><i>→</i><strong>Webhook</strong><i>→</i><strong>Make</strong><i>→</i><strong>HubSpot CRM</strong></div>
-          <p>This architecture currently supports newsletter acquisition and contact submissions while providing the foundation for later segmentation and lifecycle automation.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Website newsletter/signup form</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Make scenario showing the webhook to HubSpot flow</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Sanitized HubSpot contact created through the automation</figcaption></figure></div>
-          <h2>Conversion distinction</h2>
-          <p>Newsletter subscriptions and contact submissions are deliberately measured separately.</p>
-          <div class="definition-pair"><p><strong>Newsletter signup:</strong> <code>generate_lead</code><br>Represents audience growth and the beginning of an owned relationship.</p><p><strong>Contact submission:</strong> <code>contact_submit</code><br>Represents a direct inquiry and a different level of intent.</p></div>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM or GA4 generate_lead implementation</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GTM or GA4 contact_submit implementation</figcaption></figure></div>
-          <p>A content-interest field is also collected to support future CRM segmentation.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Sanitized HubSpot property or contact record showing content interest</figcaption></figure></div>
-          <h2>Next activation layer</h2>
-          <p><strong>ROADMAP</strong></p>
-          <div class="process-line"><strong>HubSpot CRM</strong><i>→</i><strong>Segmentation</strong><i>→</i><strong>HubSpot Workflows</strong><i>→</i><strong>Email Lifecycle</strong><i>→</i><strong>Engagement Analysis</strong></div>
-          <p>The existing CRM implementation is therefore the first layer of a broader activation architecture rather than a standalone form-storage solution.</p>
-          <div class="evidence-grid"><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>HubSpot workflow once implemented</figcaption></figure></div>
+          <p class="content-status"><strong>Form integration implemented / Lifecycle automation planned</strong></p>
+          <h2>Connecting forms to CRM</h2>
+          <p>Website forms connect to HubSpot through a webhook and Make automation:</p>
+          <div class="process-line"><strong>Website Form</strong><i aria-hidden="true">→</i><strong>Webhook</strong><i aria-hidden="true">→</i><strong>Make</strong><i aria-hidden="true">→</i><strong>HubSpot CRM</strong></div>
+          <p>I connected this flow to support newsletter signups and contact submissions. Form data follows this route directly, while GTM records the corresponding measurement events separately.</p>
+          <h2>Different relationships, different signals</h2>
+          <div class="definition-pair">
+            <p><strong>Newsletter signup</strong><br><code>generate_lead</code><br>The start of a subscriber relationship and an input to audience development.</p>
+            <p><strong>Contact submission</strong><br><code>contact_submit</code><br>A direct inquiry with a different intent from subscribing.</p>
+          </div>
+          <p>A content-interest field is collected to support future segmentation. This connects the reader’s interests to how the CRM could eventually support more relevant communication.</p>
+          <h2>Planned activation</h2>
+          <p>The next CRM layer is segmentation, HubSpot email workflows and analysis of subsequent engagement. These capabilities are planned as the subscriber base develops.</p>
+          <div class="process-line"><strong>HubSpot contacts</strong><i aria-hidden="true">→</i><strong>Segmentation</strong><i aria-hidden="true">→</i><strong>Email workflows</strong><i aria-hidden="true">→</i><strong>Engagement analysis</strong></div>
         </div>
       </details>
 
       <details class="chapter" id="traffic-acquisition">
-        <summary><span class="chapter-number">07</span><span class="chapter-title">Traffic Acquisition</span><span class="chapter-plus" aria-hidden="true"></span></summary>
+        <summary><span class="chapter-number">07</span><span class="chapter-title">SEO, GEO &amp; Traffic Acquisition</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="content-status"><strong>Status: LIVE / ROADMAP</strong></p>
-          <p>Acquisition is being developed across organic search and Meta, with performance evaluated against <strong>reader quality rather than traffic volume alone</strong>.</p>
-          <h2>Organic acquisition</h2>
-          <p>Google Search Console, GA4 and Rank Math support the current organic-search layer.</p>
-          <p>Search Console measures how content develops visibility in Google Search, while GA4 provides the post-click behavioral layer needed to determine whether those visitors become meaningful readers.</p>
-          <div class="process-line"><strong>Search Visibility</strong><i>→</i><strong>Organic Click</strong><i>→</i><strong>Article Engagement</strong><i>→</i><strong>Deeper Consumption</strong><i>→</i><strong>Return</strong></div>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Google Search Console performance overview</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Search Console queries or pages report</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GA4 organic traffic and engagement view</figcaption></figure></div>
-          <p>Measures include search impressions, clicks, CTR, article/query position movement, organic engagement and the proportion of published content beginning to gain search visibility.</p>
-          <p>Because the website and its content library are still developing, performance is interpreted in context rather than presenting raw cumulative totals as standalone success metrics.</p>
+          <p class="content-status"><strong>SEO/GEO developing / Meta campaigns planned</strong></p>
+          <h2>Content and acquisition development</h2>
+          <p>I created the published articles and am working on enhancing their <strong>SEO and GEO</strong>. The intended growth approach combines regular publishing with Meta acquisition, followed by analysis of how those audiences read, explore and subscribe.</p>
+          <p>Recent development has focused on implementation and further learning. Publishing has been intermittent, organic visibility remains limited and Meta campaigns have not started. Building up content and acquisition together is the next development stage.</p>
+          <h2>SEO: discoverability and relevant readership</h2>
+          <p>Google Search Console, Rank Math and GA4 support the current organic-search work. Search Console provides visibility into impressions, clicks, CTR and query/page performance; GA4 connects arriving visitors with their on-site behavior.</p>
+          <p>The development focus is search intent, clearer article structure and metadata, internal linking between relevant posts, and reviewing crawling and indexing. This links editorial decisions and technical SEO to the questions the site’s readers are trying to answer.</p>
+          <p>The measurement approach connects search visibility with article engagement, further reading and subscriptions as enough data becomes available.</p>
+          <h2>GEO and visibility in AI search</h2>
+          <p><strong>Generative engine optimization (GEO)</strong> extends the discovery work to AI-generated answers and recommendations, including services such as ChatGPT, Google’s AI search experiences and Copilot.</p>
+          <p>The direction is to make the site’s original perspective, subject focus and supporting information clear and accessible. This builds on the SEO work and the value of the articles themselves.</p>
+          <p>Planned monitoring will distinguish <strong>mentions of Lida’s Lens</strong>, <strong>linked citations to its articles</strong> and <strong>identifiable visits from AI services</strong>. Native reporting such as <a href="https://support.google.com/webmasters/answer/16984139?hl=en" target="_blank" rel="noopener noreferrer">Google’s Generative AI performance report</a> and <a href="https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/" target="_blank" rel="noopener noreferrer">Bing AI Performance</a>, where sufficient data is available, can support that work alongside a repeatable sample of relevant searches.</p>
+          <p>Any attributable visits can then be assessed using the same engagement and subscription measures as other acquisition sources. Monitoring and reporting will develop alongside the site’s content and acquisition activity.</p>
           <h2>Meta acquisition</h2>
-          <p><strong>Current infrastructure: LIVE</strong></p>
-          <p>The Meta Pixel, Facebook Page and a dedicated Facebook signup route are already implemented.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Facebook Page</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Meta Events Manager showing Pixel activity</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Dedicated Facebook signup landing path</figcaption></figure></div>
-          <p><strong>Campaigns: ROADMAP / IMMINENT</strong></p>
-          <p>The planned sequence is:</p>
-          <div class="process-line"><strong>Follower acquisition</strong><i>→</i><strong>Traffic acquisition</strong><i>→</i><strong>On-site engagement analysis</strong></div>
-          <p>Campaign quality will be evaluated using measures such as engaged-reader rate, multi-article readership, subscriptions and ultimately cost per engaged reader, rather than CPC or traffic volume alone.</p>
-          <div class="evidence-grid"><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>Meta follower campaign</figcaption></figure><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>Meta traffic campaign performance</figcaption></figure></div>
+          <p>The Facebook Page, Meta Pixel and a dedicated Facebook signup route are implemented. Follower and traffic campaigns remain planned.</p>
+          <p>The intended sequence is follower acquisition, traffic acquisition and analysis of on-site engagement. Alongside campaign measures such as CPC, the plan is to examine engaged-reader rate, subscriptions and, where meaningful, cost per engaged reader.</p>
+          <p>Results from active publishing and campaigns will guide later changes to content, landing experiences and acquisition decisions.</p>
         </div>
       </details>
 
       <details class="chapter" id="user-behaviour-analysis">
         <summary><span class="chapter-number">08</span><span class="chapter-title">User Behaviour Analysis</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="content-status"><strong>Status: LIVE / ITERATING</strong></p>
-          <p>GA4 explains measurable actions and outcomes, but event data alone does not fully explain <strong>how visitors interact with individual pages or where friction occurs</strong>.</p>
-          <p>Microsoft Clarity and Contentsquare/Hotjar extend the analysis through heatmaps, session recordings, click behavior, scroll behavior and friction signals.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Microsoft Clarity dashboard</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Clarity heatmap</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Representative Clarity session recording view</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Contentsquare/Hotjar heatmap or behavioral view</figcaption></figure></div>
-          <h2>Why multiple behavioral tools?</h2>
-          <p>The overlap is intentional at this stage.</p>
-          <p>Microsoft Clarity and Contentsquare/Hotjar are being evaluated against the same live website to compare their practical usefulness for:</p>
-          <ul><li>heatmaps</li><li>session recordings</li><li>click analysis</li><li>scroll analysis</li><li>friction identification</li><li>CRO hypothesis generation</li></ul>
-          <p>The objective is <strong>not to maintain duplicate platforms indefinitely</strong>. Their usefulness will be assessed as behavioral data accumulates, with the stronger long-term fit retained.</p>
-          <h2>From observation to action</h2>
-          <p>Behavioral findings are intended to complement quantitative analytics:</p>
-          <div class="process-line"><strong>GA4 signal + Behavioral evidence</strong><i>→</i><strong>Observation</strong><i>→</i><strong>Hypothesis</strong><i>→</i><strong>Potential change</strong></div>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>Example behavioral finding with annotation</figcaption></figure></div>
-          <p><strong>ITERATING:</strong> Behavioral data is currently accumulating and will increasingly feed the CRO and experimentation layer.</p>
+          <p class="content-status"><strong>Tools implemented / Analysis developing</strong></p>
+          <h2>Connecting events with page behavior</h2>
+          <p>GA4 provides the quantitative view of actions and outcomes. Microsoft Clarity and Contentsquare/Hotjar add heatmaps, session recordings, click and scroll behavior, and potential signs of friction.</p>
+          <p>The tools are connected to the live site. With traffic still low, the current emphasis is learning how to inspect behavior and building the approach for more substantial analysis as readership grows.</p>
+          <h2>Comparing behavioral tools</h2>
+          <p>I am exploring both Clarity and Contentsquare/Hotjar to understand their practical strengths on the same website: heatmaps, recordings, navigation patterns and usefulness for developing improvement ideas.</p>
+          <p>Experience with both will inform which platform best fits the project over time.</p>
+          <h2>From observation to a possible change</h2>
+          <div class="process-line"><strong>GA4 signal</strong><i aria-hidden="true">+</i><strong>Behavioral observation</strong><i aria-hidden="true">→</i><strong>Hypothesis</strong><i aria-hidden="true">→</i><strong>Possible improvement</strong></div>
+          <p>Areas to investigate include whether readers reach the main content, discover related articles, notice subscription opportunities or encounter problems with forms. These observations will feed the optimization work as enough relevant sessions become available.</p>
         </div>
       </details>
 
       <details class="chapter" id="conversion-optimization-experimentation">
         <summary><span class="chapter-number">09</span><span class="chapter-title">Conversion Optimization &amp; Experimentation</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="content-status"><strong>Status: ROADMAP</strong></p>
-          <p>CRO is deliberately positioned <strong>after measurement, acquisition and behavioral evidence</strong>, rather than starting with arbitrary page changes.</p>
-          <h2>Planned process</h2>
-          <div class="process-line"><strong>Analytics + Behavioral Data</strong><i>→</i><strong>Analysis</strong><i>→</i><strong>Hypothesis</strong><i>→</i><strong>VWO / Convert Experiment Experiment</strong><i>→</i><strong>Measurement</strong><i>→</i><strong>Decision</strong><i>→</i><strong>Implementation</strong><i>→</i><strong>Iteration</strong></div>
-          <p>The first experiments are planned around traffic generated during the upcoming acquisition stage, when sufficient visitor volume and behavioral evidence can support meaningful testing.</p>
-          <h2>Candidate platforms</h2>
-          <p>VWO and Convert are the current experimentation candidates.</p>
-          <p>Their trial periods have intentionally not been activated simply to demonstrate that an A/B testing tool was installed. The objective is to use the experimentation environment when there is an evidence-based hypothesis and enough relevant traffic to evaluate it.</p>
-          <div class="evidence-grid"><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>CRO hypothesis based on GA4/behavioral evidence</figcaption></figure><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>VWO or Convert experiment configuration</figcaption></figure><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>Experiment variants</figcaption></figure><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>Experiment results and decision</figcaption></figure></div>
+          <p class="content-status"><strong>Planned</strong></p>
+          <h2>Connecting analysis to changes</h2>
+          <p>The optimization plan connects acquisition, event measurement and behavioral observations with decisions about the reading and subscription experience.</p>
+          <p>Potential areas include article layouts, related-content navigation, signup placement and campaign landing experiences. Specific changes will be guided by what readers do on the site.</p>
+          <div class="process-line"><strong>Observation</strong><i aria-hidden="true">→</i><strong>Hypothesis</strong><i aria-hidden="true">→</i><strong>Test / change</strong><i aria-hidden="true">→</i><strong>Evaluation</strong><i aria-hidden="true">→</i><strong>Iteration</strong></div>
+          <h2>Experimentation platforms</h2>
+          <p>VWO and Convert are the current candidates for formal experimentation. Their trials have not been activated. The plan is to explore them when a suitable hypothesis and enough relevant traffic make testing useful.</p>
+          <p>At this stage, the project establishes how the existing systems can support future CRO work. Experiment results and subsequent decisions can be added as that work takes place.</p>
         </div>
       </details>
 
       <details class="chapter" id="advanced-analytics-measurement">
         <summary><span class="chapter-number">10</span><span class="chapter-title">Advanced Analytics &amp; Measurement Architecture</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p class="content-status"><strong>Status: LIVE FOUNDATION / ROADMAP</strong></p>
-          <p>The next development stage extends the existing browser-side implementation into deeper event-level analysis and more advanced measurement infrastructure.</p>
-          <h2>BigQuery and SQL</h2>
-          <p><strong>GA4 to BigQuery export: LIVE</strong><br><strong>SQL analysis: ROADMAP</strong></p>
-          <p>GA4 event-level data is already exported to BigQuery, creating the foundation for analyses that are difficult or inappropriate to encode directly into GTM events.</p>
-          <div class="process-line"><strong>GA4</strong><i>→</i><strong>BigQuery</strong><i>→</i><strong>SQL</strong><i>→</i><strong>Derived Metrics</strong><i>→</i><strong>Decisions</strong></div>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>GA4 BigQuery link/configuration</figcaption></figure><figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>BigQuery dataset showing GA4 export tables</figcaption></figure></div>
-          <p>Planned SQL use cases include:</p>
-          <div class="use-case-list"><p><strong>Multi-article sessions</strong><br>Count distinct article pages consumed within individual sessions.</p><p><strong>Returning engaged readers</strong><br>Identify returning users who repeatedly meet the defined engagement criteria.</p><p><strong>Acquisition quality</strong><br>Compare source/medium performance using reading quality rather than session volume alone.</p><p><strong>Engaged readership growth</strong><br>Analyze the development of meaningful readership over time.</p></div>
-          <div class="evidence-grid"><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>First BigQuery SQL query</figcaption></figure><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>SQL output for a derived readership KPI</figcaption></figure></div>
+          <p class="content-status"><strong>BigQuery export implemented / Advanced work planned</strong></p>
+          <h2>From event collection to SQL analysis</h2>
+          <p>GA4 event-level data is already exported to BigQuery. SQL analysis is a planned extension, with the export providing a foundation for questions that go beyond individual event counts.</p>
+          <div class="process-line"><strong>GA4</strong><i aria-hidden="true">→</i><strong>BigQuery</strong><i aria-hidden="true">→</i><strong>SQL analysis</strong><i aria-hidden="true">→</i><strong>Derived measures</strong></div>
+          <p>Planned analyses include multi-article sessions, returning engaged readers, acquisition quality across sources and engaged readership growth over time. AI referral sources can be included where attribution and data volume support a useful comparison.</p>
           <h2>Server-side measurement</h2>
-          <p><strong>ROADMAP</strong></p>
-          <p>Server-side GTM is planned as a later architectural layer, including exploration of Meta Conversions API and the role server-side tagging can play in the wider measurement setup.</p>
-          <p>The implementation will be added after the current client-side architecture and audit are sufficiently mature. This sequencing avoids adding infrastructure complexity before the existing measurement layer has been fully reviewed.</p>
-          <div class="evidence-grid"><figure class="evidence-slot planned-slot diagram-slot"><div><span>Diagram space</span></div><figcaption>Current client-side architecture compared with planned server-side architecture</figcaption></figure><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>GTM server container</figcaption></figure><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>Server-side request inspection</figcaption></figure><figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>Meta Conversions API diagnostics</figcaption></figure></div>
-          <h2>Direction of development</h2>
-          <p>The project is moving progressively from:</p>
-          <div class="process-line"><strong>Collection</strong><i>→</i><strong>Validation</strong><i>→</i><strong>Analysis</strong><i>→</i><strong>Activation</strong><i>→</i><strong>Experimentation</strong><i>→</i><strong>Optimization</strong></div>
-          <p>The advanced layer is therefore an extension of an already functioning measurement system, not a separate technology demonstration.</p>
+          <p>Server-side GTM and Meta Conversions API are planned as later additions to the measurement architecture. This will extend the existing browser-side setup and provide another area for practical implementation and evaluation.</p>
+          <h2>How the project develops</h2>
+          <p>I am building this as an evolving environment for connecting digital marketing and analytics skills: publishing content, improving discovery, acquiring readers, understanding behavior and developing relevant follow-up.</p>
+          <p>The current implementation, ongoing improvements and tool experiments form the starting point. As publishing and acquisition become more active, the page can grow with the analyses, decisions and outcomes that follow.</p>
         </div>
       </details>
     </section>
@@ -364,3 +393,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="case-study.js?v=20261007a"></script>
 </body>
 </html>
+

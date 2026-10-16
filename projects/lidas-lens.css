@@ -1,0 +1,309 @@
+/* Lida's Lens: project-specific copy and architecture.
+   Shared project navigation, themes and live preview remain in case-study.css/js. */
+
+.lidas-lens-page .ll-project-label,
+.lidas-lens-page .ll-kicker {
+  display: block;
+  color: var(--cs-blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .68rem;
+  font-weight: 750;
+  letter-spacing: .045em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.lidas-lens-page .ll-project-label { margin: 0 0 18px; }
+
+.lidas-lens-page .ll-hero-intro {
+  max-width: 56ch;
+  margin: 24px 0 0;
+  color: var(--cs-muted);
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.lidas-lens-page .ll-stage-note {
+  margin: 28px 0;
+  padding: 22px 24px;
+  border-left: 3px solid var(--cs-blue);
+  background: var(--cs-surface);
+}
+
+.lidas-lens-page .ll-stage-note > strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .88rem;
+}
+
+.lidas-lens-page .ll-stage-note p { margin: 0; }
+.lidas-lens-page .scope-list p { grid-template-columns: 132px minmax(0, 1fr); }
+.lidas-lens-page .content-status { max-width: 100%; line-height: 1.5 !important; }
+
+.lidas-lens-page .ll-table-caption {
+  padding: 0 0 14px;
+  color: var(--cs-muted);
+  font-size: .85rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* The diagram is text and CSS, so every label stays selectable,
+   follows the theme and reflows into a single column on narrow screens. */
+.lidas-lens-page .ll-architecture {
+  width: 100%;
+  margin: 28px 0 34px;
+  padding: clamp(18px, 3vw, 30px);
+  border: 2px solid var(--cs-ink);
+  background: var(--cs-bg);
+  font-family: "DM Sans", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.lidas-lens-page .ll-map-heading { margin-bottom: 26px; }
+
+.lidas-lens-page .ll-map-heading h3 {
+  margin: 7px 0 18px;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  letter-spacing: -.04em;
+  line-height: 1.45;
+}
+
+.lidas-lens-page .ll-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lidas-lens-page .ll-legend li { margin: 0; line-height: 1; }
+
+.lidas-lens-page .ll-state {
+  display: inline-block;
+  flex: 0 0 auto;
+  padding: 4px 6px;
+  border: 1px solid currentColor;
+  color: var(--cs-blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: .58rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: .01em;
+}
+
+.lidas-lens-page .ll-developing { color: var(--cs-amber); border-style: dotted; }
+.lidas-lens-page .ll-explored { color: var(--cs-muted); border-style: double; border-width: 3px; padding: 2px 4px; }
+.lidas-lens-page .ll-planned { color: var(--cs-roadmap); border-style: dashed; }
+
+.lidas-lens-page .ll-acquisition,
+.lidas-lens-page .ll-next,
+.lidas-lens-page .ll-review-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.lidas-lens-page .ll-node {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--cs-blue);
+  background: var(--cs-bg);
+}
+
+.lidas-lens-page .ll-node-developing { border: 2px dotted var(--cs-amber); }
+.lidas-lens-page .ll-node-planned { border: 1px dashed var(--cs-roadmap); }
+
+.lidas-lens-page .ll-node-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px 10px;
+  margin-bottom: 12px;
+}
+
+.lidas-lens-page .ll-architecture h4 {
+  margin: 0;
+  color: var(--cs-ink);
+  font-size: .76rem;
+  font-weight: 750;
+  letter-spacing: -.02em;
+  line-height: 1.5;
+}
+
+.lidas-lens-page .ll-node-heading h4 { flex: 1 1 125px; }
+
+.lidas-lens-page .ll-architecture p {
+  margin: 0 0 9px;
+  font-size: .83rem;
+  line-height: 1.65;
+}
+
+.lidas-lens-page .ll-architecture p:last-child { margin-bottom: 0; }
+
+.lidas-lens-page .ll-architecture .ll-node-note {
+  color: var(--cs-muted);
+  font-size: .74rem;
+  line-height: 1.6;
+}
+
+.lidas-lens-page .ll-architecture .ll-path {
+  padding: 9px 0;
+  color: var(--cs-blue);
+  font-weight: 700;
+}
+
+.lidas-lens-page .ll-architecture .ll-future { color: var(--cs-roadmap); }
+
+.lidas-lens-page .ll-connector {
+  padding: 9px 0;
+  color: var(--cs-blue);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.lidas-lens-page .ll-hub {
+  padding: 22px 18px;
+  border: 2px solid var(--cs-blue);
+  background: var(--cs-surface);
+  text-align: center;
+}
+
+.lidas-lens-page .ll-hub h4 { margin: 7px 0; font-size: 1.1rem; }
+
+.lidas-lens-page .ll-branches {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.lidas-lens-page .ll-branch { min-width: 0; }
+
+.lidas-lens-page .ll-architecture .ll-branch-heading {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--cs-line);
+  color: var(--cs-blue);
+}
+
+.lidas-lens-page .ll-control {
+  border-color: var(--cs-line);
+  background: var(--cs-surface);
+}
+
+.lidas-lens-page .ll-gtm { border-width: 2px; }
+
+.lidas-lens-page .ll-architecture .ll-route-label {
+  margin: 15px 0;
+  color: var(--cs-blue);
+  font-size: .7rem;
+  text-align: center;
+}
+
+.lidas-lens-page .ll-route-label::before,
+.lidas-lens-page .ll-route-label::after {
+  display: block;
+  width: 1px;
+  height: 12px;
+  margin: 5px auto;
+  background: var(--cs-blue);
+  content: "";
+}
+
+.lidas-lens-page .ll-destinations {
+  display: grid;
+  gap: 10px;
+}
+
+.lidas-lens-page .ll-destinations .ll-node {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 7px 12px;
+}
+
+.lidas-lens-page .ll-destinations .ll-node-note { grid-column: 1 / -1; }
+
+.lidas-lens-page .ll-form-flow {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lidas-lens-page .ll-form-flow li {
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.lidas-lens-page .ll-form-flow li + li::before {
+  display: block;
+  margin: 7px 0;
+  color: var(--cs-blue);
+  content: "↓";
+}
+
+.lidas-lens-page .ll-architecture .ll-control-note {
+  margin-top: 15px;
+  padding-top: 13px;
+  border-top: 1px solid var(--cs-line);
+  color: var(--cs-blue);
+  font-size: .72rem;
+}
+
+.lidas-lens-page .ll-review {
+  margin-top: 24px;
+  padding: 20px 16px;
+  border-top: 3px double var(--cs-line);
+  border-bottom: 3px double var(--cs-line);
+  background: var(--cs-surface);
+}
+
+.lidas-lens-page .ll-review-columns { margin-bottom: 12px; }
+.lidas-lens-page .ll-review-columns > div { min-width: 0; }
+.lidas-lens-page .ll-review-columns strong { font-size: .8rem; }
+.lidas-lens-page .ll-review-columns p { margin-top: 6px; font-size: .77rem; }
+.lidas-lens-page .ll-next { margin-top: 24px; }
+
+.lidas-lens-page .ll-architecture figcaption {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cs-line);
+  color: var(--cs-muted);
+  font-size: .72rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .lidas-lens-page .scope-list p { grid-template-columns: 1fr; }
+  .lidas-lens-page .ll-stage-note { padding: 18px; }
+  .lidas-lens-page .ll-branches { grid-template-columns: minmax(0, 1fr); }
+  .lidas-lens-page .ll-acquisition,
+  .lidas-lens-page .ll-next,
+  .lidas-lens-page .ll-review-columns { grid-template-columns: minmax(0, 1fr); }
+  .lidas-lens-page .ll-node { padding: 14px; }
+}
+
+/* The shared live-site preview narrows the page on desktop. */
+@media (min-width: 1100px) {
+  .lidas-lens-page.live-preview-open .hero-shell,
+  .lidas-lens-page.live-preview-open .chapter-list { width: calc(100% - 40px); }
+  .lidas-lens-page.live-preview-open .chapter-content { padding-inline: 4px; }
+  .lidas-lens-page.live-preview-open .ll-branches,
+  .lidas-lens-page.live-preview-open .ll-acquisition,
+  .lidas-lens-page.live-preview-open .ll-next,
+  .lidas-lens-page.live-preview-open .ll-review-columns { grid-template-columns: minmax(0, 1fr); }
+  .lidas-lens-page.live-preview-open .scope-list p { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+}
+
