@@ -40,6 +40,134 @@ if (themeToggle) {
 
 updateThemeButton();
 
+/* The long Lida's Lens page provides a shortcut back to the top. */
+const backToTop = document.querySelector('.back-to-top');
+
+if (backToTop) {
+  const chapterList = document.querySelector('.chapter-list');
+  const chapters = Array.from(chapterList.querySelectorAll('.chapter'));
+  const main = chapterList.closest('main');
+  let backToTopFrame = null;
+
+  function updateBackToTop() {
+    if (window.scrollY <= 400) {
+      backToTop.hidden = true;
+      return;
+    }
+
+    const lastChapter = chapters.filter((chapter) => chapter.open).pop() || chapters[chapters.length - 1];
+    const chapterBounds = lastChapter.getBoundingClientRect();
+    const listBounds = chapterList.getBoundingClientRect();
+    const contentRight = Math.min(window.innerWidth, main.getBoundingClientRect().right);
+
+    backToTop.hidden = false;
+
+    const { width, height } = backToTop.getBoundingClientRect();
+    const top = Math.min(window.innerHeight - height - 24, chapterBounds.bottom - height - 16);
+    const left = Math.max(16, Math.min(listBounds.right + 20, contentRight - width - 32));
+
+    backToTop.style.top = `${top}px`;
+    backToTop.style.left = `${left}px`;
+    backToTop.hidden = top < 90;
+  }
+
+  function scheduleBackToTop() {
+    if (backToTopFrame !== null) return;
+
+    backToTopFrame = window.requestAnimationFrame(() => {
+      backToTopFrame = null;
+      updateBackToTop();
+    });
+  }
+
+  window.addEventListener('scroll', scheduleBackToTop, { passive: true });
+  window.addEventListener('resize', scheduleBackToTop);
+  window.addEventListener('load', scheduleBackToTop, { once: true });
+  chapters.forEach((chapter) => chapter.addEventListener('toggle', scheduleBackToTop));
+
+  const chapterResize = new ResizeObserver(scheduleBackToTop);
+  chapterResize.observe(chapterList);
+  updateBackToTop();
+
+  backToTop.addEventListener('click', () => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    history.replaceState(history.state, '', window.location.pathname + window.location.search);
+    document.querySelector('.nav-logo').focus({ preventScroll: true });
+    window.scrollTo({ top: 0, behavior: reducedMotion ? 'instant' : 'smooth' });
+  });
+}
+
+/* Each accordion has a permanent link. Native summary activation still
+   toggles it; opening a chapter also makes the address bar shareable. */
+(() => {
+  document.querySelectorAll('details.chapter[id]').forEach((chapter) => {
+    const summary = chapter.querySelector('summary');
+    const link = summary.querySelector('.chapter-link');
+
+    link.addEventListener('click', (event) => {
+      if (
+        event.defaultPrevented || event.button > 0 || event.ctrlKey ||
+        event.metaKey || event.shiftKey || event.altKey
+      ) {
+        return;
+      }
+
+      // Clicking the current fragment does not fire another hashchange.
+      if (window.location.hash === link.hash) openLinkedChapter();
+    });
+
+    summary.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.target.closest('a') || chapter.open) {
+        return;
+      }
+
+      history.replaceState(history.state, '', `#${encodeURIComponent(chapter.id)}`);
+    });
+  });
+
+  function openLinkedChapter() {
+    let id;
+
+    try {
+      id = decodeURIComponent(window.location.hash.slice(1));
+    } catch {
+      return;
+    }
+
+    if (!id) return;
+
+    const chapter = document.getElementById(id);
+
+    if (!chapter || !chapter.matches('details.chapter')) return;
+
+    chapter.open = true;
+    chapter.querySelector('summary').focus({ preventScroll: true });
+    window.requestAnimationFrame(() => {
+      chapter.scrollIntoView({ block: 'start' });
+    });
+  }
+
+  window.addEventListener('hashchange', openLinkedChapter);
+  openLinkedChapter();
+})();
+
+/* Screenshot paths are ready in the HTML. Keep each placeholder until its
+   image loads, including when a file has not been added yet. */
+document.querySelectorAll('.evidence-slot > div > img').forEach((image) => {
+  const slot = image.closest('.evidence-slot');
+
+  function updateScreenshot() {
+    const loaded = image.complete && image.naturalWidth > 0;
+    slot.classList.toggle('has-image', loaded);
+    image.setAttribute('aria-hidden', String(!loaded));
+  }
+
+  image.addEventListener('load', updateScreenshot);
+  image.addEventListener('error', updateScreenshot);
+  updateScreenshot();
+});
+
 /* Open a project's live links in a shared preview popup. */
 (() => {
   if (!document.body.classList.contains('case-page')) return;

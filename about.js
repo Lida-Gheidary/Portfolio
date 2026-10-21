@@ -102,3 +102,56 @@
     if (portrait.complete && !portrait.naturalWidth) hideMissingPortrait();
   }
 })();
+
+/* Accordion links match the project pages and open shared sections. */
+(() => {
+  document.querySelectorAll('details.chapter[id]').forEach((chapter) => {
+    const summary = chapter.querySelector('summary');
+    const link = summary?.querySelector('.chapter-link');
+    if (!link) return;
+
+    link.addEventListener('click', (event) => {
+      if (
+        event.defaultPrevented || event.button > 0 || event.ctrlKey ||
+        event.metaKey || event.shiftKey || event.altKey
+      ) {
+        return;
+      }
+
+      // A link to the current fragment still needs to reopen its section.
+      if (window.location.hash === link.hash) openLinkedChapter();
+    });
+
+    summary.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.target.closest('a') || chapter.open) {
+        return;
+      }
+
+      history.replaceState(history.state, '', `#${encodeURIComponent(chapter.id)}`);
+    });
+  });
+
+  function openLinkedChapter() {
+    let id;
+
+    try {
+      id = decodeURIComponent(window.location.hash.slice(1));
+    } catch {
+      return;
+    }
+
+    if (!id) return;
+
+    const chapter = document.getElementById(id);
+    if (!chapter || !chapter.matches('details.chapter')) return;
+
+    chapter.open = true;
+    chapter.querySelector('summary').focus({ preventScroll: true });
+    window.requestAnimationFrame(() => {
+      chapter.scrollIntoView({ block: 'start' });
+    });
+  }
+
+  window.addEventListener('hashchange', openLinkedChapter);
+  openLinkedChapter();
+})();

@@ -157,11 +157,14 @@
   margin: clamp(44px, 6vw, 68px) auto 0;
   padding: 0;
 }
-.about-page .chapter { border-top: 1px solid var(--cs-ink); }
+.about-page .chapter {
+  border-top: 1px solid var(--cs-ink);
+  scroll-margin-top: 90px;
+}
 .about-page .chapter:last-child { border-bottom: 1px solid var(--cs-ink); }
 .about-page .chapter summary {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 34px;
+  grid-template-columns: minmax(0, 1fr) 32px 34px;
   align-items: center;
   gap: 20px;
   min-height: 76px;
@@ -190,6 +193,22 @@
   letter-spacing: -.04em;
   line-height: 1.35;
 }
+.about-page .chapter-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 36px;
+  color: var(--text-muted) !important;
+  border-radius: 3px;
+}
+.about-page .chapter-link:hover,
+.about-page .chapter-link:focus-visible { color: var(--cs-blue) !important; }
+.about-page .chapter-link:focus-visible {
+  outline: 3px solid var(--cs-amber);
+  outline-offset: 2px;
+}
+.about-page .chapter-link svg { width: 18px; height: 18px; }
 .about-page .chapter-plus { position: relative; width: 22px; height: 22px; }
 .about-page .chapter-plus::before,
 .about-page .chapter-plus::after {
@@ -413,6 +432,7 @@
   .about-page .education-entries { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 380px) {
+  .about-page .chapter summary { grid-template-columns: minmax(0, 1fr) 32px 28px; gap: 11px; }
   .about-page .training-item { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .about-page .skills-panel { padding-inline: 16px; }
 }

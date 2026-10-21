@@ -10,6 +10,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../img/LGFavicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A practice project in calling a public API with asynchronous JavaScript, browsing NASA’s Astronomy Picture of the Day archive.">
   <title>NASA Archive Explorer | Lida Gheidary</title>
@@ -18,7 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     if (savedTheme === 'dark' || savedTheme === 'light') document.documentElement.dataset.theme = savedTheme;
   </script>
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="case-study.css?v=20260912a">
+  <link rel="stylesheet" href="case-study.css?v=20261016b">
 </head>
 
 <body class="case-page">
@@ -60,7 +61,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h1>NASA Archive Explorer <span>Calling a public API with asynchronous JavaScript</span></h1>
             <div class="hero-links">
               <a class="text-link" href="https://lida-gheidary.github.io/AstronomyPicture/" target="_blank" rel="noopener noreferrer">Open the live page <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="https://github.com/Lida-Gheidary/AstronomyPicture" target="_blank" rel="noopener noreferrer">On GitHub <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="https://github.com/Lida-Gheidary/AstronomyPicture" target="_blank" rel="noopener noreferrer">View the code on GitHub <span aria-hidden="true">↗</span></a>
             </div>
             <p class="hero-note">Pick any date since 16 June 1995 and the page returns what NASA published that day.</p>
           </div>
@@ -75,7 +76,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="chapter-list" aria-label="Case study chapters">
 
       <details class="chapter" id="overview">
-        <summary><span class="chapter-number">01</span><span class="chapter-title">Overview</span><span class="chapter-plus" aria-hidden="true"></span></summary>
+        <summary><span class="chapter-number">01</span><span class="chapter-title">Overview</span><a class="chapter-link" href="#overview" aria-label="Link to Overview" title="Link to this section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
           <p class="content-status"><strong>Status: COMPLETE / DEPLOYED</strong></p>
           <div class="scope-list">
@@ -91,15 +92,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div><span>API key</span><strong>None</strong><p>The endpoint is public</p></div>
           </div>
 
-          <div class="evidence-grid">
-            <figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>The page as it loads, showing today's picture</figcaption></figure>
-            <figure class="evidence-slot"><div><span>Screenshot</span></div><figcaption>An older date selected through the date picker</figcaption></figure>
-          </div>
         </div>
       </details>
 
       <details class="chapter" id="what-it-does">
-        <summary><span class="chapter-number">02</span><span class="chapter-title">What It Does</span><span class="chapter-plus" aria-hidden="true"></span></summary>
+        <summary><span class="chapter-number">02</span><span class="chapter-title">What It Does</span><a class="chapter-link" href="#what-it-does" aria-label="Link to What It Does" title="Link to this section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
           <p class="content-status"><strong>Status: COMPLETE</strong></p>
           <div class="scope-list">
@@ -111,16 +108,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p><strong>DISPLAY:</strong> Image days render as an image and video days in an embedded player. Clicking the image opens it full size, with keyboard support.</p>
           </div>
 
-          <div class="evidence-grid">
-            <figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>The date picker and Explore button</figcaption></figure>
-            <figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>A message shown when a date returns nothing</figcaption></figure>
-            <figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>An image opened full size</figcaption></figure>
-          </div>
         </div>
       </details>
 
       <details class="chapter" id="how-it-was-built">
-        <summary><span class="chapter-number">03</span><span class="chapter-title">How It Was Built</span><span class="chapter-plus" aria-hidden="true"></span></summary>
+        <summary><span class="chapter-number">03</span><span class="chapter-title">How It Was Built</span><a class="chapter-link" href="#how-it-was-built" aria-label="Link to How It Was Built" title="Link to this section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
           <p class="content-status"><strong>Status: AI-ASSISTED / REBUILT AFTER API MIGRATION</strong></p>
           <div class="scope-list">
@@ -132,9 +124,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h2>Iterative development</h2>
           <div class="process-line"><strong>Describe</strong><i>→</i><strong>Generate</strong><i>→</i><strong>Run in browser</strong><i>→</i><strong>Review</strong><i>→</i><strong>Refine</strong></div>
 
-          <div class="evidence-grid">
-            <figure class="evidence-slot planned-slot"><div><span>Screenshot placeholder</span></div><figcaption>The rewritten fetch function</figcaption></figure>
-          </div>
         </div>
       </details>
 
@@ -150,6 +139,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <footer class="site-footer"><p>© 2025–2026 Lida Gheidary</p><p>Built with HTML, CSS &amp; GitHub Pages</p></footer>
-  <script src="case-study.js?v=20260912a"></script>
+  <script src="case-study.js?v=20261016b"></script>
 </body>
 </html>

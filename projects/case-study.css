@@ -233,12 +233,15 @@
   padding-bottom: 112px;
 }
 
-.chapter { border-top: 1px solid var(--cs-ink); }
+.chapter {
+  border-top: 1px solid var(--cs-ink);
+  scroll-margin-top: 90px;
+}
 .chapter:last-child { border-bottom: 1px solid var(--cs-ink); }
 
 .chapter summary {
   display: grid;
-  grid-template-columns: 66px minmax(0, 1fr) 34px;
+  grid-template-columns: 66px minmax(0, 1fr) 32px 34px;
   align-items: center;
   gap: 20px;
   min-height: 76px;
@@ -278,6 +281,29 @@
   font-weight: 700;
   letter-spacing: -.04em;
   line-height: 1.25;
+}
+
+.chapter-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 36px;
+  color: var(--cs-muted) !important;
+  border-radius: 3px;
+}
+
+.chapter-link:hover,
+.chapter-link:focus-visible { color: var(--cs-blue) !important; }
+
+.chapter-link:focus-visible {
+  outline: 3px solid var(--cs-amber);
+  outline-offset: 2px;
+}
+
+.chapter-link svg {
+  width: 18px;
+  height: 18px;
 }
 
 .chapter-plus {
@@ -395,6 +421,12 @@
   color: var(--cs-blue);
   font-family: "JetBrains Mono", monospace;
 }
+
+.status-list p {
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+}
+
+.status-list strong { white-space: nowrap; }
 
 
 /* Arrow chains */
@@ -611,6 +643,7 @@
 }
 
 .evidence-slot > div {
+  position: relative;
   display: grid;
   min-height: 190px;
   place-items: center;
@@ -629,6 +662,30 @@
   font-size: .82rem;
   font-weight: 650;
 }
+
+/* Keep the placeholder visible while a screenshot is missing or loading.
+   Invisible images still have a position, so native lazy loading can run. */
+.evidence-slot > div > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+}
+
+.evidence-slot.has-image > div {
+  min-height: 0;
+  background: none;
+}
+
+.evidence-slot.has-image > div > img {
+  position: static;
+  opacity: 1;
+}
+
+.evidence-slot.has-image > div > span { display: none; }
 
 .evidence-slot > img {
   display: block;
@@ -1114,7 +1171,7 @@
   .chapter-list { padding-top: 52px; padding-bottom: 80px; }
 
   .chapter summary {
-    grid-template-columns: 42px minmax(0, 1fr) 28px;
+    grid-template-columns: 42px minmax(0, 1fr) 32px 28px;
     gap: 11px;
     min-height: 70px;
   }
@@ -1415,4 +1472,41 @@
     height: calc(100vh - 16px);
     height: calc(100dvh - 16px);
   }
+}
+
+/* Back-to-top control, included only on the Lida's Lens page. */
+.case-page .back-to-top {
+  position: fixed;
+  z-index: 110;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--cs-ink);
+  box-shadow: none;
+  appearance: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.case-page .back-to-top[hidden] { display: none; }
+
+.case-page .back-to-top:hover {
+  color: var(--cs-blue);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.case-page .back-to-top:focus-visible {
+  outline: 3px solid var(--cs-amber);
+  outline-offset: 3px;
 }
