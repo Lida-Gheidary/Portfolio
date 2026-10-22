@@ -20,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     if (savedTheme === 'dark' || savedTheme === 'light') document.documentElement.dataset.theme = savedTheme;
   </script>
   <link rel="stylesheet" href="../style.css?v=20261007a">
-  <link rel="stylesheet" href="case-study.css?v=20261017a">
+  <link rel="stylesheet" href="case-study.css?v=20261022e">
 </head>
 
 <body class="case-page">
@@ -197,16 +197,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="content-status"><strong>Status: LIVE</strong></p>
           <h2>Initial implementation</h2>
           <p>Google <strong>Advanced Consent Mode v2</strong> was initially implemented with the free version of Complianz, using GTM Custom HTML consent-update logic triggered by Complianz consent events.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-complianz-consent-tag.png" alt="GTM consent-update tag and Complianz event triggers" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GTM consent-update tag and Complianz event triggers</figcaption></figure></div>
-          <h2>Issue identified</h2>
+          <h2 class="compact-heading">Issue identified</h2>
           <p>Multiple GTM Preview/Tag Assistant and browser-level validation sessions revealed that the relevant Complianz events, notably <code>cmplz_event_marketing</code> and <code>cmplz_event_statistics</code>, were triggering the same consent-update logic, resulting in both <code>ad_storage</code> and <code>analytics_storage</code> being granted rather than maintaining the intended distinction between advertising and analytics consent.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-complianz-preview-events.png" alt="GTM Preview showing the relevant Complianz events" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GTM Preview showing the relevant Complianz events</figcaption></figure></div>
+          <div class="evidence-grid"><figure class="evidence-slot" data-enlarge="false"><div><img src="img/ComplianzIssue.png" alt="GTM Preview showing the relevant Complianz events" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GTM Preview showing the relevant Complianz events</figcaption></figure></div>
           <h2>Solution</h2>
           <p>Migrated the consent implementation to <strong>CookieYes CMP</strong>. Retaining the Complianz banner while implementing Consent Mode separately through Simo Ahava's GTM template was also explored, but CookieYes provided the cleaner architecture for this implementation.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-cookieyes-categories.png" alt="CookieYes category configuration" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>CookieYes category configuration</figcaption></figure><figure class="evidence-slot"><div><img src="img/lidas-lens-consent-mode-v2.png" alt="Tag Assistant showing validated Advanced Consent Mode v2 states" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Tag Assistant showing validated Advanced Consent Mode v2 states</figcaption></figure></div>
+          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/CookieYesGranularConsent.png" alt="Tag Assistant showing validated Advanced Consent Mode v2 states" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Tag Assistant showing validated Advanced Consent Mode v2 states</figcaption></figure></div>
           <h2>HubSpot consent handling</h2>
           <p>The migration resolved the Google-tag side of the architecture, but <strong>HubSpot required separate consent handling</strong>. Custom bridge logic was added to the website header so that HubSpot behavior follows the site's consent choices.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-hubspot-consent-code.png" alt="Sanitized HubSpot consent bridge code" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Sanitized HubSpot consent bridge code</figcaption></figure></div>
+          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/HubSpotCompliant.png" alt="Sanitized HubSpot consent bridge code" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Sanitized HubSpot consent bridge code</figcaption></figure></div>
           <h2>Result</h2>
           <p>The final setup retains <strong>Google Advanced Consent Mode v2</strong> while coordinating consent-aware behavior across Google analytics/advertising tags and HubSpot.</p>
         </div>
@@ -219,17 +218,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h2>Centralized deployment</h2>
           <p>Google Tag Manager is the central deployment layer for most browser-side analytics and marketing technologies.</p>
           <p>This keeps measurement logic centralized and reduces dependence on separate WordPress plugins. Plugins are used selectively where they serve a specific platform function, particularly HubSpot and CookieYes.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-gtm-tags.png" alt="GTM container overview showing tags" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GTM container overview showing tags</figcaption></figure><figure class="evidence-slot"><div><img src="img/lidas-lens-gtm-triggers-and-variables.png" alt="GTM triggers and variables" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GTM triggers and variables</figcaption></figure></div>
+          <div class="evidence-grid">
+            <figure class="evidence-slot">
+              <div>
+                <img src="img/lidas-lens-gtm-workspace.png" alt="GTM container overview showing tags" loading="lazy" decoding="async" aria-hidden="true">
+                <span>Screenshot</span>
+              </div>
+              <figcaption>GTM container overview showing tags</figcaption>
+            </figure>
+            <figure class="evidence-slot">
+              <div>
+                <img src="img/GTMTriggers.png" alt="GTM triggers and variables" loading="lazy" decoding="async" aria-hidden="true">
+                <span>Screenshot</span>
+              </div>
+              <figcaption>GTM triggers and variables</figcaption>
+            </figure>
+          </div>
           <h2>Custom page-context dataLayer</h2>
           <p>A custom dataLayer provides structured page and article context to the measurement layer, including information such as author, post slug and other content-level attributes.</p>
           <p>This allows the same structured context to be reused across tags and events instead of repeatedly extracting information from the page.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-page-context-datalayer.png" alt="Browser console showing page-context dataLayer" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Browser console showing page-context dataLayer</figcaption></figure></div>
+          <div class="evidence-grid">
+            <figure class="evidence-slot">
+              <div>
+                <img src="img/PageContextDataLayer.png" alt="Browser console showing page-context dataLayer" loading="lazy" decoding="async" aria-hidden="true">
+                <span>Screenshot</span>
+              </div>
+              <figcaption>Browser console showing page-context dataLayer</figcaption>
+            </figure>
+          </div>
           <h2>GA4 event architecture</h2>
           <p>GA4 receives both standard measurement and custom behavioral events through GTM. Event design focuses on actions that represent meaningful observable behavior, while more complex KPIs are derived analytically where appropriate.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-ga4-event-parameters.png" alt="Event parameters attached to a selected event" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Event parameters attached to a selected event</figcaption></figure><figure class="evidence-slot"><div><img src="img/lidas-lens-ga4-event-debugview.png" alt="GA4 DebugView showing the event arriving" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GA4 DebugView showing the event arriving</figcaption></figure></div>
+          <div class="evidence-grid">
+            <figure class="evidence-slot">
+              <div>
+                <img src="img/GA4DebugView.png" alt="GA4 DebugView showing the event arriving" loading="lazy" decoding="async" aria-hidden="true">
+                <span>Screenshot</span>
+              </div>
+              <figcaption>GA4 DebugView showing the event arriving</figcaption>
+            </figure>
+          </div>
           <h2>Supporting platforms</h2>
           <p>The browser-side measurement layer also supports Meta Pixel and behavioral-analysis platforms including Microsoft Clarity and Contentsquare/Hotjar.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-multi-platform-tags.png" alt="GTM showing GA4, Meta and behavioral tags within the same container" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GTM showing GA4, Meta and behavioral tags within the same container</figcaption></figure></div>
+          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-multi-platform-tags.png" alt="GTM showing GA4, Meta and behavioral tags within the same container" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>GTM showing GA4, Meta and behavioral tags within the same container</figcaption></figure></div>
           <p><strong>ITERATING:</strong> A formal GTM and dataLayer audit is part of the current development stage, covering naming, trigger logic, event parameters, duplication risk and overall maintainability.</p>
         </div>
       </details>
@@ -260,13 +290,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Website forms are connected to HubSpot CRM through a webhook and Make automation.</p>
           <div class="process-line"><strong>Website Form</strong><i>→</i><strong>Webhook</strong><i>→</i><strong>Make</strong><i>→</i><strong>HubSpot CRM</strong></div>
           <p>This architecture currently supports newsletter acquisition and contact submissions while providing the foundation for later segmentation and lifecycle automation.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-newsletter-form.png" alt="Website newsletter/signup form" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Website newsletter/signup form</figcaption></figure><figure class="evidence-slot"><div><img src="img/lidas-lens-make-hubspot-scenario.png" alt="Make scenario showing the webhook to HubSpot flow" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Make scenario showing the webhook to HubSpot flow</figcaption></figure><figure class="evidence-slot"><div><img src="img/lidas-lens-hubspot-created-contact.png" alt="Sanitized HubSpot contact created through the automation" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Sanitized HubSpot contact created through the automation</figcaption></figure></div>
+          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-newsletter-form.png" alt="Website newsletter/signup form" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>Website newsletter/signup form</figcaption></figure><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-make-hubspot-scenario.png" alt="Make scenario showing the webhook to HubSpot flow" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>Make scenario showing the webhook to HubSpot flow</figcaption></figure><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-hubspot-created-contact.png" alt="Sanitized HubSpot contact created through the automation" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>Sanitized HubSpot contact created through the automation</figcaption></figure></div>
           <h2>Conversion distinction</h2>
           <p>Newsletter subscriptions and contact submissions are deliberately measured separately.</p>
           <div class="definition-pair"><p><strong>Newsletter signup:</strong> <code>generate_lead</code><br>Represents audience growth and the beginning of an owned relationship.</p><p><strong>Contact submission:</strong> <code>contact_submit</code><br>Represents a direct inquiry and a different level of intent.</p></div>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-generate-lead-event.png" alt="GTM or GA4 generate_lead implementation" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GTM or GA4 generate_lead implementation</figcaption></figure><figure class="evidence-slot"><div><img src="img/lidas-lens-contact-submit-event.png" alt="GTM or GA4 contact_submit implementation" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GTM or GA4 contact_submit implementation</figcaption></figure></div>
+          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-generate-lead-event.png" alt="GTM or GA4 generate_lead implementation" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>GTM or GA4 generate_lead implementation</figcaption></figure><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-contact-submit-event.png" alt="GTM or GA4 contact_submit implementation" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>GTM or GA4 contact_submit implementation</figcaption></figure></div>
           <p>A content-interest field is also collected to support future CRM segmentation.</p>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-hubspot-content-interest.png" alt="Sanitized HubSpot property or contact record showing content interest" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Sanitized HubSpot property or contact record showing content interest</figcaption></figure></div>
+          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-hubspot-content-interest.png" alt="Sanitized HubSpot property or contact record showing content interest" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>Sanitized HubSpot property or contact record showing content interest</figcaption></figure></div>
           <h2>Next activation layer</h2>
           <p><strong>ROADMAP</strong></p>
           <div class="process-line"><strong>HubSpot CRM</strong><i>→</i><strong>Segmentation</strong><i>→</i><strong>HubSpot Workflows</strong><i>→</i><strong>Email Lifecycle</strong><i>→</i><strong>Engagement Analysis</strong></div>
@@ -283,7 +313,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Google Search Console, GA4 and Rank Math support the current organic-search layer.</p>
           <p>Search Console measures how content develops visibility in Google Search, while GA4 provides the post-click behavioral layer needed to determine whether those visitors become meaningful readers.</p>
           <div class="process-line"><strong>Search Visibility</strong><i>→</i><strong>Organic Click</strong><i>→</i><strong>Article Engagement</strong><i>→</i><strong>Deeper Consumption</strong><i>→</i><strong>Return</strong></div>
-          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/lidas-lens-ga4-organic-traffic.png" alt="GA4 organic traffic and engagement view" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>GA4 organic traffic and engagement view</figcaption></figure></div>
+          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-ga4-organic-traffic.png" alt="GA4 organic traffic and engagement view" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>GA4 organic traffic and engagement view</figcaption></figure></div>
           <p>Measures include search impressions, clicks, CTR, article/query position movement, organic engagement and the proportion of published content beginning to gain search visibility.</p>
           <p>Because the website and its content library are still developing, performance is interpreted in context rather than presenting raw cumulative totals as standalone success metrics.</p>
           <h2>Meta acquisition</h2>
@@ -382,6 +412,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 12 6-6 6 6M12 6v12"></path></svg>
     Back to top
   </button>
-  <script src="case-study.js?v=20261017a"></script>
+  <script src="case-study.js?v=20261022d"></script>
 </body>
 </html>

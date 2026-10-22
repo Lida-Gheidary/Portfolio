@@ -104,6 +104,7 @@ if (backToTop) {
   document.querySelectorAll('details.chapter[id]').forEach((chapter) => {
     const summary = chapter.querySelector('summary');
     const link = summary.querySelector('.chapter-link');
+    if (!link) return;
 
     link.addEventListener('click', (event) => {
       if (
@@ -152,21 +153,151 @@ if (backToTop) {
   openLinkedChapter();
 })();
 
-/* Screenshot paths are ready in the HTML. Keep each placeholder until its
-   image loads, including when a file has not been added yet. */
-document.querySelectorAll('.evidence-slot > div > img').forEach((image) => {
-  const slot = image.closest('.evidence-slot');
+/* Loaded screenshots can be enlarged without leaving the case study. */
+(() => {
+  const images = document.querySelectorAll('.evidence-slot > div > img');
+  if (!images.length) return;
 
-  function updateScreenshot() {
-    const loaded = image.complete && image.naturalWidth > 0;
-    slot.classList.toggle('has-image', loaded);
-    image.setAttribute('aria-hidden', String(!loaded));
+  const viewer = createScreenshotViewer();
+
+  images.forEach((image) => {
+    const slot = image.closest('.evidence-slot');
+    const captionElement = slot.querySelector('figcaption');
+    const caption = (
+      captionElement?.textContent || image.alt || 'Screenshot'
+    ).trim().replace(/\s+/g, ' ');
+    if (captionElement) {
+      const captionText = document.createElement('span');
+      captionText.className = 'evidence-caption-text';
+      captionText.textContent = caption;
+      captionElement.replaceChildren(captionText);
+    }
+    let link = null;
+    if (slot.dataset.enlarge !== 'false') {
+      link = document.createElement('a');
+      const label = document.createElement('span');
+
+      link.className = 'evidence-enlarge';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.setAttribute('aria-label', `Enlarge screenshot: ${caption}`);
+      label.textContent = 'Click to enlarge';
+      label.setAttribute('aria-hidden', 'true');
+      link.append(label);
+      (captionElement || slot).append(link);
+
+      if (viewer) {
+        link.setAttribute('aria-haspopup', 'dialog');
+        link.setAttribute('aria-controls', viewer.id);
+        link.addEventListener('click', (event) => {
+          if (
+            event.defaultPrevented || event.button > 0 || event.ctrlKey ||
+            event.metaKey || event.shiftKey || event.altKey
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+          viewer.open(image.currentSrc || image.src, caption, link);
+        });
+      }
+    }
+
+    function updateScreenshot() {
+      const loaded = image.complete && image.naturalWidth > 0;
+      slot.classList.toggle('has-image', loaded);
+      image.setAttribute('aria-hidden', String(!loaded));
+      if (link) {
+        link.hidden = !loaded;
+        link.href = image.currentSrc || image.src;
+      }
+    }
+
+    image.addEventListener('load', updateScreenshot);
+    image.addEventListener('error', updateScreenshot);
+    updateScreenshot();
+  });
+
+  function createScreenshotViewer() {
+    const dialog = document.createElement('dialog');
+    if (typeof dialog.showModal !== 'function') return null;
+
+    dialog.className = 'screenshot-viewer';
+    dialog.id = 'screenshot-viewer';
+    dialog.setAttribute('aria-labelledby', 'screenshot-viewer-title');
+    dialog.innerHTML = `
+      <header class="screenshot-viewer-header">
+        <h2 id="screenshot-viewer-title"></h2>
+        <button type="button" class="screenshot-viewer-close" autofocus>Close ×</button>
+      </header>
+      <div class="screenshot-viewer-tools">
+        <button type="button" class="screenshot-viewer-size">View actual size</button>
+        <a class="screenshot-viewer-original" target="_blank" rel="noopener noreferrer">Open original image ↗</a>
+      </div>
+      <div class="screenshot-viewer-stage">
+        <img class="screenshot-viewer-image" alt="">
+      </div>
+    `;
+    document.body.append(dialog);
+
+    const title = dialog.querySelector('#screenshot-viewer-title');
+    const stage = dialog.querySelector('.screenshot-viewer-stage');
+    const largeImage = dialog.querySelector('.screenshot-viewer-image');
+    const originalLink = dialog.querySelector('.screenshot-viewer-original');
+    const sizeButton = dialog.querySelector('.screenshot-viewer-size');
+    let opener = null;
+
+    dialog.querySelector('.screenshot-viewer-close').addEventListener('click', () => dialog.close());
+
+    sizeButton.addEventListener('click', () => {
+      const actualSize = stage.classList.toggle('is-actual-size');
+      sizeButton.textContent = actualSize ? 'Fit to width' : 'View actual size';
+      stage.scrollTop = 0;
+      stage.scrollLeft = 0;
+    });
+
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      event.stopPropagation();
+      dialog.close();
+    });
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const bounds = dialog.getBoundingClientRect();
+      if (
+        event.clientX < bounds.left || event.clientX > bounds.right ||
+        event.clientY < bounds.top || event.clientY > bounds.bottom
+      ) {
+        dialog.close();
+      }
+    });
+
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('screenshot-viewer-open');
+      largeImage.removeAttribute('src');
+      if (opener?.isConnected) opener.focus({ preventScroll: true });
+    });
+
+    return {
+      id: dialog.id,
+      open(source, caption, trigger) {
+        opener = trigger;
+        title.textContent = caption;
+        largeImage.alt = caption;
+        largeImage.src = source;
+        originalLink.href = source;
+        stage.classList.remove('is-actual-size');
+        sizeButton.textContent = 'View actual size';
+        document.body.classList.add('screenshot-viewer-open');
+        if (!dialog.open) dialog.showModal();
+        stage.scrollTop = 0;
+        stage.scrollLeft = 0;
+      },
+    };
   }
-
-  image.addEventListener('load', updateScreenshot);
-  image.addEventListener('error', updateScreenshot);
-  updateScreenshot();
-});
+})();
 
 /* Open a project's live links in a shared preview popup. */
 (() => {
