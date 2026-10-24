@@ -245,7 +245,6 @@
 /* A common boundary makes qualifications and courses easy to scan. */
 .about-page .education-entry,
 .about-page .certificate-card,
-.about-page .training-item,
 .about-page .skills-panel {
   min-width: 0;
   border: 1px solid var(--about-card-border);
@@ -253,11 +252,9 @@
   background: var(--about-card-bg);
   box-shadow: var(--about-card-shadow);
 }
-.about-page .education-copy,
-.about-page .training-item > div { min-width: 0; }
+.about-page .education-copy { min-width: 0; }
 .about-page .education-copy h4,
-.about-page .certificate-card h3,
-.about-page .training-item h3 {
+.about-page .certificate-card h3 {
   margin: 0 0 10px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 1.0625rem;
@@ -394,19 +391,6 @@
 .about-page .skill-name { min-width: 0; max-width: 24ch; font-size: .875rem; line-height: 1.4; overflow-wrap: anywhere; }
 .about-page .skill-group-note { margin: 0; color: var(--text-muted); font-size: .8125rem; line-height: 1.5; }
 
-/* Training: small cards using the same surface and spacing. */
-.about-page .training-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
-.about-page .training-item {
-  display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
-  align-items: center;
-  gap: 18px;
-  padding: 20px;
-}
-.about-page .training-logo { display: flex; align-items: center; justify-content: center; width: 72px; height: 64px; }
-.about-page .training-logo img { display: block; width: 72px; height: 48px; object-fit: contain; }
-.about-page .training-item h3 { font-size: 1rem; margin-bottom: 6px; }
-.about-page .training-item p { margin: 0; font-size: .875rem; color: var(--text-muted); }
 .about-page [hidden] { display: none !important; }
 
 /* Preserve the introduction and the site's shared About title styling. */
@@ -422,7 +406,6 @@
   .about-page .skill-group-note { grid-column: 2; grid-row: 2; }
 }
 @media (min-width: 820px) {
-  .about-page .training-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-page .about-grid { grid-template-columns: minmax(0, 1fr) 240px; }
 }
 @media (min-width: 1000px) {
@@ -433,7 +416,6 @@
 }
 @media (max-width: 380px) {
   .about-page .chapter summary { grid-template-columns: minmax(0, 1fr) 32px 28px; gap: 11px; }
-  .about-page .training-item { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .about-page .skills-panel { padding-inline: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {

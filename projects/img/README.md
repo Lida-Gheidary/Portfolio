@@ -10,7 +10,6 @@ Images keep their original proportions and resize to fit the page. Descriptions 
 By default, loaded screenshots show a "Click to enlarge" link below the image, with the caption text hidden. The enlarged viewer includes an actual-size option and a link to the original image.
 To keep a screenshot at its page size, add `data-enlarge="false"` to its `<figure>` element.
 Until a file is available and loads successfully, visitors see the existing placeholder.
-From Supporting platforms onward, pending slots display "Images will be updated on 23 October" in place of the placeholder descriptions. The notice disappears automatically when the corresponding image loads.
 
 Example: add `projects/img/lidas-lens-gtm-workspace.png` for the GTM workspace screenshot on the Lida's Lens page.
 
@@ -25,12 +24,7 @@ Example: add `projects/img/lidas-lens-gtm-workspace.png` for the GTM workspace s
 | `GTMTriggers.png` | GTM triggers and variables |
 | `PageContextDataLayer.png` | Browser console showing page-context dataLayer |
 | `GA4DebugView.png` | GA4 DebugView showing the event arriving |
-| `lidas-lens-multi-platform-tags.png` | GTM showing GA4, Meta and behavioral tags within the same container |
-| `lidas-lens-newsletter-form.png` | Website newsletter/signup form |
-| `lidas-lens-make-hubspot-scenario.png` | Make scenario showing the webhook to HubSpot flow |
-| `lidas-lens-hubspot-created-contact.png` | Sanitized HubSpot contact created through the automation |
-| `lidas-lens-generate-lead-event.png` | GTM or GA4 generate_lead implementation |
-| `lidas-lens-contact-submit-event.png` | GTM or GA4 contact_submit implementation |
-| `lidas-lens-hubspot-content-interest.png` | Sanitized HubSpot property or contact record showing content interest |
-| `lidas-lens-ga4-organic-traffic.png` | GA4 organic traffic and engagement view |
+| `SignupForm.png` | Website newsletter/signup form |
+| `HubSpotMake.png` | Make scenario showing the webhook to HubSpot flow |
+| `HubSpotContacts.png` | Sanitized HubSpot contact created through the automation |
 

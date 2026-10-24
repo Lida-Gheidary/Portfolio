@@ -3,7 +3,7 @@
 (() => {
   const completed = new WeakSet();
   const sourceCache = new Map();
-  const logoSelector = '.education-logo img, .issuer-logo img, .skill-logo img, .training-logo img';
+  const logoSelector = '.education-logo img, .issuer-logo img, .skill-logo img';
 
   function trimOuterSpace(image) {
     const scale = Math.min(1, 960 / Math.max(image.naturalWidth, image.naturalHeight));

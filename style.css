@@ -1054,6 +1054,35 @@ a {
 }
 
 
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible { color: var(--text-title); }
+
+.privacy-content {
+  width: min(900px, calc(100% - 48px));
+  min-height: calc(100vh - 220px);
+  margin-inline: auto;
+  padding: 72px 0 96px;
+}
+
+.privacy-content h1,
+.privacy-content h2,
+.privacy-content h3 {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--text-title);
+}
+
+.privacy-content h1 {
+  margin: 0 0 32px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.2;
+}
+
 .site-footer p {
   margin:
     3px

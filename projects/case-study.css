@@ -241,7 +241,7 @@
 
 .chapter summary {
   display: grid;
-  grid-template-columns: 66px minmax(0, 1fr) 32px 34px;
+  grid-template-columns: 66px minmax(0, 1fr) 34px;
   align-items: center;
   gap: 20px;
   min-height: 76px;
@@ -250,6 +250,10 @@
   cursor: pointer;
   list-style: none;
   transition: color 160ms ease, padding-left 160ms ease;
+}
+
+[data-section-links] .chapter summary {
+  grid-template-columns: 66px minmax(0, 1fr) 32px 34px;
 }
 
 .chapter summary::-webkit-details-marker { display: none; }
@@ -742,23 +746,6 @@
 
 .planned-slot > div { border-style: dashed; }
 
-.evidence-slot.is-pending:not(.has-image) > div {
-  min-height: 96px;
-  padding: 20px;
-  border-style: dashed;
-  background: var(--cs-bg);
-}
-
-.evidence-slot.is-pending:not(.has-image) > div > span {
-  max-width: 100%;
-  padding: 0;
-  border: 0;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.evidence-slot.is-pending:not(.has-image) figcaption { display: none; }
-
 .evidence-media,
 .diagram-slot { grid-column: 1 / -1; }
 
@@ -1209,7 +1196,7 @@
 .logo-render { mask-image: url("https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/render.svg"); -webkit-mask-image: url("https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/render.svg"); }
 
 .logo-clarity {
-  background: transparent url("img/microsoft-clarity.svg") center / contain no-repeat;
+  background: transparent url("../img/MicrosoftClarity.png") center / contain no-repeat;
   mask-image: none;
   -webkit-mask-image: none;
 }
@@ -1332,9 +1319,13 @@
   .chapter-list { padding-top: 52px; padding-bottom: 80px; }
 
   .chapter summary {
-    grid-template-columns: 42px minmax(0, 1fr) 32px 28px;
+    grid-template-columns: 42px minmax(0, 1fr) 28px;
     gap: 11px;
     min-height: 70px;
+  }
+
+  [data-section-links] .chapter summary {
+    grid-template-columns: 42px minmax(0, 1fr) 32px 28px;
   }
 
   .chapter-number { font-size: .82rem; }

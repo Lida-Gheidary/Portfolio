@@ -19,11 +19,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark' || savedTheme === 'light') document.documentElement.dataset.theme = savedTheme;
   </script>
-  <link rel="stylesheet" href="../style.css?v=20261007a">
-  <link rel="stylesheet" href="case-study.css?v=20261022e">
+  <link rel="stylesheet" href="../style.css?v=20261023a">
+  <link rel="stylesheet" href="case-study.css?v=20261023c">
 </head>
 
-<body class="case-page">
+<body class="case-page" data-section-links>
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGJ5Q7GR"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -259,7 +259,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <h2>Supporting platforms</h2>
           <p>The browser-side measurement layer also supports Meta Pixel and behavioral-analysis platforms including Microsoft Clarity and Contentsquare/Hotjar.</p>
-          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-multi-platform-tags.png" alt="GTM showing GA4, Meta and behavioral tags within the same container" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>GTM showing GA4, Meta and behavioral tags within the same container</figcaption></figure></div>
           <p><strong>ITERATING:</strong> A formal GTM and dataLayer audit is part of the current development stage, covering naming, trigger logic, event parameters, duplication risk and overall maintainability.</p>
         </div>
       </details>
@@ -290,13 +289,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Website forms are connected to HubSpot CRM through a webhook and Make automation.</p>
           <div class="process-line"><strong>Website Form</strong><i>→</i><strong>Webhook</strong><i>→</i><strong>Make</strong><i>→</i><strong>HubSpot CRM</strong></div>
           <p>This architecture currently supports newsletter acquisition and contact submissions while providing the foundation for later segmentation and lifecycle automation.</p>
-          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-newsletter-form.png" alt="Website newsletter/signup form" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>Website newsletter/signup form</figcaption></figure><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-make-hubspot-scenario.png" alt="Make scenario showing the webhook to HubSpot flow" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>Make scenario showing the webhook to HubSpot flow</figcaption></figure><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-hubspot-created-contact.png" alt="Sanitized HubSpot contact created through the automation" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>Sanitized HubSpot contact created through the automation</figcaption></figure></div>
+          <div class="evidence-grid"><figure class="evidence-slot"><div><img src="img/SignupForm.png" alt="Website newsletter/signup form" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Website newsletter/signup form</figcaption></figure><figure class="evidence-slot"><div><img src="img/HubSpotMake.png" alt="Make scenario showing the webhook to HubSpot flow" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Make scenario showing the webhook to HubSpot flow</figcaption></figure><figure class="evidence-slot"><div><img src="img/HubSpotContacts.png" alt="Sanitized HubSpot contact created through the automation" loading="lazy" decoding="async" aria-hidden="true"><span>Screenshot</span></div><figcaption>Sanitized HubSpot contact created through the automation</figcaption></figure></div>
           <h2>Conversion distinction</h2>
           <p>Newsletter subscriptions and contact submissions are deliberately measured separately.</p>
           <div class="definition-pair"><p><strong>Newsletter signup:</strong> <code>generate_lead</code><br>Represents audience growth and the beginning of an owned relationship.</p><p><strong>Contact submission:</strong> <code>contact_submit</code><br>Represents a direct inquiry and a different level of intent.</p></div>
-          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-generate-lead-event.png" alt="GTM or GA4 generate_lead implementation" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>GTM or GA4 generate_lead implementation</figcaption></figure><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-contact-submit-event.png" alt="GTM or GA4 contact_submit implementation" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>GTM or GA4 contact_submit implementation</figcaption></figure></div>
           <p>A content-interest field is also collected to support future CRM segmentation.</p>
-          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-hubspot-content-interest.png" alt="Sanitized HubSpot property or contact record showing content interest" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>Sanitized HubSpot property or contact record showing content interest</figcaption></figure></div>
           <h2>Next activation layer</h2>
           <p><strong>ROADMAP</strong></p>
           <div class="process-line"><strong>HubSpot CRM</strong><i>→</i><strong>Segmentation</strong><i>→</i><strong>HubSpot Workflows</strong><i>→</i><strong>Email Lifecycle</strong><i>→</i><strong>Engagement Analysis</strong></div>
@@ -313,7 +310,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Google Search Console, GA4 and Rank Math support the current organic-search layer.</p>
           <p>Search Console measures how content develops visibility in Google Search, while GA4 provides the post-click behavioral layer needed to determine whether those visitors become meaningful readers.</p>
           <div class="process-line"><strong>Search Visibility</strong><i>→</i><strong>Organic Click</strong><i>→</i><strong>Article Engagement</strong><i>→</i><strong>Deeper Consumption</strong><i>→</i><strong>Return</strong></div>
-          <div class="evidence-grid"><figure class="evidence-slot is-pending"><div><img src="img/lidas-lens-ga4-organic-traffic.png" alt="GA4 organic traffic and engagement view" loading="lazy" decoding="async" aria-hidden="true"><span>Images will be updated on <time datetime="2026-10-23">23 October</time></span></div><figcaption>GA4 organic traffic and engagement view</figcaption></figure></div>
           <p>Measures include search impressions, clicks, CTR, article/query position movement, organic engagement and the proportion of published content beginning to gain search visibility.</p>
           <p>Because the website and its content library are still developing, performance is interpreted in context rather than presenting raw cumulative totals as standalone success metrics.</p>
           <h2>Meta acquisition</h2>
@@ -350,7 +346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="content-status"><strong>Status: ROADMAP</strong></p>
           <p>CRO is deliberately positioned <strong>after measurement, acquisition and behavioral evidence</strong>, rather than starting with arbitrary page changes.</p>
           <h2>Planned process</h2>
-          <div class="process-line"><strong>Analytics + Behavioral Data</strong><i>→</i><strong>Analysis</strong><i>→</i><strong>Hypothesis</strong><i>→</i><strong>VWO / Convert Experiment Experiment</strong><i>→</i><strong>Measurement</strong><i>→</i><strong>Decision</strong><i>→</i><strong>Implementation</strong><i>→</i><strong>Iteration</strong></div>
+          <div class="process-line"><strong>Analytics + Behavioral Data</strong><i>→</i><strong>Analysis</strong><i>→</i><strong>Hypothesis</strong><i>→</i><strong>VWO / Convert experiment</strong><i>→</i><strong>Measurement</strong><i>→</i><strong>Decision</strong><i>→</i><strong>Implementation</strong><i>→</i><strong>Iteration</strong></div>
           <p>The first experiments are planned around traffic generated during the upcoming acquisition stage, when sufficient visitor volume and behavioral evidence can support meaningful testing.</p>
           <h2>Candidate platforms</h2>
           <p>VWO and Convert are the current experimentation candidates.</p>
@@ -407,11 +403,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
   </main>
 
-  <footer class="site-footer"><p>© 2025–2026 Lida Gheidary</p><p>Built with HTML, CSS &amp; GitHub Pages</p></footer>
+  <footer class="site-footer"><p>© 2025–2026 Lida Gheidary</p><p>Built with HTML, CSS &amp; GitHub Pages</p><p><a href="../privacy-policy.html">Cookie Declaration</a></p></footer>
   <button class="back-to-top" type="button" hidden>
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 12 6-6 6 6M12 6v12"></path></svg>
     Back to top
   </button>
-  <script src="case-study.js?v=20261022d"></script>
+  <script src="case-study.js?v=20261023a"></script>
 </body>
 </html>

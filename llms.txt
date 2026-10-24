@@ -1,0 +1,24 @@
+# Lida Gheidary Portfolio
+
+> Personal portfolio featuring hands-on work in digital analytics, marketing measurement, web development, CRM automation and data analysis.
+
+This is Lida Gheidary's portfolio. The About page describes her background in customer research and marketing, education, certificates and technical skills. The project pages document practical work and explain its scope, methods and limitations. Their main content is available in the HTML without JavaScript.
+
+## Profile and qualifications
+
+- [Portfolio homepage](https://lida-gheidary.github.io/Portfolio/): Overview and links to the project case studies.
+- [About Lida Gheidary](https://lida-gheidary.github.io/Portfolio/about.html): Background, education, areas of interest and skills.
+- [Certificates](https://lida-gheidary.github.io/Portfolio/about.html#certificates): Listed certificates and available credential verification links.
+
+## Projects
+
+- [Projects](https://lida-gheidary.github.io/Portfolio/#projects): Browse the portfolio's projects and case studies.
+
+## External profiles
+
+- [LinkedIn](https://www.linkedin.com/in/lida-gheidary/): Professional profile.
+- [GitHub](https://github.com/Lida-Gheidary): Public code repositories.
+
+## Discovery
+
+- [XML sitemap](https://lida-gheidary.github.io/Portfolio/sitemap.xml): Public portfolio pages available for indexing.

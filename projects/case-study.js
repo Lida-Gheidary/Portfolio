@@ -98,9 +98,10 @@ if (backToTop) {
   });
 }
 
-/* Each accordion has a permanent link. Native summary activation still
-   toggles it; opening a chapter also makes the address bar shareable. */
+/* Pages with section links open shared chapters and update the address bar. */
 (() => {
+  if (!document.body.hasAttribute('data-section-links')) return;
+
   document.querySelectorAll('details.chapter[id]').forEach((chapter) => {
     const summary = chapter.querySelector('summary');
     const link = summary.querySelector('.chapter-link');
