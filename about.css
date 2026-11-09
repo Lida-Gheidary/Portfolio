@@ -351,6 +351,44 @@
 .about-page .issuer-name,
 .about-page .certificate-card .image-fallback { display: none !important; }
 
+/* Courses follow the certificates within the same accordion chapter. */
+.about-page .courses-section {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--about-card-border);
+  scroll-margin-top: 90px;
+}
+.about-page .course-card h3 { margin-bottom: 0; }
+.about-page .course-screenshot {
+  display: block;
+  margin-top: 20px;
+  border: 1px solid var(--about-card-border);
+  border-radius: 4px;
+  color: var(--text-title);
+  text-decoration: none;
+}
+.about-page .course-screenshot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  border-radius: 3px 3px 0 0;
+  background: var(--about-card-bg);
+}
+.about-page .course-screenshot > span {
+  display: block;
+  padding: 10px 12px;
+  border-top: 1px solid var(--about-card-border);
+  font-size: .875rem;
+  line-height: 1.4;
+}
+.about-page .course-screenshot:hover { border-color: var(--cs-blue); }
+.about-page .course-screenshot:hover > span { text-decoration: underline; }
+.about-page .course-screenshot:focus-visible {
+  outline: 3px solid var(--cs-amber);
+  outline-offset: 3px;
+}
+
 /* Skills: one panel of compact rows; the category sits beside its tools. */
 .about-page .skills-panel { padding: 0 20px; }
 .about-page .skill-group {

@@ -103,6 +103,22 @@
   }
 })();
 
+/* Course screenshots appear only after their image files load successfully. */
+(() => {
+  document.querySelectorAll('.course-screenshot').forEach((link) => {
+    const image = link.querySelector('img');
+    if (!image) return;
+
+    const updateScreenshot = () => {
+      link.hidden = !image.complete || image.naturalWidth === 0;
+    };
+
+    image.addEventListener('load', updateScreenshot);
+    image.addEventListener('error', updateScreenshot);
+    updateScreenshot();
+  });
+})();
+
 /* Accordion links match the project pages and open shared sections. */
 (() => {
   document.querySelectorAll('details.chapter[id]').forEach((chapter) => {

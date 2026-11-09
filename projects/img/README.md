@@ -11,12 +11,14 @@ By default, loaded screenshots show a "Click to enlarge" link below the image, w
 To keep a screenshot at its page size, add `data-enlarge="false"` to its `<figure>` element.
 Until a file is available and loads successfully, visitors see the existing placeholder.
 
-Example: add `projects/img/lidas-lens-gtm-workspace.png` for the GTM workspace screenshot on the Lida's Lens page.
+Example: add `projects/img/lidas-lens-gtm-workspace.png` for the GTM workspace screenshot on the Parenting in Context page.
 
-## Lida's Lens
+## Parenting in Context
 
 | Filename in `projects/img/` | Screenshot / existing caption |
 | --- | --- |
+| `Parentingincontext.png` | Featured project cover diagram |
+| `Parentingincontext-homepage.png` | Homepage screenshot with the current branding |
 | `lidas-lens-gtm-workspace.png` | GTM workspace and container overview showing tags |
 | `ComplianzIssue.png` | GTM Preview showing the relevant Complianz events |
 | `CookieYesGranularConsent.png` | Tag Assistant showing validated Advanced Consent Mode v2 states |
@@ -28,3 +30,14 @@ Example: add `projects/img/lidas-lens-gtm-workspace.png` for the GTM workspace s
 | `HubSpotMake.png` | Make scenario showing the webhook to HubSpot flow |
 | `HubSpotContacts.png` | Sanitized HubSpot contact created through the automation |
 
+## Adobe courses
+
+These images appear below the certificates in the About page's Courses subsection. Each thumbnail links to the original image in a new tab. Missing images are hidden while the course title and Adobe logo remain visible.
+
+| Filename in `projects/img/` | Course completion certificate |
+| --- | --- |
+| `Create-data-view.png` | Create data views in Adobe Customer Journey Analytics |
+| `Customize-visualizations.png` | Customize visualizations in Adobe Customer Journey Analytics |
+| `Ingest-and-connect.png` | Ingest and connect to data in Adobe Experience Platform and Customer Journey Analytics |
+| `Fundamentals-and-key.png` | Fundamentals and key capabilities of Adobe Experience Platform |
+| `Configure-client-side.png` | Configure client-side data collection with tags in Adobe Experience Platform |
