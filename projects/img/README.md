@@ -11,15 +11,15 @@ By default, loaded screenshots show a "Click to enlarge" link below the image, w
 To keep a screenshot at its page size, add `data-enlarge="false"` to its `<figure>` element.
 Until a file is available and loads successfully, visitors see the existing placeholder.
 
-Example: add `projects/img/lidas-lens-gtm-workspace.png` for the GTM workspace screenshot on the Parenting in Context page.
+Example: add `projects/img/content-analytics-gtm-workspace.png` for the GTM workspace screenshot on the content analytics case study page.
 
-## Parenting in Context
+## content analytics case study
 
 | Filename in `projects/img/` | Screenshot / existing caption |
 | --- | --- |
-| `Parentingincontext.png` | Featured project cover diagram |
-| `Parentingincontext-homepage.png` | Homepage screenshot with the current branding |
-| `lidas-lens-gtm-workspace.png` | GTM workspace and container overview showing tags |
+| `content-analytics-stack.png` | Featured project cover diagram |
+| `content-analytics-homepage.png` | Homepage screenshot with the current branding |
+| `content-analytics-gtm-workspace.png` | GTM workspace and container overview showing tags |
 | `ComplianzIssue.png` | GTM Preview showing the relevant Complianz events |
 | `CookieYesGranularConsent.png` | Tag Assistant showing validated Advanced Consent Mode v2 states |
 | `HubSpotCompliant.png` | Sanitized HubSpot consent bridge code |

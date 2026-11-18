@@ -2,15 +2,18 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
+  <link rel="preload" href="Font/fraunces-latin-opsz-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="consent.js?v=20261118d"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
-  <title>Cookie Declaration | Lida Gheidary</title>
+  <title>Privacy &amp; Cookies | Lida Gheidary</title>
   <link rel="icon" type="image/png" href="img/LGFavicon.png">
   <script>
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark' || savedTheme === 'light') document.documentElement.dataset.theme = savedTheme;
   </script>
-  <link rel="stylesheet" href="style.css?v=20261023a">
+  <link rel="stylesheet" href="style.css?v=20261118g">
+  <link rel="stylesheet" href="consent.css?v=20261118f">
   <link rel="canonical" href="https://lida-gheidary.github.io/Portfolio/privacy-policy.html">
 </head>
 <body class="privacy-page">
@@ -39,18 +42,30 @@
   </nav>
 
   <main class="privacy-content" id="privacy-policy">
-    <h1>Cookie Declaration</h1>
-    <div id="privacy-policy-content">
-      <script id="CookieDeclaration" src="https://consent.cookiebot.com/8a46478b-b1d2-4e64-8125-d8a5474cc0b6/cd.js" type="text/javascript" async></script>
-      <noscript>Please enable JavaScript to view the Cookie Declaration.</noscript>
-    </div>
+    <h1>Privacy &amp; Cookies</h1>
+    <p>This page explains how this portfolio remembers your preferences and handles optional analytics.</p>
+    <h2>Your choices</h2>
+    <p>Optional tracking is off until you choose to allow it. You can accept optional tracking or customize your settings, where you can also reject it. Use <button type="button" data-cookie-settings hidden>Cookie settings</button> here or in any page footer to change your choice.</p>
+    <h2>Necessary preferences</h2>
+    <p>Your consent choice is remembered in your browser for up to 180 days before you are asked again. Your selected light or dark theme is also remembered. These settings support the website itself and are not used for advertising.</p>
+    <h2>Analytics</h2>
+    <p>If you allow analytics, Google Analytics and Simple Analytics help me understand page visits and interactions. Google Tag Manager loads these tools only after analytics consent. On the homepage, the banner and tracking wait until you reach the Projects section below the hero, including when a previous choice is remembered. Rejecting analytics keeps these tools off.</p>
+    <p>Google Analytics may store measurement cookies such as <code>_ga</code>. Simple Analytics runs without analytics cookies. Their services may receive information about your visit when analytics is enabled. Read <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy information</a> and <a href="https://docs.simpleanalytics.com/data-collection" target="_blank" rel="noopener noreferrer">Simple Analytics data collection details</a>.</p>
+    <h2>Marketing</h2>
+    <p>No advertising or marketing tags currently run on this portfolio. A separate marketing choice is available in the preferences panel. Changes to the tools or purposes described here require a new consent version.</p>
+    <h2>Changing your choice</h2>
+    <p>You can withdraw optional consent at any time. The website removes its accessible optional cookies and reloads the page when needed to stop tools already loaded. Storage managed by other websites remains subject to their own controls.</p>
+    <h2>External websites</h2>
+    <p>Project previews and outbound links can connect you to external websites when you choose to open them. Those websites have their own privacy settings.</p>
+    <h2>Contact</h2>
+    <p>For questions about this portfolio, email <a href="mailto:lidagheidary@gmail.com">lidagheidary@gmail.com</a>.</p>
   </main>
 
   <footer class="site-footer">
     <p>© 2025–2026 Lida Gheidary</p>
     <p>Built with HTML, CSS &amp; GitHub Pages</p>
-    <p><a href="privacy-policy.html" aria-current="page">Cookie Declaration</a></p>
+  <p class="footer-privacy"><a href="privacy-policy.html" aria-current="page">Privacy &amp; cookies</a><button type="button" data-cookie-settings hidden>Cookie settings</button></p>
   </footer>
-  <script src="projects/case-study.js?v=20261023a"></script>
+  <script src="projects/case-study.js?v=20261118g"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@ if (themeToggle) {
 
 updateThemeButton();
 
-/* The long Lida's Lens page provides a shortcut back to the top. */
+/* The long content case study provides a shortcut back to the top. */
 const backToTop = document.querySelector('.back-to-top');
 
 if (backToTop) {
@@ -98,26 +98,13 @@ if (backToTop) {
   });
 }
 
-/* Pages with section links open shared chapters and update the address bar. */
+/* Keep direct section URLs without adding visible permalink controls. */
 (() => {
   if (!document.body.hasAttribute('data-section-links')) return;
 
   document.querySelectorAll('details.chapter[id]').forEach((chapter) => {
     const summary = chapter.querySelector('summary');
-    const link = summary.querySelector('.chapter-link');
-    if (!link) return;
-
-    link.addEventListener('click', (event) => {
-      if (
-        event.defaultPrevented || event.button > 0 || event.ctrlKey ||
-        event.metaKey || event.shiftKey || event.altKey
-      ) {
-        return;
-      }
-
-      // Clicking the current fragment does not fire another hashchange.
-      if (window.location.hash === link.hash) openLinkedChapter();
-    });
+    if (!summary) return;
 
     summary.addEventListener('click', (event) => {
       if (event.defaultPrevented || event.target.closest('a') || chapter.open) {
@@ -233,7 +220,7 @@ if (backToTop) {
       </header>
       <div class="screenshot-viewer-tools">
         <button type="button" class="screenshot-viewer-size">View actual size</button>
-        <a class="screenshot-viewer-original" target="_blank" rel="noopener noreferrer">Open original image ↗</a>
+        <a class="screenshot-viewer-original" target="_blank" rel="noopener noreferrer">Open original image</a>
       </div>
       <div class="screenshot-viewer-stage">
         <img class="screenshot-viewer-image" alt="">
@@ -312,6 +299,10 @@ if (backToTop) {
     return;
   }
 
+  document.querySelectorAll('[data-live-project-link]').forEach((link) => {
+    link.href = sourceLink.href;
+  });
+
   const liveURL = new URL(sourceLink.href, document.baseURI);
 
   if (!['http:', 'https:'].includes(liveURL.protocol)) return;
@@ -349,7 +340,7 @@ if (backToTop) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Open in new tab ↗
+        Open in new tab
       </a>
 
       <button type="button" class="live-preview-reload">

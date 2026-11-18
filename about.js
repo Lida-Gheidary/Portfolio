@@ -119,24 +119,11 @@
   });
 })();
 
-/* Accordion links match the project pages and open shared sections. */
+/* Direct URLs, including #certificates, open sections without visible icons. */
 (() => {
   document.querySelectorAll('details.chapter[id]').forEach((chapter) => {
     const summary = chapter.querySelector('summary');
-    const link = summary?.querySelector('.chapter-link');
-    if (!link) return;
-
-    link.addEventListener('click', (event) => {
-      if (
-        event.defaultPrevented || event.button > 0 || event.ctrlKey ||
-        event.metaKey || event.shiftKey || event.altKey
-      ) {
-        return;
-      }
-
-      // A link to the current fragment still needs to reopen its section.
-      if (window.location.hash === link.hash) openLinkedChapter();
-    });
+    if (!summary) return;
 
     summary.addEventListener('click', (event) => {
       if (event.defaultPrevented || event.target.closest('a') || chapter.open) {

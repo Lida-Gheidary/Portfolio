@@ -3,19 +3,19 @@
 ========================================================= */
 
 @font-face {
-  font-family: 'DM Sans';
-  src: url('Font/dm-sans-latin-wght-normal.woff2') format('woff2');
+  font-family: 'Plus Jakarta Sans';
+  src: url('Font/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2');
   font-style: normal;
-  font-weight: 100 1000;
+  font-weight: 200 800;
   font-display: swap;
 }
 
 
 @font-face {
-  font-family: 'JetBrains Mono';
-  src: url('Font/jetbrains-mono-latin-wght-normal.woff2') format('woff2');
+  font-family: 'Fraunces';
+  src: url('Font/fraunces-latin-opsz-wght-normal.woff2') format('woff2');
   font-style: normal;
-  font-weight: 100 800;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -26,6 +26,10 @@
 ========================================================= */
 
 :root {
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-size-body: 1rem;
+  --accent-text: #98230B;
   color-scheme: light;
 
   --bg-main: #ffffff;
@@ -37,7 +41,7 @@
   --text-muted: #666666;
 
   --border-color: #dddddd;
-  --accent-color: #181818;
+  --accent-color: #98230B;
 
   --nav-bg: #111111;
   --nav-text: #ffffff;
@@ -45,8 +49,7 @@
 
   --image-bg: #dddddd;
 
-  --shadow:
-    0 12px 30px rgba(0, 0, 0, 0.10);
+  --shadow: none;
 }
 
 
@@ -62,7 +65,8 @@
   --text-muted: #aaaaae;
 
   --border-color: #303033;
-  --accent-color: #f1f1f1;
+  --accent-color: #98230B;
+  --accent-text: #F1B0A2;
 
   --nav-bg: #080809;
   --nav-text: #f5f5f5;
@@ -70,8 +74,7 @@
 
   --image-bg: #252527;
 
-  --shadow:
-    0 12px 30px rgba(0, 0, 0, 0.35);
+  --shadow: none;
 }
 
 /* =========================================================
@@ -104,9 +107,7 @@ body {
 
   overflow-x: hidden;
 
-  font-family:
-    'DM Sans',
-    sans-serif;
+  font-family: var(--font-body);
 
   font-size: 16px;
   line-height: 1.6;
@@ -138,6 +139,7 @@ a {
 
 .hero-section {
   position: relative;
+  font-family: var(--font-heading);
   width: 100%;
   height: 100vh;
   height: 100svh;
@@ -259,9 +261,7 @@ a {
 .hero-name {
   margin: 0;
 
-  font-family:
-    'JetBrains Mono',
-    monospace;
+  font-family: var(--font-heading);
 
   font-size: clamp(
     1.55rem,
@@ -271,7 +271,7 @@ a {
 
   line-height: 1.15;
 
-  font-weight: 700;
+  font-weight: 600;
 
   letter-spacing: 0.04em;
 
@@ -305,6 +305,9 @@ a {
 .hero-subtitle {
   margin: 0;
 
+  font-family: var(--font-heading);
+  font-optical-sizing: auto;
+
   white-space: nowrap;
 
   overflow: hidden;
@@ -332,7 +335,7 @@ a {
     1.2rem
   );
 
-  font-weight: 300;
+  font-weight: 400;
   color: #bcbcbc;
 }
 
@@ -430,11 +433,12 @@ a {
 
 
 .arrow-down {
-  display: inline-block;
+  display: inline-flex;
+
+  width: 24px;
+  height: 20px;
 
   color: #ffffff;
-
-  font-size: 1.8rem;
 
   line-height: 1;
 
@@ -443,6 +447,8 @@ a {
     1.4s
     infinite;
 }
+
+.arrow-down svg { display: block; width: 100%; height: 100%; }
 
 
 @keyframes blinkArrow {
@@ -500,6 +506,8 @@ a {
 
 
 .nav-inner {
+  --nav-item-gap: 16px;
+
   width:
     min(100%, 1180px);
 
@@ -510,7 +518,7 @@ a {
 
   align-items: center;
 
-  gap: 28px;
+  gap: var(--nav-item-gap);
 }
 
 
@@ -545,7 +553,7 @@ a {
 
   align-items: center;
 
-  gap: 32px;
+  gap: var(--nav-item-gap);
 }
 
 
@@ -563,31 +571,32 @@ a {
 
 
 .nav-links {
-  gap: 30px;
+  gap: var(--nav-item-gap);
 }
 
 
 .nav-icons {
-  gap: 16px;
+  gap: var(--nav-item-gap);
 }
 
 
 .nav-links a {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  padding-inline: 8px;
 
   text-decoration: none;
 
-  font-family:
-    'JetBrains Mono',
-    monospace;
+  font-family: var(--font-heading);
 
-  font-size: 0.9rem;
+  font-size: var(--font-size-body);
 
   font-weight: 600;
 
-  letter-spacing: 0.08em;
+  letter-spacing: normal;
 
-  text-transform: uppercase;
+  text-transform: none;
 
   color:
     var(--nav-text);
@@ -609,6 +618,9 @@ a {
 
 .nav-icons a {
   display: flex;
+
+  width: 36px;
+  height: 36px;
 
   align-items: center;
   justify-content: center;
@@ -644,7 +656,7 @@ a {
 
   align-items: center;
 
-  gap: 10px;
+  gap: var(--nav-item-gap);
 }
 
 
@@ -724,9 +736,7 @@ a {
 
   text-align: center;
 
-  font-family:
-    'JetBrains Mono',
-    monospace;
+  font-family: var(--font-heading);
 
   font-size: clamp(
     2rem,
@@ -736,7 +746,7 @@ a {
 
   line-height: 1.15;
 
-  font-weight: 700;
+  font-weight: 600;
 
   color:
     var(--text-title);
@@ -756,11 +766,10 @@ a {
     auto
     52px;
 
-  border-radius:
-    10px;
+  border-radius: 0;
 
   background:
-    var(--accent-color);
+    var(--text-title);
 }
 
 
@@ -811,25 +820,21 @@ a {
     1px solid
     var(--border-color);
 
-  border-radius: 10px;
+  border-radius: 0;
 
   padding: 7px;
 
   background:
     var(--bg-card);
 
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: border-color 160ms ease;
 }
 
 
 .project-card:hover {
-  transform:
-    translateY(-5px);
-
-  box-shadow:
-    var(--shadow);
+  transform: none;
+  box-shadow: none;
+  border-color: var(--accent-color);
 }
 
 
@@ -848,7 +853,7 @@ a {
     1px solid
     var(--border-color);
 
-  border-radius: 4px;
+  border-radius: 0;
 
   background:
     var(--image-bg);
@@ -928,9 +933,7 @@ a {
     0
     10px;
 
-  font-family:
-    'JetBrains Mono',
-    monospace;
+  font-family: var(--font-heading);
 
   font-size: clamp(
     1.3rem,
@@ -942,7 +945,7 @@ a {
 
   letter-spacing: -0.02em;
 
-  font-weight: 700;
+  font-weight: 600;
 
   color:
     var(--text-title);
@@ -987,19 +990,17 @@ a {
     1px solid
     var(--text-title);
 
-  border-radius: 4px;
+  border-radius: 0;
 
-  font-family:
-    'JetBrains Mono',
-    monospace;
+  font-family: var(--font-body);
 
-  font-size: 0.82rem;
+  font-size: var(--font-size-body);
 
-  font-weight: 600;
+  font-weight: 400;
 
-  letter-spacing: 0.07em;
+  letter-spacing: normal;
 
-  text-transform: uppercase;
+  text-transform: none;
 
   color:
     var(--text-title);
@@ -1073,8 +1074,9 @@ a {
 .privacy-content h1,
 .privacy-content h2,
 .privacy-content h3 {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-heading);
   color: var(--text-title);
+  font-weight: 600;
 }
 
 .privacy-content h1 {
@@ -1137,7 +1139,7 @@ a {
 
     align-items: center;
 
-    gap: 20px;
+    gap: var(--nav-item-gap);
 
     padding:
       22px
@@ -1156,14 +1158,12 @@ a {
 
     flex-direction: column;
 
-    gap: 18px;
+    gap: var(--nav-item-gap);
   }
 
 
   .nav-icons {
-    gap: 22px;
-
-    padding-top: 6px;
+    gap: var(--nav-item-gap);
   }
 
 }
@@ -1349,9 +1349,9 @@ a {
 .project-status {
   align-self: flex-start;
   margin-top: auto;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: 400;
   color: var(--text-main);
 }
 
@@ -1367,3 +1367,12 @@ a {
     transform: none;
   }
 }
+
+/* Shared typography. Fraunces is reserved for headings. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-optical-sizing: auto;
+  letter-spacing: -.02em;
+}
+strong, b { font-weight: 600; }

@@ -1,10 +1,10 @@
 # Portfolio project instructions
 
-## Lida's Lens indexing boundary
+## Restricted content case-study indexing boundary
 
-- `projects/lidas-lens.html` MUST retain `<meta name="robots" content="noindex, nofollow">`.
-- The rebranded case study at `projects/parentingincontext.html` MUST retain the same `noindex, nofollow` directive and all indexing boundaries below. The old `projects/lidas-lens.html` URL redirects to this page.
-- The owner does not want search engines or LLM discovery metadata to associate this portfolio with the Lida's Lens website in the broader context.
+- The case study at `projects/content-analytics.html` MUST retain `<meta name="robots" content="noindex, nofollow">` and all indexing boundaries below.
+- Legacy branded case-study pages and redirects have been removed at the owner's request. Do not recreate them.
+- The owner does not want search engines or LLM discovery metadata to associate this portfolio with the content website presented in the restricted case study.
 - Keep that case study out of `sitemap.xml`, `llms.txt`, structured project lists and site-wide author/creator relationships. Do not add promotion or discovery metadata to the case-study page.
 - Keep the homepage card's `data-nosnippet` attribute and its case-study link's `rel="nofollow"`.
 - Do not reverse these choices as a generic SEO or crawlability improvement. Only change them when the user explicitly requests a different indexing policy.

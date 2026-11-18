@@ -5,12 +5,12 @@ The configured public base URL is `https://lida-gheidary.github.io/Portfolio/`, 
 ## Included in this repository
 
 - The homepage, About page and four indexable project case studies have canonical URLs, descriptions, social preview metadata and JSON-LD identifying Lida Gheidary, the website and the page's subject.
-- The Lida's Lens case study MUST retain `noindex, nofollow`, at the site owner's explicit request. Do not remove this directive for SEO or LLM discovery work without an explicit change of instruction.
-- The Lida's Lens case study is excluded from the sitemap, llms.txt and all structured project lists. Its author/creator JSON-LD and other added discovery metadata have been removed. Its visible homepage card uses `data-nosnippet`, and its link uses `rel="nofollow"`.
+- The restricted content website case study MUST retain `noindex, nofollow`, at the site owner's explicit request. Do not remove this directive for SEO or LLM discovery work without an explicit change of instruction.
+- The restricted content website case study is excluded from the sitemap, llms.txt and all structured project lists. Its author/creator JSON-LD and other added discovery metadata have been removed. Its visible homepage card uses `data-nosnippet`, and its link uses `rel="nofollow"`.
 - These signals limit indexing and promotion; public content and links can still reveal a relationship between the sites. They are not access controls or a guarantee of separation.
 - `sitemap.xml` lists the six indexable content pages, using the homepage's canonical directory URL.
 - `llms.txt` is an optional concise guide. It links to the homepage's Projects section without listing individual projects or their status, as requested by the site owner. Public pages advertise it with `rel="describedby"`. It supplements the existing HTML; it is not a crawler-access policy or a requirement for Google AI search features.
-- The Cookie Declaration at `privacy-policy.html` loads its content from Cookiebot's declaration script. It retains `noindex, follow` and is excluded from the sitemap and LLM guide.
+- The privacy and cookie page at `privacy-policy.html` describes the local consent controls; it loads no third-party declaration script. It retains `noindex, follow` and is excluded from the sitemap and LLM guide.
 - All main case-study content is in the HTML, including the contents of native accordion sections. JavaScript is used for interactions, not to fetch the main text.
 
 ## Domain-root robots.txt
@@ -32,14 +32,14 @@ Do not replace an existing host-root policy without considering its other projec
 1. Confirm the public pages, sitemap and llms.txt return HTTP 200, and that canonical URLs match the final deployed host and path.
 2. Check the host-root robots.txt and any hosting/CDN restrictions. Do not block required CSS, JavaScript or images.
 3. Submit `https://lida-gheidary.github.io/Portfolio/sitemap.xml` in Google Search Console and Bing Webmaster Tools, if those accounts are configured.
-4. Inspect representative indexable URLs using the search engines' URL inspection tools. Confirm that the Lida's Lens case study remains excluded by `noindex, nofollow`. Validate the indexable pages' JSON-LD against Schema.org. Rich-result eligibility varies by page type.
-5. When adding or removing projects, update sitemap.xml and the homepage's structured project list to match the pages intended for indexing. Keep Lida's Lens excluded even though its portfolio card remains visible. Keep llms.txt's general Projects entry rather than adding individual project listings. When changing descriptions or images, update the indexable pages' social and structured metadata as well.
+4. Inspect representative indexable URLs using the search engines' URL inspection tools. Confirm that the restricted content website case study remains excluded by `noindex, nofollow`. Validate the indexable pages' JSON-LD against Schema.org. Rich-result eligibility varies by page type.
+5. When adding or removing projects, update sitemap.xml and the homepage's structured project list to match the pages intended for indexing. Keep restricted content website excluded even though its portfolio card remains visible. Keep llms.txt's general Projects entry rather than adding individual project listings. When changing descriptions or images, update the indexable pages' social and structured metadata as well.
 
 Local validation checks structure and consistency; it does not prove a live server response, indexing, ranking or citation by an AI system.
 
 ## Live check on 24 October 2026
 
-Release `81c500d24b75e8158d3891f42b47ae1280ba60ba` was committed and pushed to `main`. GitHub Pages deployment [40092699261](https://github.com/Lida-Gheidary/Portfolio/actions/runs/40092699261) completed successfully. All eight published HTML pages, `llms.txt` and `sitemap.xml` returned HTTP 200 and matched the checked local content, including the canonical URLs and Lida's Lens `noindex, nofollow` directive. The three new CRM screenshots and the page-context dataLayer screenshot also returned HTTP 200. This verified deployment and source content, not crawler indexing or Cookiebot's browser-rendered declaration.
+Release `81c500d24b75e8158d3891f42b47ae1280ba60ba` was committed and pushed to `main`. GitHub Pages deployment [40092699261](https://github.com/Lida-Gheidary/Portfolio/actions/runs/40092699261) completed successfully. All eight published HTML pages, `llms.txt` and `sitemap.xml` returned HTTP 200 and matched the checked local content, including the canonical URLs and restricted content website `noindex, nofollow` directive. The three new CRM screenshots and the page-context dataLayer screenshot also returned HTTP 200. This verified deployment and source content, not crawler indexing or Cookiebot's browser-rendered declaration.
 
 An earlier check on the same date found the domain-root robots.txt returned HTTP 404, so there was no robots.txt policy blocking the portfolio at that time. `AGENTS.md` and this working document remain local and were not included in the public release.
 
@@ -51,3 +51,7 @@ An earlier check on the same date found the domain-root robots.txt returned HTTP
 - [OpenAI: crawler overview](https://developers.openai.com/api/docs/bots)
 - [Anthropic: crawler controls](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
 - [llms.txt proposal](https://llmstxt.org/)
+
+## Content case-study URL
+
+The active restricted case study is `projects/content-analytics.html`. The former branded pages and their legacy redirect have been removed at the owner's request. The active page retains `noindex, nofollow` and remains excluded from sitemap.xml, llms.txt and structured project lists. Its visible homepage card retains `data-nosnippet` and a `nofollow` link.

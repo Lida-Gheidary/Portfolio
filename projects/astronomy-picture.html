@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NGJ5Q7GR');</script>
-<!-- End Google Tag Manager -->
+
 
   <meta charset="UTF-8">
+  <link rel="preload" href="../Font/fraunces-latin-opsz-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="../consent.js?v=20261118d"></script>
   <link rel="icon" type="image/png" href="../img/LGFavicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A practice project in calling a public API with asynchronous JavaScript, browsing NASA’s Astronomy Picture of the Day archive.">
@@ -18,8 +14,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark' || savedTheme === 'light') document.documentElement.dataset.theme = savedTheme;
   </script>
-  <link rel="stylesheet" href="../style.css?v=20261023a">
-  <link rel="stylesheet" href="case-study.css?v=20261023c">
+  <link rel="stylesheet" href="../style.css?v=20261118g">
+  <link rel="stylesheet" href="../consent.css?v=20261118f">
+  <link rel="stylesheet" href="case-study.css?v=20261118i">
   <!-- Search and sharing metadata -->
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Lida Gheidary">
@@ -107,11 +104,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body class="case-page">
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGJ5Q7GR"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
- 
+
+
   <nav class="navbar" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="../index.html#hero" class="nav-logo" aria-label="Lida Gheidary home">
@@ -144,14 +138,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a class="back-link" href="../index.html#projects">← Back to projects</a>
             <h1>NASA Archive Explorer <span>Calling a public API with asynchronous JavaScript</span></h1>
             <div class="hero-links">
-              <a class="text-link" href="https://lida-gheidary.github.io/AstronomyPicture/" target="_blank" rel="noopener noreferrer">Open the live page <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="https://github.com/Lida-Gheidary/AstronomyPicture" target="_blank" rel="noopener noreferrer">View the code on GitHub <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="https://lida-gheidary.github.io/AstronomyPicture/" target="_blank" rel="noopener noreferrer">Live page</a>
+              <a class="text-link" href="https://github.com/Lida-Gheidary/AstronomyPicture" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
             <p class="hero-note">Pick any date since 16 June 1995 and the page returns what NASA published that day.</p>
           </div>
           <a class="browser-capture" href="https://lida-gheidary.github.io/AstronomyPicture/" target="_blank" rel="noopener noreferrer" aria-label="Open the live NASA Archive Explorer">
             <img src="img/AstronomyPicture.png" alt="The NASA Archive Explorer shown in a browser, with the date picker beside an astronomy image and its explanation">
-            <span class="capture-link">Open the live page <b aria-hidden="true">↗</b></span>
           </a>
         </div>
       </div>
@@ -206,7 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <h2>Iterative development</h2>
-          <div class="process-line"><strong>Describe</strong><i>→</i><strong>Generate</strong><i>→</i><strong>Run in browser</strong><i>→</i><strong>Review</strong><i>→</i><strong>Refine</strong></div>
+          <div class="process-line"><span class="process-step"><strong>Describe</strong><i>→</i></span><span class="process-step"><strong>Generate</strong><i>→</i></span><span class="process-step"><strong>Run in browser</strong><i>→</i></span><span class="process-step"><strong>Review</strong><i>→</i></span><span class="process-step"><strong>Refine</strong></span></div>
 
         </div>
       </details>
@@ -215,14 +208,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section class="project-footer-cta">
       <div class="footer-cta-inner">
-        <a class="cta-button" href="https://lida-gheidary.github.io/AstronomyPicture/" target="_blank" rel="noopener noreferrer">Open the live page ↗</a>
+        <a class="cta-button" href="https://lida-gheidary.github.io/AstronomyPicture/" target="_blank" rel="noopener noreferrer">Live page</a>
         <a class="cta-link" href="../index.html#projects">Back to projects</a>
       </div>
     </section>
   </main>
 
 
-  <footer class="site-footer"><p>© 2025–2026 Lida Gheidary</p><p>Built with HTML, CSS &amp; GitHub Pages</p><p><a href="../privacy-policy.html">Cookie Declaration</a></p></footer>
-  <script src="case-study.js?v=20261023a"></script>
+  <footer class="site-footer"><p>© 2025–2026 Lida Gheidary</p><p>Built with HTML, CSS &amp; GitHub Pages</p><p class="footer-privacy"><a href="../privacy-policy.html">Privacy &amp; cookies</a><button type="button" data-cookie-settings hidden>Cookie settings</button></p>
+  </footer>
+  <script src="case-study.js?v=20261118g"></script>
 </body>
 </html>
