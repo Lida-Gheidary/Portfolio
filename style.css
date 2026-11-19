@@ -3,19 +3,43 @@
 ========================================================= */
 
 @font-face {
-  font-family: 'Plus Jakarta Sans';
-  src: url('Font/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2');
+  font-family: 'Titillium Web';
+  src: url('Font/TitilliumWeb-Regular.woff') format('woff');
   font-style: normal;
-  font-weight: 200 800;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  src: url('Font/TitilliumWeb-SemiBold.woff') format('woff');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  src: url('Font/TitilliumWeb-Italic.woff') format('woff');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  src: url('Font/TitilliumWeb-SemiBoldItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: 600;
   font-display: swap;
 }
 
 
 @font-face {
-  font-family: 'Fraunces';
-  src: url('Font/fraunces-latin-opsz-wght-normal.woff2') format('woff2');
+  font-family: 'Array';
+  src: url('Font/Array-Semibold.woff2') format('woff2');
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 600;
   font-display: swap;
 }
 
@@ -26,9 +50,11 @@
 ========================================================= */
 
 :root {
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Titillium Web', sans-serif;
+  --font-heading: 'Array', sans-serif;
   --font-size-body: 1rem;
+  --page-content-width: 784px;
+  --page-gutter: 24px;
   --accent-text: #98230B;
   color-scheme: light;
 
@@ -139,7 +165,7 @@ a {
 
 .hero-section {
   position: relative;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   width: 100%;
   height: 100vh;
   height: 100svh;
@@ -211,6 +237,7 @@ a {
 
 .hero-frame {
   position: relative;
+  container-type: inline-size;
 
   width: clamp(
     320px,
@@ -263,11 +290,8 @@ a {
 
   font-family: var(--font-heading);
 
-  font-size: clamp(
-    1.55rem,
-    2.5vw,
-    2.65rem
-  );
+  --hero-name-size: clamp(2.015rem, 3.25vw, 3.445rem);
+  font-size: min(var(--hero-name-size), 11cqw);
 
   line-height: 1.15;
 
@@ -305,8 +329,7 @@ a {
 .hero-subtitle {
   margin: 0;
 
-  font-family: var(--font-heading);
-  font-optical-sizing: auto;
+  font-family: var(--font-body);
 
   white-space: nowrap;
 
@@ -861,11 +884,7 @@ a {
 
 
 
-/*
-  On desktop the featured card spans two columns.
-  A 32:9 image ratio keeps its image height close to
-  the 16:9 images used by the single-column cards.
-*/
+/* The featured card spans two columns on desktop. */
 
 .project-card.featured
 .project-image {
@@ -1065,7 +1084,7 @@ a {
 .site-footer a:focus-visible { color: var(--text-title); }
 
 .privacy-content {
-  width: min(900px, calc(100% - 48px));
+  width: min(var(--page-content-width), calc(100% - 2 * var(--page-gutter)));
   min-height: calc(100vh - 220px);
   margin-inline: auto;
   padding: 72px 0 96px;
@@ -1193,6 +1212,10 @@ a {
    MOBILE
 ========================================================= */
 
+@media (max-width: 760px) {
+  :root { --page-gutter: 16px; }
+}
+
 @media (max-width: 600px) {
 
   .hero-section {
@@ -1216,12 +1239,7 @@ a {
 
 
   .hero-name {
-    font-size:
-      clamp(
-        1.3rem,
-        6vw,
-        1.9rem
-      );
+    --hero-name-size: clamp(1.69rem, 7.8vw, 2.47rem);
   }
 
 
@@ -1368,11 +1386,10 @@ a {
   }
 }
 
-/* Shared typography. Fraunces is reserved for headings. */
+/* Shared typography. Array provides the headings; Titillium Web provides body text. */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-optical-sizing: auto;
   letter-spacing: -.02em;
 }
 strong, b { font-weight: 600; }

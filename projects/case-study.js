@@ -292,7 +292,7 @@ if (backToTop) {
   if (!document.body.classList.contains('case-page')) return;
 
   const sourceLink = document.querySelector(
-    '.project-header .browser-capture[href]'
+    '.project-header [data-live-project-source][href]'
   );
 
   if (!sourceLink || document.getElementById('live-project-preview')) {

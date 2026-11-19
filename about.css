@@ -27,9 +27,9 @@
 }
 
 .about-page .about-shell {
-  width: min(100%, 1180px);
+  width: min(var(--page-content-width), calc(100% - 2 * var(--page-gutter)));
   margin: 0 auto;
-  padding: 58px 18px 80px;
+  padding: 58px 0 80px;
 }
 
 .about-page .section-title {
@@ -248,15 +248,16 @@
   color: var(--text-title);
 }
 
-/* Education: wider cards, with individually enlarged college marks. */
+/* Education cards keep logos above the text so two columns remain readable. */
 .about-page .education-group + .education-group { margin-top: 28px; }
-.about-page .education-entries { display: grid; gap: 16px; }
+.about-page .education-entries { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
 .about-page .education-entry {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
+  align-content: start;
   gap: 18px;
-  padding: 22px;
+  padding: 20px;
 }
 .about-page .education-copy p { margin: 0 0 6px; font-size: 1rem; line-height: 1.55; }
 .about-page .education-copy .education-meta { margin: 0; font-size: .875rem; color: var(--text-muted); }
@@ -280,7 +281,7 @@
 .about-page .education-logo--medieinstitutet img { width: 168px; height: 88px; max-height: 88px; }
 .about-page .education-logo--ihm img { width: 160px; height: 92px; max-height: 92px; }
 
-/* Certificates: four aligned cards on desktop, two on tablet, one on phone. */
+/* Certificates: three columns on desktop, two on tablets, one on phones. */
 .about-page .certificates-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -317,7 +318,7 @@
   align-self: flex-start;
   justify-content: center;
   min-width: 64px;
-  min-height: 40px;
+  min-height: 44px;
   margin-top: auto;
   padding: 8px 16px;
   border: 1px solid var(--text-title);
@@ -419,8 +420,8 @@
 .about-page .about-portrait img { aspect-ratio: 4 / 5; object-fit: cover; }
 .about-page .about-grid.no-portrait { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 600px) {
-  .about-page .about-shell { padding: 72px clamp(20px, 4vw, 48px) 100px; }
-  .about-page .education-entry { grid-template-columns: 168px minmax(0, 1fr); }
+  .about-page .about-shell { padding: 72px 0 100px; }
+  .about-page .education-entries { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-page .certificates-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-page .skill-group { grid-template-columns: 180px minmax(0, 1fr); column-gap: 22px; }
   .about-page .skill-group .group-title { grid-column: 1; grid-row: 1; padding-top: 5px; }
@@ -429,12 +430,10 @@
 }
 @media (min-width: 820px) {
   .about-page .about-grid { grid-template-columns: minmax(0, 1fr) 240px; }
+  .about-page .certificates-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (min-width: 1000px) {
-  .about-page .about-grid { grid-template-columns: minmax(0, 1fr) 280px; gap: clamp(40px, 5vw, 64px); }
-  .about-page .about-portrait { width: min(100%, 280px); margin: 0 0 0 auto; }
-  .about-page .certificates-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .about-page .education-entries { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-page .about-portrait { width: min(100%, 240px); margin: 0 0 0 auto; }
 }
 @media (max-width: 380px) {
   .about-page .chapter summary { grid-template-columns: minmax(0, 1fr) 24px; gap: 11px; }

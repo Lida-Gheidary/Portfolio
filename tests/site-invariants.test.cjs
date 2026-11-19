@@ -20,11 +20,14 @@ test('stylesheet, script and font references resolve from every main page', () =
   for (const file of mainPages) {
     const html = read(file);
     for (const match of html.matchAll(/(?:href|src)="([^"?#]+)(?:\?[^"#]*)?"/g)) {
-      if (!/\.(?:css|js|woff2)$/.test(match[1]) || /^[a-z]+:/i.test(match[1])) continue;
+      if (!/\.(?:css|js|woff2?)$/.test(match[1]) || /^[a-z]+:/i.test(match[1])) continue;
       assert.equal(fs.existsSync(path.resolve(root, path.dirname(file), match[1])), true, file + ': ' + match[1]);
     }
   }
-  assert.equal(fs.readFileSync(path.join(root, 'Font/fraunces-latin-opsz-wght-normal.woff2')).subarray(0,4).toString(), 'wOF2');
+  for (const match of read('style.css').matchAll(/url\('([^']+\.woff2?)'\)/g)) {
+    const signature = fs.readFileSync(path.join(root, match[1])).subarray(0,4).toString();
+    assert.equal(signature, match[1].endsWith('.woff2') ? 'wOF2' : 'wOFF', match[1]);
+  }
 });
 test('the restricted case study keeps noindex and nofollow and the removed redirect stays absent', () => {
   assert.match(read('projects/content-analytics.html'), /<meta name="robots" content="noindex, nofollow">/);
@@ -54,12 +57,12 @@ test('the active case study uses neutral labels and only one necessary live-doma
     assert.equal(fs.existsSync(path.join(root, 'projects/img', image)), true);
   }
 });
-test('heading trial is consolidated and JetBrains is absent from active styles', () => {
+test('shared typography uses the selected fonts without bold heading weights', () => {
   for (const file of ['style.css','about.css','projects/case-study.css']) {
     assert.doesNotMatch(read(file), /JetBrains|--cs-blue|#0057d9|#68a7ff/i);
     assert.doesNotMatch(read(file), /font-weight:\s*(?:6[1-9]\d|[7-9]\d\d)\s*;/);
   }
-  assert.match(read('style.css'), /font-family: 'Fraunces'/);
+  assert.match(read('style.css'), /--font-heading: 'Array', sans-serif/);
+  assert.match(read('style.css'), /--font-body: 'Titillium Web', sans-serif/);
   assert.match(read('style.css'), /--accent-color: #98230B/);
-  assert.match(read('projects/case-study.css'), /\.hero-shell\s*\{\s*width: min\(980px, calc\(100% - 48px\)\)/);
 });

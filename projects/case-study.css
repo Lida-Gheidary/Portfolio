@@ -69,13 +69,13 @@
 }
 
 .hero-shell {
-  width: min(980px, calc(100% - 48px));
+  width: min(var(--page-content-width), calc(100% - 2 * var(--page-gutter)));
   margin-inline: auto;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   gap: clamp(24px, 3.5vw, 42px);
 }
@@ -168,7 +168,7 @@
 .hero-grid .browser-capture {
   width: 100%;
   margin-top: 0;
-  justify-self: end;
+  justify-self: start;
 }
 
 .browser-capture:hover,
@@ -217,7 +217,7 @@
 ========================================================= */
 
 .chapter-list {
-  width: min(980px, calc(100% - 48px));
+  width: min(var(--page-content-width), calc(100% - 2 * var(--page-gutter)));
   margin-inline: auto;
   padding-top: 24px;
   padding-bottom: 112px;
@@ -227,7 +227,7 @@
   border-top: 1px solid var(--cs-ink);
   scroll-margin-top: 90px;
 }
-.chapter:last-child { border-bottom: 1px solid var(--cs-ink); }
+.chapter:last-child:not([open]) { border-bottom: 1px solid var(--cs-ink); }
 
 .chapter summary {
   display: grid;
@@ -856,7 +856,7 @@
 ========================================================= */
 
 .architecture-sketch {
-  width: min(1120px, calc(100vw - 72px));
+  width: min(var(--page-content-width), calc(100vw - 2 * var(--page-gutter)));
   margin: 32px 50% 38px;
   padding: clamp(22px, 4vw, 44px);
   border: 2px solid var(--cs-ink);
@@ -897,16 +897,19 @@
 
 .sketch-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas:
-    "organic website meta"
-    ". down ."
-    "consent gtm pixel"
-    "fanout fanout ."
-    "data behavior crm"
-    "cro cro cro"
-    "advanced advanced advanced";
-  column-gap: clamp(22px, 4vw, 52px);
+    "organic meta"
+    "website website"
+    "down down"
+    "consent pixel"
+    "gtm gtm"
+    "fanout fanout"
+    "data behavior"
+    "crm crm"
+    "cro cro"
+    "advanced advanced";
+  column-gap: 24px;
   row-gap: 42px;
   align-items: start;
 }
@@ -1215,7 +1218,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 28px;
-  width: min(980px, 100%);
+  width: min(var(--page-content-width), 100%);
   margin-inline: auto;
 }
 
@@ -1244,61 +1247,33 @@
    RESPONSIVE
 ========================================================= */
 
+.sketch-website,
+.sketch-gtm {
+  width: min(420px, 100%);
+  justify-self: center;
+}
+
+.sketch-crm {
+  width: min(440px, 100%);
+  justify-self: center;
+}
+
+.sketch-organic::after,
+.sketch-meta::before,
+.sketch-consent::after,
+.sketch-pixel::before { display: none; }
+
+.sketch-fanout { margin-inline: 25%; }
+.sketch-fanout::before { top: -84px; height: 84px; }
+
 @media (max-width: 960px) {
-  .sketch-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas:
-      "organic meta"
-      "website website"
-      "down down"
-      "consent pixel"
-      "gtm gtm"
-      "fanout fanout"
-      "data behavior"
-      "crm crm"
-      "cro cro"
-      "advanced advanced";
-  }
-
-  .sketch-website,
-  .sketch-gtm {
-    width: min(420px, 100%);
-    justify-self: center;
-  }
-
-  .sketch-crm {
-    width: min(440px, 100%);
-    justify-self: center;
-  }
-
-  .sketch-organic::after,
-  .sketch-meta::before,
-  .sketch-consent::after,
-  .sketch-pixel::before { display: none; }
-
-  .sketch-fanout { margin-inline: 25%; }
-  .sketch-fanout::before { top: -84px; height: 84px; }
-
   .metric-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .metric-strip > div:nth-child(2) { border-right: 0; }
   .metric-strip > div:nth-child(-n + 2) { border-bottom: 1px solid var(--cs-line); }
   .metric-strip > div:nth-child(3) { padding-left: 0; }
 }
 
-@media (max-width: 860px) {
-  .hero-grid { grid-template-columns: 1fr; }
-
-  .hero-grid .browser-capture {
-    width: 100%;
-    margin-top: 10px;
-    justify-self: start;
-  }
-}
-
 @media (max-width: 760px) {
-  .hero-shell,
-  .chapter-list { width: min(100% - 32px, 980px); }
-
   .project-header { padding: 58px 0 28px; }
   .project-header .back-link { margin-bottom: 40px; }
   .project-header h1 { font-size: clamp(2rem, 8vw, 3rem); }
@@ -1363,7 +1338,6 @@
   .evidence-slot > div { min-height: 170px; }
 
   .architecture-sketch {
-    width: calc(100vw - 32px);
     padding: 20px 16px;
   }
 
@@ -1573,17 +1547,8 @@
     margin-right: calc(var(--live-preview-width) + 28px);
   }
 
-  .live-preview-open .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
   .live-preview-open .project-header h1 {
     font-size: clamp(1.8rem, 2.5vw, 2.8rem);
-  }
-
-  .live-preview-open .hero-grid .browser-capture {
-    justify-self: start;
-    width: min(340px, 100%);
   }
 
   .live-preview-open .metric-strip {
