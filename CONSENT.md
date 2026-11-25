@@ -1,20 +1,21 @@
 # Portfolio consent controls
 
-The portfolio uses local consent controls in `consent.js` and `consent.css`. Optional tracking is off on first visits. The initial panel offers Accept and Customize. Customize reveals category controls, Reject optional and Save preferences; opening customization does not grant consent. Every main page has a footer settings button. The current choice expires after 180 days. A blocked or invalid browser storage record never grants consent.
+Each portfolio page embeds the cookieless Simple Analytics pageview script directly. The Google Tag Manager container, `GTM-NGJ5Q7GR`, loads once during page initialization. The homepage scroll condition controls the banner display. Cookie settings are available in each page footer.
 
-On the homepage, `data-consent-start="main"` on the consent script delays both the initial banner and the GTM loader until the second section (`#main`, containing Projects) reaches the top of the viewport and the hero has left view. This also delays tracking for visitors with remembered analytics consent. Anchor navigation and restored scroll positions past the hero unlock the same gate. The gate stays open for the rest of that page visit. Direct visits to About and project pages can show the banner immediately and load tracking if analytics was previously allowed.
+## Google Consent Mode v2
 
-The current portfolio container is `GTM-NGJ5Q7GR`. Its published resource was inspected on 18 November 2026. It contains Google Analytics (`G-N6EYH2KSBC`), Simple Analytics, a Cookiebot template and two Custom HTML tags that hide and reveal the old Cookiebot interface. The new pages use the existing analytics container only after analytics consent. Marketing-only consent does not load that container because it has no marketing tags.
+The page queues denied defaults for `analytics_storage`, `ad_storage`, `ad_user_data`, and `ad_personalization` before loading GTM. When a valid preference exists, the page applies it before the container starts. The Analytics choice controls analytics storage, and Marketing controls the three advertising signals. With Advanced Consent Mode, GA4 can send cookieless requests while analytics storage is denied. The local preference expires after 180 days. Unavailable or invalid storage produces denied defaults.
 
-The on-page GTM blocklist disables the audited Cookiebot template (`cvt_57SF4`) and Custom HTML (`html`). The latter currently consists only of the two obsolete banner workarounds. A custom-template `inject_script` policy permits only the audited analytics scripts, only while analytics is allowed; Cookiebot cannot be injected through a different custom template. No live GTM container was edited or published for this change.
+Banner actions and changes from other tabs queue the Google consent update before emitting `portfolio_consent_update`. The website owns the consent defaults and updates. Withdrawing analytics clears accessible optional cookies. If a separate optional event listener already requested its script, the page also reloads to stop it.
 
-Changing categories after tracking has started reloads the page so already-running scripts stop. Analytics withdrawal also sets the Google Analytics disable flag and removes accessible optional cookies. A storage event applies changes across open portfolio tabs. Cookies or storage on other origins cannot be removed by the portfolio.
+## Portfolio GTM workspace
 
-## Maintaining the integration
+On November 25, 2026, workspace 4 of `GTM-NGJ5Q7GR` had zero pending changes. Its Google tag, `G-N6EYH2KSBC`, fires on Initialization – All Pages and uses all four built-in consent checks with no additional consent required. The page supplies consent defaults before it appends the GTM script. This setup does not require an additional consent tag.
 
-- Review the tag inventory before publishing GTM changes. New Custom HTML tags are deliberately blocked, and new template script URLs require a policy update.
-- Add accurate provider information to `privacy-policy.html` before adding new tools. Increment the consent version and storage key when tools or purposes change, so previous choices do not silently authorize a new setup.
-- Check first visits, Reject, analytics-only, marketing-only, Accept, withdrawal, expiry and storage failures. Run `node --test tests/*.test.cjs` for local controller and repository checks.
-- Preview the deployed container in Tag Assistant before changing the audited template IDs. A local code test does not replace a live network check.
+The Simple Analytics template also fires on Initialization. Use events was enabled and automated events was off. The portfolio HTML loads the pageview script directly, and its on-page template policy blocks a second request for that script. The policy permits the GA4 destination during denied consent. Any future optional auto-events script still requires analytics consent. The existing blocklist prevents the legacy Cookiebot template and its two Custom HTML workarounds from running on portfolio pages.
 
-This follows Google's [basic consent-mode sequence](https://developers.google.com/tag-platform/security/guides/consent?consentmode=basic): defaults and consent choices precede the optional GTM loader. The Cookiebot exclusions use Google's [tag restriction controls](https://developers.google.com/tag-platform/tag-manager/restrict) and [custom-template policy API](https://developers.google.com/tag-platform/tag-manager/templates/policies).
+## Verification
+
+Run `node --test tests/*.test.cjs`. In GTM Preview use a fresh profile and check the consent timeline, network requests and cookies. Before any scroll or choice, verify that GA4 sends a denied-state request without setting analytics cookies, and that Simple Analytics records one pageview. Check rejection, analytics-only and marketing-only grants, saved choices, withdrawal and a navigation to a project page. On an analytics-only grant, advertising consent should stay denied. Confirm optional non-Google tags respect their own controls.
+
+Google documents the [Advanced Consent Mode sequence](https://developers.google.com/tag-platform/security/concepts/consent-mode).

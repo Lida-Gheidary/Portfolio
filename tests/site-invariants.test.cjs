@@ -16,6 +16,17 @@ test('every main page loads local consent controls and offers persistent setting
   }
   assert.match(read('index.html'), /<script[^>]+src="consent\.js\?v=[^"]+"[^>]+data-consent-start="main"/);
 });
+test('every main page has one unconditional Simple Analytics pageview script before consent controls', () => {
+  for (const file of mainPages) {
+    const html = read(file);
+    const src = 'https://scripts.simpleanalyticscdn.com/latest.js';
+    assert.equal(html.split(src).length - 1, 1, file);
+    const head = html.split('</head>')[0];
+    const snippet = head.indexOf('<script async src="' + src + '"></script>');
+    assert.ok(snippet >= 0 && snippet < head.indexOf('consent.js?'), file);
+  }
+});
+
 test('stylesheet, script and font references resolve from every main page', () => {
   for (const file of mainPages) {
     const html = read(file);

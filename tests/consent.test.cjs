@@ -149,11 +149,14 @@ test('refresh notices consent changes from another tab', () => {
   assert.equal(previous.analytics, true);
   assert.equal(controller.getConsent().analytics, false);
 });
-test('template policy permits audited analytics scripts only with analytics consent', () => {
+test('template policy permits the portfolio Google tag while limiting optional scripts', () => {
   const on = { analytics: true };
   const off = { analytics: false };
-  assert.equal(allowTemplateScript(on, 'https://scripts.simpleanalyticscdn.com/latest.js'), true);
+  assert.equal(allowTemplateScript(on, 'https://scripts.simpleanalyticscdn.com/latest.js'), false);
+  assert.equal(allowTemplateScript(on, 'https://scripts.simpleanalyticscdn.com/auto-events.js'), true);
+  assert.equal(allowTemplateScript(off, 'https://scripts.simpleanalyticscdn.com/auto-events.js'), false);
   assert.equal(allowTemplateScript(on, 'https://www.googletagmanager.com/gtag/js?id=G-N6EYH2KSBC'), true);
+  assert.equal(allowTemplateScript(off, 'https://www.googletagmanager.com/gtag/js?id=G-N6EYH2KSBC'), true);
   for (const url of [
     'https://consent.cookiebot.com/uc.js',
     'https://scripts.simpleanalyticscdn.com.evil.test/latest.js',
@@ -164,13 +167,30 @@ test('template policy permits audited analytics scripts only with analytics cons
   ]) assert.equal(allowTemplateScript(on, url), false);
   assert.equal(allowTemplateScript(off, 'https://scripts.simpleanalyticscdn.com/latest.js'), false);
 });
-test('first visit and rejection make no GTM request', () => {
-  assert.equal(browser().scripts.length, 0);
-  assert.equal(browser(memoryStorage(record(false, false))).scripts.length, 0);
+function googleState(page) {
+  return page.window.dataLayer.filter(message => message[0] === 'consent').at(-1)[2];
+}
+
+test('first visit sets all four Google consent defaults before loading GTM', () => {
+  const page = browser(memoryStorage(), { homepage: true });
+  const layer = page.window.dataLayer;
+  assert.equal(layer.at(-2)[1], 'default');
+  assert.equal(layer.at(-1).event, 'gtm.js');
+  assert.equal(page.scripts.length, 1);
+  for (const key of ['analytics_storage', 'ad_storage', 'ad_user_data', 'ad_personalization']) {
+    assert.equal(googleState(page)[key], 'denied');
+  }
 });
-test('marketing-only consent does not enable the analytics container', () => {
-  assert.equal(browser(memoryStorage(record(false, true))).scripts.length, 0);
+
+test('saved rejection and marketing-only choices keep analytics storage denied', () => {
+  for (const marketing of [false, true]) {
+    const page = browser(memoryStorage(record(false, marketing)));
+    assert.equal(page.scripts.length, 1);
+    assert.equal(googleState(page).analytics_storage, 'denied');
+    assert.equal(googleState(page).ad_storage, marketing ? 'granted' : 'denied');
+  }
 });
+
 test('stored analytics consent loads the existing container once after defaults and policies', () => {
   const page = browser(memoryStorage(record(true, false)));
   assert.equal(page.scripts.length, 1);
@@ -186,14 +206,14 @@ test('stored analytics consent loads the existing container once after defaults 
   assert.equal(layer[3][2].ad_storage, 'denied');
   assert.equal(layer.at(-1).event, 'gtm.js');
 });
-test('withdrawal in another tab disables Analytics and reloads already-running tracking', () => {
+test('withdrawal in another tab returns GA4 to denied without reloading the page', () => {
   const storage = memoryStorage(record(true, true));
   const page = browser(storage);
   storage.setItem(STORAGE_KEY, record(false, false));
   page.handlers.storage({ key: STORAGE_KEY });
   assert.equal(page.window.PortfolioConsent.getConsent().analytics, false);
-  assert.equal(page.window['ga-disable-G-N6EYH2KSBC'], true);
-  assert.equal(page.reloads(), 1);
+  assert.equal(googleState(page).analytics_storage, 'denied');
+  assert.equal(page.reloads(), 0);
   assert.equal(page.scripts.length, 1);
 });
 test('a grant from another tab can start tracking, without creating duplicate loaders', () => {
@@ -205,25 +225,26 @@ test('a grant from another tab can start tracking, without creating duplicate lo
   assert.equal(page.scripts.length, 1);
 });
 
-test('the homepage keeps its banner and tracking off the hero, with two initial actions', () => {
+test('the homepage starts GTM and keeps its banner off the hero, with two initial actions', () => {
   const page = browser(memoryStorage(), { homepage: true });
   page.initialize();
   const panel = page.panel();
   assert.equal(panel.hidden, true);
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
+  assert.equal(googleState(page).analytics_storage, 'denied');
   page.scrollPartway();
   assert.equal(panel.hidden, true);
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
   page.reachContent();
   assert.equal(panel.hidden, false);
   assert.equal(panel.querySelector('.cookie-options').hidden, true);
   for (const action of ['accept', 'customize']) assert.equal(panel.querySelector(`[data-cookie-action="${action}"]`).hidden, false);
   for (const action of ['reject', 'save']) assert.equal(panel.querySelector(`[data-cookie-action="${action}"]`).hidden, true);
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
   assert.equal(page.observerDisconnected(), true);
 });
 
-test('Customize reveals Reject and Save without granting consent, and Reject keeps tracking off', () => {
+test('Customize reveals Reject and Save without granting consent, and Reject preserves denied Google storage', () => {
   const page = browser();
   page.initialize();
   page.clickAction('customize');
@@ -232,18 +253,19 @@ test('Customize reveals Reject and Save without granting consent, and Reject kee
   for (const action of ['reject', 'save']) assert.equal(panel.querySelector(`[data-cookie-action="${action}"]`).hidden, false);
   for (const action of ['accept', 'customize']) assert.equal(panel.querySelector(`[data-cookie-action="${action}"]`).hidden, true);
   assert.equal(page.window.PortfolioConsent.getConsent().hasChoice, false);
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
   page.clickAction('reject');
   assert.equal(panel.hidden, true);
   assert.equal(JSON.parse(page.storage.getItem(STORAGE_KEY)).analytics, false);
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
 });
 
-test('accepting after the hero starts tracking once and settings can reopen the saved choice', () => {
+test('accepting after the hero updates consent in place and settings can reopen the saved choice', () => {
   const page = browser(memoryStorage(), { homepage: true });
   page.initialize();
   page.reachContent();
   page.clickAction('accept');
+  assert.equal(googleState(page).analytics_storage, 'granted');
   assert.equal(page.scripts.length, 1);
   assert.equal(page.panel().hidden, true);
   assert.equal(JSON.parse(page.storage.getItem(STORAGE_KEY)).analytics, true);
@@ -252,15 +274,15 @@ test('accepting after the hero starts tracking once and settings can reopen the 
   assert.equal(page.panel().querySelector('.cookie-options').hidden, false);
   assert.equal(page.panel().querySelector('[data-cookie-action="reject"]').hidden, false);
   page.clickAction('reject');
-  assert.equal(page.reloads(), 1);
-  assert.equal(page.window['ga-disable-G-N6EYH2KSBC'], true);
+  assert.equal(page.reloads(), 0);
+  assert.equal(googleState(page).analytics_storage, 'denied');
 });
 
-test('remembered analytics consent still waits until the homepage content is reached', () => {
+test('remembered analytics consent takes effect on the homepage hero', () => {
   const page = browser(memoryStorage(record(true, false)), { homepage: true });
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
   page.initialize();
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
   assert.equal(page.panel().hidden, true);
   page.reachContent();
   page.reachContent();
@@ -268,13 +290,13 @@ test('remembered analytics consent still waits until the homepage content is rea
   assert.equal(page.panel().hidden, true);
 });
 
-test('a cross-tab grant on the hero cannot bypass the content gate', () => {
+test('a cross-tab grant on the hero updates consent before scrolling', () => {
   const storage = memoryStorage();
   const page = browser(storage, { homepage: true });
   page.initialize();
   storage.setItem(STORAGE_KEY, record(true, false));
   page.handlers.storage({ key: STORAGE_KEY });
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
   page.reachContent();
   assert.equal(page.scripts.length, 1);
   assert.equal(page.panel().hidden, true);
@@ -287,7 +309,7 @@ test('a rejection before leaving the hero is respected when the content gate ope
   storage.setItem(STORAGE_KEY, record(false, false));
   page.handlers.storage({ key: STORAGE_KEY });
   page.reachContent();
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
   assert.equal(page.panel().hidden, true);
 });
 
@@ -300,7 +322,7 @@ test('anchor navigation past the hero unlocks the gate, with a scroll fallback f
   assert.equal(fallback.panel().hidden, true);
   fallback.reachContent();
   assert.equal(fallback.panel().hidden, false);
-  assert.equal(fallback.scripts.length, 0);
+  assert.equal(fallback.scripts.length, 1);
 });
 
 test('saving customized categories applies the checkbox choices without enabling analytics implicitly', () => {
@@ -311,5 +333,33 @@ test('saving customized categories applies the checkbox choices without enabling
   page.clickAction('save');
   assert.equal(page.window.PortfolioConsent.getConsent().analytics, false);
   assert.equal(page.window.PortfolioConsent.getConsent().marketing, true);
-  assert.equal(page.scripts.length, 0);
+  assert.equal(page.scripts.length, 1);
+});
+
+test('a saved choice and a subsequent rejection are queued before their corresponding events', () => {
+  const page = browser(memoryStorage(record(true, false)));
+  page.initialize();
+  page.settings.click();
+  page.clickAction('reject');
+  const layer = page.window.dataLayer;
+  const updates = layer.filter(entry => entry.event === 'portfolio_consent_update');
+  assert.equal(updates.length, 2);
+  for (const event of updates) {
+    const command = layer[layer.indexOf(event) - 1];
+    assert.equal(command[1], 'update');
+    assert.equal(command[2].analytics_storage, event.portfolio_consent.analytics ? 'granted' : 'denied');
+  }
+  assert.equal(page.reloads(), 0);
+});
+
+test('only request a reload on withdrawal if optional event listeners were allowed to load', () => {
+  const page = browser(memoryStorage(record(true, false)));
+  page.initialize();
+  const policy = page.window.dataLayer[1][2];
+  assert.equal(policy('GTM-NGJ5Q7GR', 'inject_script', { url: 'https://scripts.simpleanalyticscdn.com/auto-events.js' }), true);
+  page.settings.click();
+  page.clickAction('reject');
+  assert.equal(page.reloads(), 1);
+  assert.equal(googleState(page).analytics_storage, 'denied');
+  assert.equal(policy('GTM-NGJ5Q7GR', 'inject_script', { url: 'https://scripts.simpleanalyticscdn.com/auto-events.js' }), false);
 });
