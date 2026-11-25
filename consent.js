@@ -68,12 +68,11 @@
   }
 
   function allowTemplateScript(consent, url) {
-    if (!consent.analytics) return false;
     try {
       const parsed = new URL(url);
       if (parsed.protocol !== 'https:') return false;
       return (
-        parsed.hostname === 'scripts.simpleanalyticscdn.com' &&
+        consent.analytics && parsed.hostname === 'scripts.simpleanalyticscdn.com' &&
         parsed.pathname === '/auto-events.js'
       ) || (
         parsed.hostname === 'www.googletagmanager.com' &&
@@ -96,7 +95,7 @@
   const rootUrl = new URL('.', consentScript.src);
   const startSectionId = consentScript.dataset?.consentStart;
   let reachedContent = !startSectionId;
-  let trackingLoaded = false;
+  let optionalEventsRequested = false;
   let openPanel = () => {};
   let showInitialPanel = () => {};
 
@@ -108,9 +107,11 @@
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   window.dataLayer.push({ 'gtm.blocklist': BLOCKED_TAG_TYPES.slice() });
-  window.gtag('policy', 'inject_script', (containerId, permissionId, data) => (
-    reachedContent && containerId === CONTAINER_ID && allowTemplateScript(controller.getConsent(), data?.url)
-  ));
+  window.gtag('policy', 'inject_script', (containerId, permissionId, data) => {
+    if (containerId !== CONTAINER_ID || !allowTemplateScript(controller.getConsent(), data?.url)) return false;
+    if (new URL(data.url).hostname === 'scripts.simpleanalyticscdn.com') optionalEventsRequested = true;
+    return true;
+  });
   window.gtag('consent', 'default', googleConsent({ analytics: false, marketing: false }));
 
   function googleConsent(consent) {
@@ -141,10 +142,7 @@
     });
   }
 
-  function loadTracking(consent) {
-    // Simple Analytics pageviews load directly in the HTML. GTM handles optional tags.
-    if (!reachedContent || !consent.analytics || trackingLoaded) return;
-    trackingLoaded = true;
+  function loadTagManager() {
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
     const script = document.createElement('script');
     script.id = 'portfolio-tag-manager';
@@ -157,23 +155,21 @@
     clearOptionalCookies(consent);
     window.gtag('consent', 'update', googleConsent(consent));
     window.dataLayer.push({ event: 'portfolio_consent_update', portfolio_consent: { ...consent } });
-    if (trackingLoaded && previous && (
-      previous.analytics !== consent.analytics || previous.marketing !== consent.marketing
-    )) {
-      window[`ga-disable-${MEASUREMENT_ID}`] = !consent.analytics;
-      window.location.reload();
-      return;
-    }
-    loadTracking(consent);
+    // An already injected third-party listener has no consent-update API.
+    if (optionalEventsRequested && previous?.analytics && !consent.analytics) window.location.reload();
   }
 
-  applyConsent(controller.getConsent());
+  const initialConsent = controller.getConsent();
+  if (initialConsent.hasChoice) applyConsent(initialConsent);
+  else clearOptionalCookies(initialConsent);
   controller.subscribe(applyConsent);
   window.addEventListener('storage', event => {
     if (event.key === STORAGE_KEY || event.key === null) controller.refresh();
   });
 
-  function initializeTrackingGate() {
+  loadTagManager();
+
+  function initializeBannerGate() {
     if (reachedContent) return;
     const section = document.getElementById(startSectionId);
     if (!section) return;
@@ -187,7 +183,6 @@
       window.removeEventListener('scroll', checkContentPosition);
       window.removeEventListener('resize', checkContentPosition);
       window.removeEventListener('load', checkContentPosition);
-      loadTracking(controller.getConsent());
       showInitialPanel();
     }
 
@@ -212,10 +207,10 @@
         <h2 id="cookie-panel-title" tabindex="-1">Your privacy choices</h2>
         <button class="cookie-panel-close" type="button" aria-label="Close cookie settings" hidden>Close ×</button>
       </div>
-      <p>Optional analytics help me understand visits to this portfolio. You can accept optional tracking, customize your preferences, or reject it.</p>
+      <p>Google Analytics sends cookieless measurements before you choose and if you reject analytics. Allow analytics to enable measurement cookies, or customize your preferences.</p>
       <div class="cookie-options" hidden>
         <label><input type="checkbox" checked disabled><span>Necessary<small>Remembers your privacy choice and your chosen display theme. Always on.</small></span></label>
-        <label><input id="cookie-analytics" type="checkbox"><span>Analytics<small>Allow Google Analytics and optional interaction measurement.</small></span></label>
+        <label><input id="cookie-analytics" type="checkbox"><span>Analytics<small>Allow Google Analytics cookies and optional interaction measurement.</small></span></label>
         <label><input id="cookie-marketing" type="checkbox"><span>Marketing<small>Optional advertising measurement. No marketing tools currently run on this portfolio.</small></span></label>
       </div>
       <div class="cookie-actions">
@@ -288,7 +283,7 @@
 
   function initialize() {
     initializePanel();
-    initializeTrackingGate();
+    initializeBannerGate();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
   else initialize();
