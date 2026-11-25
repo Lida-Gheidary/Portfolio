@@ -74,7 +74,7 @@
       if (parsed.protocol !== 'https:') return false;
       return (
         parsed.hostname === 'scripts.simpleanalyticscdn.com' &&
-        ['/latest.js', '/auto-events.js'].includes(parsed.pathname)
+        parsed.pathname === '/auto-events.js'
       ) || (
         parsed.hostname === 'www.googletagmanager.com' &&
         parsed.pathname === '/gtag/js' && parsed.searchParams.get('id') === MEASUREMENT_ID
@@ -142,7 +142,7 @@
   }
 
   function loadTracking(consent) {
-    // The audited container contains GA4 and Simple Analytics, with no marketing tags.
+    // Simple Analytics pageviews load directly in the HTML. GTM handles optional tags.
     if (!reachedContent || !consent.analytics || trackingLoaded) return;
     trackingLoaded = true;
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
@@ -215,7 +215,7 @@
       <p>Optional analytics help me understand visits to this portfolio. You can accept optional tracking, customize your preferences, or reject it.</p>
       <div class="cookie-options" hidden>
         <label><input type="checkbox" checked disabled><span>Necessary<small>Remembers your privacy choice and your chosen display theme. Always on.</small></span></label>
-        <label><input id="cookie-analytics" type="checkbox"><span>Analytics<small>Google Analytics and Simple Analytics help me understand visits and interactions.</small></span></label>
+        <label><input id="cookie-analytics" type="checkbox"><span>Analytics<small>Allow Google Analytics and optional interaction measurement.</small></span></label>
         <label><input id="cookie-marketing" type="checkbox"><span>Marketing<small>Optional advertising measurement. No marketing tools currently run on this portfolio.</small></span></label>
       </div>
       <div class="cookie-actions">

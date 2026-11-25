@@ -152,7 +152,9 @@ test('refresh notices consent changes from another tab', () => {
 test('template policy permits audited analytics scripts only with analytics consent', () => {
   const on = { analytics: true };
   const off = { analytics: false };
-  assert.equal(allowTemplateScript(on, 'https://scripts.simpleanalyticscdn.com/latest.js'), true);
+  assert.equal(allowTemplateScript(on, 'https://scripts.simpleanalyticscdn.com/latest.js'), false);
+  assert.equal(allowTemplateScript(on, 'https://scripts.simpleanalyticscdn.com/auto-events.js'), true);
+  assert.equal(allowTemplateScript(off, 'https://scripts.simpleanalyticscdn.com/auto-events.js'), false);
   assert.equal(allowTemplateScript(on, 'https://www.googletagmanager.com/gtag/js?id=G-N6EYH2KSBC'), true);
   for (const url of [
     'https://consent.cookiebot.com/uc.js',
