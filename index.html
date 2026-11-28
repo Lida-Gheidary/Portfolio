@@ -27,7 +27,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="style.css?v=20261119d">
+  <link rel="stylesheet" href="style.css?v=20261128a">
   <link rel="stylesheet" href="consent.css?v=20261118f">
   <!-- Search and sharing metadata -->
   <meta name="description" content="Portfolio of Lida Gheidary, featuring hands-on projects in digital analytics, marketing measurement, web development, CRM automation and data analysis.">
@@ -100,26 +100,26 @@
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "How Attribution Shapes Reported Channel Performance",
-              "url": "https://lida-gheidary.github.io/Portfolio/projects/marketing-attribution.html"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
               "name": "Rocket Clicker",
               "url": "https://lida-gheidary.github.io/Portfolio/projects/rocket-clicker.html"
             },
             {
               "@type": "ListItem",
-              "position": 3,
+              "position": 2,
               "name": "NASA Archive Explorer",
               "url": "https://lida-gheidary.github.io/Portfolio/projects/astronomy-picture.html"
             },
             {
               "@type": "ListItem",
-              "position": 4,
+              "position": 3,
               "name": "Customer Analytics Dashboard",
               "url": "https://lida-gheidary.github.io/Portfolio/projects/customer-analytics.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Exploring Marketing Attribution with Adobe CJA Demo Data",
+              "url": "https://lida-gheidary.github.io/Portfolio/projects/marketing-attribution.html"
             }
           ]
         }
@@ -297,30 +297,7 @@
 
   <div class="projects-grid">
 
-    <!-- 1. Marketing Attribution Study -->
-    <article class="project-card">
-      <div class="project-image">
-        <img
-          src="projects/img/ChannelPerformance-Attribution.png"
-          alt="Comparison of marketing channel performance under different attribution models"
-          loading="lazy"
-        >
-      </div>
-
-      <div class="project-content">
-        <h3 class="project-title">Marketing Attribution Study</h3>
-
-        <p class="project-description">
-          An analysis of how three attribution models and two lookback windows change reported performance across 16 marketing channels, using Adobe demo data.
-        </p>
-
-        <a href="projects/marketing-attribution.html" class="view-project">
-          Project
-        </a>
-      </div>
-    </article>
-
-    <!-- 2. AI-Powered Webpage Answer Checker -->
+<!-- 2. AI-Powered Webpage Answer Checker -->
     <article class="project-card">
       <div class="project-image">
         <img
@@ -436,6 +413,21 @@
   </div>
 </section>
 
+
+
+    <section class="content-section explorations-section" id="explorations" aria-labelledby="explorations-title">
+      <h2 class="section-title" id="explorations-title">Explorations</h2>
+      <article class="exploration-entry">
+        <div>
+          <p class="exploration-label">Marketing analytics · Python &amp; SQL</p>
+          <h3>Exploring Marketing Attribution with Adobe CJA Demo Data</h3>
+        </div>
+        <div>
+          <p>How do attribution settings change the credit reported for a marketing channel? I used Python and SQL to prepare and compare Adobe’s exported results across 16 channels, three models, and two lookback windows. The exploration follows the source files, calculations, observations, and limits of the evidence.</p>
+          <a class="exploration-link" href="projects/marketing-attribution.html">Read the exploration <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </section>
 
   </main>
 
@@ -571,3 +563,4 @@
 
 </body>
 </html>
+

@@ -9,13 +9,13 @@
   <script src="../consent.js?v=20261125b"></script>
   <link rel="icon" type="image/png" href="../img/LGFavicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A marketing attribution case study comparing last-touch, linear, and algorithmic order credit across 16 channels, developed iteratively with AI assistance.">
-  <title>How Attribution Shapes Reported Channel Performance | Lida Gheidary</title>
+  <meta name="description" content="An exploratory analysis using Python and SQL to compare Adobe CJA demo exports across 16 marketing channels, three attribution models, and two lookback windows.">
+  <title>Exploring Marketing Attribution with Adobe CJA Demo Data | Lida Gheidary</title>
   <script>
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark' || savedTheme === 'light') document.documentElement.dataset.theme = savedTheme;
   </script>
-  <link rel="stylesheet" href="../style.css?v=20261119d">
+  <link rel="stylesheet" href="../style.css?v=20261128a">
   <link rel="stylesheet" href="../consent.css?v=20261118f">
   <link rel="stylesheet" href="case-study.css?v=20261119e">
   <!-- Search and sharing metadata -->
@@ -25,16 +25,16 @@
   <link rel="describedby" href="../llms.txt" type="text/plain">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Lida Gheidary Portfolio">
-  <meta property="og:title" content="How Attribution Shapes Reported Channel Performance | Lida Gheidary">
-  <meta property="og:description" content="A marketing attribution case study comparing last-touch, linear, and algorithmic order credit across 16 channels, developed iteratively with AI assistance.">
+  <meta property="og:title" content="Exploring Marketing Attribution with Adobe CJA Demo Data | Lida Gheidary">
+  <meta property="og:description" content="An exploratory analysis using Python and SQL to compare Adobe CJA demo exports across 16 marketing channels, three attribution models, and two lookback windows.">
   <meta property="og:url" content="https://lida-gheidary.github.io/Portfolio/projects/marketing-attribution.html">
-  <meta property="og:image" content="https://lida-gheidary.github.io/Portfolio/projects/img/ChannelPerformance-Attribution.png">
-  <meta property="og:image:alt" content="Snapshot of the marketing attribution case study: comparison of last-touch, linear, and algorithmic order credit across 16 channels.">
+  <meta property="og:image" content="https://lida-gheidary.github.io/Program-Project/Data-output/charts/chart1_attribution_delta.png">
+  <meta property="og:image:alt" content="Algorithmic order credit relative to last-touch across 16 channels, using a 30-day lookback in Adobe CJA demo exports.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How Attribution Shapes Reported Channel Performance | Lida Gheidary">
-  <meta name="twitter:description" content="A marketing attribution case study comparing last-touch, linear, and algorithmic order credit across 16 channels, developed iteratively with AI assistance.">
-  <meta name="twitter:image" content="https://lida-gheidary.github.io/Portfolio/projects/img/ChannelPerformance-Attribution.png">
-  <meta name="twitter:image:alt" content="Snapshot of the marketing attribution case study: comparison of last-touch, linear, and algorithmic order credit across 16 channels.">
+  <meta name="twitter:title" content="Exploring Marketing Attribution with Adobe CJA Demo Data | Lida Gheidary">
+  <meta name="twitter:description" content="An exploratory analysis using Python and SQL to compare Adobe CJA demo exports across 16 marketing channels, three attribution models, and two lookback windows.">
+  <meta name="twitter:image" content="https://lida-gheidary.github.io/Program-Project/Data-output/charts/chart1_attribution_delta.png">
+  <meta name="twitter:image:alt" content="Algorithmic order credit relative to last-touch across 16 channels, using a 30-day lookback in Adobe CJA demo exports.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,13 +70,13 @@
       {
         "@type": "CreativeWork",
         "@id": "https://lida-gheidary.github.io/Portfolio/projects/marketing-attribution.html#project",
-        "name": "How Attribution Shapes Reported Channel Performance",
-        "description": "A marketing attribution case study comparing last-touch, linear, and algorithmic order credit across 16 channels, developed iteratively with AI assistance.",
+        "name": "Exploring Marketing Attribution with Adobe CJA Demo Data",
+        "description": "An exploratory analysis using Python and SQL to compare Adobe CJA demo exports across 16 marketing channels, three attribution models, and two lookback windows.",
         "creator": {
           "@id": "https://lida-gheidary.github.io/Portfolio/#person"
         },
         "url": "https://lida-gheidary.github.io/Program-Project/",
-        "image": "https://lida-gheidary.github.io/Portfolio/projects/img/ChannelPerformance-Attribution.png",
+        "image": "https://lida-gheidary.github.io/Program-Project/Data-output/charts/chart1_attribution_delta.png",
         "subjectOf": {
           "@id": "https://lida-gheidary.github.io/Portfolio/projects/marketing-attribution.html#webpage"
         }
@@ -85,15 +85,15 @@
         "@type": "WebPage",
         "@id": "https://lida-gheidary.github.io/Portfolio/projects/marketing-attribution.html#webpage",
         "url": "https://lida-gheidary.github.io/Portfolio/projects/marketing-attribution.html",
-        "name": "How Attribution Shapes Reported Channel Performance | Lida Gheidary",
-        "description": "A marketing attribution case study comparing last-touch, linear, and algorithmic order credit across 16 channels, developed iteratively with AI assistance.",
+        "name": "Exploring Marketing Attribution with Adobe CJA Demo Data | Lida Gheidary",
+        "description": "An exploratory analysis using Python and SQL to compare Adobe CJA demo exports across 16 marketing channels, three attribution models, and two lookback windows.",
         "inLanguage": "en",
         "isPartOf": {
           "@id": "https://lida-gheidary.github.io/Portfolio/#website"
         },
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://lida-gheidary.github.io/Portfolio/projects/img/ChannelPerformance-Attribution.png"
+          "url": "https://lida-gheidary.github.io/Program-Project/Data-output/charts/chart1_attribution_delta.png"
         },
         "mainEntity": {
           "@id": "https://lida-gheidary.github.io/Portfolio/projects/marketing-attribution.html#project"
@@ -103,7 +103,7 @@
   }
   </script>
 </head>
-<body class="case-page">
+<body class="case-page" data-section-links>
 
 
   <nav class="navbar" aria-label="Main navigation">
@@ -131,76 +131,63 @@
   </nav>
   <main>
     <header class="project-header">
-      <div class="hero-shell">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <a class="back-link" href="../index.html#projects">Back to projects</a>
-            <h1>How Attribution Shapes Reported Channel Performance <span>Comparing 16 marketing channels across three attribution models and two lookback windows.</span></h1>
-            <div class="hero-links">
-              <a class="text-link" data-live-project-source href="https://lida-gheidary.github.io/Program-Project/" target="_blank" rel="noopener noreferrer">Full case study</a>
-              <a class="text-link" href="https://github.com/Lida-Gheidary/Program-Project" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-            <p class="hero-note">Demo-data analysis, developed iteratively with AI assistance.</p>
-          </div>
+      <div class="hero-shell"><div class="hero-grid"><div class="hero-copy">
+        <a class="back-link" href="../index.html#explorations">Back to explorations</a>
+        <h1>Exploring Marketing Attribution <span>with Adobe CJA Demo Data</span></h1>
+        <p class="hero-note">An exploratory analysis using Python and SQL to compare exported attribution results.</p>
+        <div class="hero-links">
+          <a class="text-link" data-live-project-source href="https://lida-gheidary.github.io/Program-Project/" target="_blank" rel="noopener noreferrer">Read the full exploration</a>
+          <a class="text-link" href="https://github.com/Lida-Gheidary/Program-Project" target="_blank" rel="noopener noreferrer">Source files and code</a>
         </div>
-      </div>
+      </div></div></div>
     </header>
 
-    <section class="chapter-list" aria-label="Case study chapters">
+    <section class="chapter-list" aria-label="Project overview">
       <details class="chapter" id="overview" open>
-        <summary><span class="chapter-number">01</span><span class="chapter-title">Overview</span><span class="chapter-plus" aria-hidden="true"></span></summary>
+        <summary><span class="chapter-number">01</span><span class="chapter-title">The question and the exports</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p>I began with a concern about last-touch attribution: it assigns all order credit to the final eligible marketing interaction, although a customer may encounter several channels before ordering. I wanted to investigate how much that rule shapes the assessment of channel performance.</p>
-          <div class="scope-list">
-            <p><strong>QUESTION:</strong> How does using last-touch attribution shape the assessment of marketing channel performance, and how does that assessment change under alternative models and lookback windows?</p>
-            <p><strong>DATA:</strong> Four Adobe Customer Journey Analytics demo exports for May 1–31, 2026. The analysis retains all 16 channels, including digital advertising, messaging, search, and offline channels.</p>
-            <p><strong>METHOD:</strong> Compare last-touch with linear attribution, which shares credit equally across eligible interactions, and Adobe’s algorithmic allocation. Examine order credit, rankings, and differences between 14-day and 30-day lookbacks.</p>
-            <p><strong>TOOLS:</strong> Python, pandas, NumPy, Matplotlib, SQLite, and VS Code. The standalone study uses HTML, CSS, and JavaScript for interactive comparisons.</p>
-          </div>
-          <div class="metric-strip" aria-label="Study scope">
-            <div><span>Channels</span><strong>16</strong><p>The complete exported mix</p></div>
-            <div><span>Models</span><strong>3</strong><p>Last-touch, linear, algorithmic</p></div>
-            <div><span>Lookbacks</span><strong>2</strong><p>14 days and 30 days</p></div>
-            <div><span>Reporting period</span><strong>1 month</strong><p>May 2026 demo data</p></div>
-          </div>
+          <p>A customer may encounter several marketing channels before placing an order. Attribution determines how a report shares credit between those interactions. I wanted to explore how the credit reported for each channel changes when the model or lookback window changes.</p>
+          <p>The project uses Adobe Customer Journey Analytics demo exports for May 1–31, 2026. The main report contains 16 channels and six attributed-order measures: last-touch, linear, and algorithmic results, each with a 14-day and a 30-day lookback. Adobe had already calculated these allocations. The exported rows are channel summaries, rather than complete customer journeys.</p>
+          <h2>Why include additional exports?</h2>
+          <p>The attribution report answers the main comparison question. Three supporting reports add other views of the same channels: acquisition and closure measures for a descriptive correlation, reported revenue for revenue-per-order comparisons, and conversion environments for the distribution of attributed orders across Website, Mobile App, Mobile Web, Point of Sale, and Call Center.</p>
+          <p>Four of the repository’s 13 raw CSV files feed the analysis. The remaining downloads are retained as supplementary material. The full exploration explains the contents and analytical purpose of each used export, with links to the files and a worked example of how to read a row.</p>
+        </div>
+      </details>
+
+      <details class="chapter" id="method">
+        <summary><span class="chapter-number">02</span><span class="chapter-title">What Python and SQL contributed</span><span class="chapter-plus" aria-hidden="true"></span></summary>
+        <div class="chapter-content">
+          <p>In Python, I used pandas to remove export metadata from the channel rows, standardise the fields, check channel names and missing values, and join the four inputs. The resulting master table contains 16 channels and 26 fields. I calculated relative differences between exported model results, environment shares, reported revenue per attributed order, and descriptive correlations. Matplotlib produced the saved charts.</p>
+          <p>Each relative difference uses last-touch as its baseline within the same window: subtract last-touch credit from the alternative allocation, divide by last-touch credit, and multiply by 100. Keeping the window consistent makes the comparison explicit.</p>
+          <p>SQLite queried the prepared tables to rank credit changes, place the exported Lifecycle Index in numerical bands, join environment shares, and compare revenue with a median supplied by Python. SQL used the differences already calculated in Python. Neither tool rebuilt Adobe’s models.</p>
+          <p>The website’s figures and downloadable comparisons are generated from the analysis outputs. Source checks reconcile the allocations and environment counts, and the repository provides a command to rerun the complete workflow.</p>
+          <h2>Implementation and AI assistance</h2>
+          <p>I defined the questions, supplied the exports, ran proposed code in VS Code, and reviewed outputs through an iterative process. Claude Sonnet supported the initial implementation; ChatGPT supported subsequent review and revision. The code and checks make that workflow inspectable.</p>
         </div>
       </details>
 
       <details class="chapter" id="findings">
-        <summary><span class="chapter-number">02</span><span class="chapter-title">Findings and Interpretation</span><span class="chapter-plus" aria-hidden="true"></span></summary>
+        <summary><span class="chapter-number">03</span><span class="chapter-title">Observations and their limits</span><span class="chapter-plus" aria-hidden="true"></span></summary>
         <div class="chapter-content">
-          <p>Each percentage compares an alternative model with last-touch within the same lookback window.</p>
+          <p>Three observations show why the model, baseline, and window need to be stated alongside a channel’s reported result.</p>
           <ul>
-            <li><strong>Model choice can reverse the comparison.</strong> At 30 days, Paid Search receives 12.09% more algorithmic credit but 5.71% less linear credit than last-touch.</li>
-            <li><strong>Credit change and rank describe different things.</strong> Email receives 43.90% less algorithmic credit at 30 days, yet remains first by attributed orders under all six settings.</li>
-            <li><strong>The window can change the classification.</strong> SMS receives 7.10% less algorithmic credit at 14 days and 17.47% less at 30 days, crossing the study’s descriptive −10% boundary.</li>
+            <li><strong>Paid Search changes direction across models.</strong> At 30 days, it receives 12.09% more algorithmic credit and 5.71% less linear credit than last-touch.</li>
+            <li><strong>Email receives less credit but keeps its rank.</strong> Its algorithmic credit is 43.90% lower at 30 days, yet it ranks first by attributed orders under all six settings.</li>
+            <li><strong>SMS shows the effect of the window on the comparison.</strong> Algorithmic credit is 7.10% lower than last-touch at 14 days and 17.47% lower at 30 days, using each window’s own baseline.</li>
           </ul>
-          <h2>What the study suggests</h2>
-          <p>These results suggest that attribution settings, baseline order volume, and consistency across settings are relevant considerations when interpreting reported channel performance. A change in allocated credit alone does not establish a change in channel effectiveness.</p>
-          <p>The evidence is limited to aggregate demo exports. Model totals agree within each window but differ between windows. The data do not contain journey-level records, advertising costs, or experiments, so the analysis cannot establish incremental contribution or support budget recommendations.</p>
-        </div>
-      </details>
-
-      <details class="chapter" id="how-it-was-built">
-        <summary><span class="chapter-number">03</span><span class="chapter-title">How It Was Built with AI</span><span class="chapter-plus" aria-hidden="true"></span></summary>
-        <div class="chapter-content">
-          <p>This project was developed using a structured, AI-assisted iterative workflow. I defined the analytical questions and supplied the data exports, using <strong>Claude Sonnet</strong> for the initial code implementation and <strong>ChatGPT-6.1 Sol</strong> for review and revision.</p>
-          <div class="process-line" aria-label="Iterative development process"><span class="process-step"><strong>Describe</strong><i aria-hidden="true">→</i></span><span class="process-step"><strong>Generate</strong><i aria-hidden="true">→</i></span><span class="process-step"><strong>Run in VS Code</strong><i aria-hidden="true">→</i></span><span class="process-step"><strong>Review</strong><i aria-hidden="true">→</i></span><span class="process-step"><strong>Revise</strong></span></div>
-          <p>I defined the analytical question, supplied the exports, and worked through the implementation in successive steps. I ran proposed code in VS Code, inspected the results, reported issues, and requested corrections before continuing.</p>
-          <p>The revision addressed percentage units, chart labels, correlation reporting, and the SQL revenue benchmark. It also refined the research narrative: the findings describe sensitivity to attribution settings, rather than assuming that last-touch had been proven to undervalue particular channels.</p>
+          <p>Model totals agree within each window, but the 30-day total is 4,505 higher than the 14-day total. The exports do not explain that gap, so an identical set of attributed orders cannot be assumed across windows.</p>
+          <p>The findings describe differences in assigned credit in one month of demo data. Missing journey records, incomplete metric definitions, and the absence of campaign costs or experiments prevent conclusions about causal contribution, profitability, or an optimal marketing budget. The project’s purpose is to make the reporting differences understandable and reproducible.</p>
         </div>
       </details>
     </section>
-
-    <section class="project-footer-cta">
-      <div class="footer-cta-inner">
-        <a class="cta-button" href="https://lida-gheidary.github.io/Program-Project/" target="_blank" rel="noopener noreferrer">Full case study</a>
-        <a class="cta-link" href="../index.html#projects">Back to projects</a>
-      </div>
-    </section>
+    <section class="project-footer-cta"><div class="footer-cta-inner">
+      <a class="cta-button" href="https://lida-gheidary.github.io/Program-Project/" target="_blank" rel="noopener noreferrer">Read the full exploration</a>
+      <a class="cta-link" href="../index.html#explorations">Back to explorations</a>
+    </div></section>
   </main>
   <footer class="site-footer"><p>© 2025–2026 Lida Gheidary</p><p>Built with HTML, CSS &amp; GitHub Pages</p><p class="footer-privacy"><a href="../privacy-policy.html">Privacy &amp; cookies</a><button type="button" data-cookie-settings hidden>Cookie settings</button></p>
   </footer>
   <script src="case-study.js?v=20261119e"></script>
 </body>
 </html>
+

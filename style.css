@@ -1393,3 +1393,15 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -.02em;
 }
 strong, b { font-weight: 600; }
+
+
+/* Supporting explorations sit below the main project grid. */
+.explorations-section { padding-top: 0; }
+.exploration-entry { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 36px 0; margin-top: 46px; }
+.exploration-label { color: var(--text-muted); font-size: .95rem; margin: 0 0 16px; }
+.exploration-entry h3 { font-size: clamp(1.65rem, 3vw, 2.15rem); line-height: 1.2; color: var(--text-title); margin: 0; }
+.exploration-entry p { line-height: 1.7; }
+.exploration-entry > div > p:first-child { margin-top: 0; }
+.exploration-link { display: inline-block; color: var(--accent-color); text-underline-offset: 5px; margin-top: 8px; }
+.exploration-link span { margin-left: 8px; }
+@media (max-width: 700px) { .exploration-entry { grid-template-columns: 1fr; gap: 24px; margin-top: 32px; padding: 28px 0; } }
